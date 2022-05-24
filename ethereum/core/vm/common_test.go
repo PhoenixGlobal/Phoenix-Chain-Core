@@ -1,0 +1,83 @@
+package vm
+
+import (
+	"math/big"
+	"testing"
+
+	"Phoenix-Chain-Core/libs/common/math"
+
+	"Phoenix-Chain-Core/libs/common"
+
+	"github.com/stretchr/testify/assert"
+)
+
+func buildBigInt(v int64) *big.Int {
+	return new(big.Int).SetInt64(v)
+}
+
+func TestGetData(t *testing.T) {
+	testCases := []struct {
+		b     []byte
+		start uint64
+		want  string
+	}{
+		{b: []byte{0x01, 0x02, 0x03}, start: 2, want: "03000000000000000000"},
+		{b: []byte{0x01, 0x02, 0x02}, start: 2, want: "02000000000000000000"},
+		{b: []byte{0x01, 0x02, 0x04}, start: 2, want: "04000000000000000000"},
+		{b: []byte{0x01, 0x02, 0x03}, start: 1, want: "02030000000000000000"},
+		{b: []byte{0x01, 0x02, 0x03}, start: 0, want: "01020300000000000000"},
+	}
+	for _, v := range testCases {
+		r := getData(v.b, v.start, 10)
+		assert.Equal(t, v.want, common.Bytes2Hex(r))
+	}
+}
+
+func TestBigUint64(t *testing.T) {
+	v1, _ := new(big.Int).SetString("1000000000000000000000", 10)
+	v2, _ := new(big.Int).SetString("1000000000000000000000", 10)
+	testCases := []struct {
+		v     *big.Int
+		wantv uint64
+		wantr bool
+	}{
+		{v: buildBigInt(10), wantv: 10, wantr: false},
+		{v: v1, wantv: v2.Uint64(), wantr: true},
+		{v: buildBigInt(0), wantv: 0, wantr: false},
+	}
+	for _, v := range testCases {
+		resv, resr := bigUint64(v.v)
+		assert.Equal(t, v.wantv, resv)
+		assert.Equal(t, v.wantr, resr)
+	}
+}
+
+func TestToWordSize(t *testing.T) {
+	testCases := []struct {
+		v      uint64
+		expect uint64
+	}{
+		{100, 4},
+		{10000, 313},
+		{math.MaxUint64 - 1, 576460752303423488},
+		{math.MaxUint64 - 2, 576460752303423488},
+	}
+	for _, v := range testCases {
+		resv := toWordSize(v.v)
+		assert.Equal(t, v.expect, resv)
+	}
+}
+
+func TestAllZero(t *testing.T) {
+	testCases := []struct {
+		v      []byte
+		expect bool
+	}{
+		{[]byte{0x00, 0x00}, true},
+		{[]byte{0x00, 0x01}, false},
+	}
+	for _, v := range testCases {
+		resv := allZero(v.v)
+		assert.Equal(t, v.expect, resv)
+	}
+}

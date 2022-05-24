@@ -1,0 +1,135 @@
+{
+	"P1000":{
+		"Typ":0,
+		"BenefitAddress":"0x12c171900f010b17e969702efa044d077e868082",
+		"NodeId": "db18af9be2af9dff2347c3d06db4b1bada0598d099a210275251b68fa7b5a863d47fcdd382cc4b3ea01e5b55e9dd0bdbce654133b7f58928ce74629d5e68b974",
+		"ExternalId":"111111",
+		"NodeName": "TestNodeP1000",
+		"Website": "https://www.test.network",
+		"Details": "supper node",
+		"Amount":1000000000000000000000000,
+		"RewardPer": 5000,
+		"ProgramVersion":1792,
+		"ProgramVersionSign": "db18af9be2af9dff2347c3d06db4b1bada0598d099a210275251b68fa7b5a863d47fcdd382cc4b3ea01e5b55e9dd0bdbce654133b7f58928ce74629d5e68b97412",
+		"BlsPubKey": "5d0f8a399533b3f9b3a7198282c4b7b8b414529c66861d7958ebf908664707e5e6b353630b94ac5c1173c36e889fb403208ff73d233c12865d9e32256bbb988b931d41fda48e450b992fa5ec67790081e730965f548120b6d9fdc6156d66a614",
+		"BlsProof": "db18af9be2af9dff2347c3d06db4b1bada0598d099a210275251b68fa7b5a863d47fcdd382cc4b3ea01e5b55e9dd0bdbce654133b7f58928ce74629d5e68b974"
+	},
+	"P1001":{
+		"BenefitAddress":"0x12c171900f010b17e969702efa044d077e868082",
+		"NodeId": "db18af9be2af9dff2347c3d06db4b1bada0598d099a210275251b68fa7b5a863d47fcdd382cc4b3ea01e5b55e9dd0bdbce654133b7f58928ce74629d5e68b974",
+		"RewardPer": 5000,
+		"ExternalId":"111111",
+		"NodeName": "120.16789",
+		"Website": "https://www.gavin120.network",
+		"Details": "supper gavin node"
+	},
+	"P1002":{
+		"NodeId": "db18af9be2af9dff2347c3d06db4b1bada0598d099a210275251b68fa7b5a863d47fcdd382cc4b3ea01e5b55e9dd0bdbce654133b7f58928ce74629d5e68b974",
+		"Typ":0,
+		"Amount":9000000000000000000000
+	},
+	"P1003":{
+		"NodeId": "db18af9be2af9dff2347c3d06db4b1bada0598d099a210275251b68fa7b5a863d47fcdd382cc4b3ea01e5b55e9dd0bdbce654133b7f58928ce74629d5e68b974"
+	},
+	"P1004":{
+		"Typ":1,
+		"NodeId": "db18af9be2af9dff2347c3d06db4b1bada0598d099a210275251b68fa7b5a863d47fcdd382cc4b3ea01e5b55e9dd0bdbce654133b7f58928ce74629d5e68b974",
+		"Amount":9000000000000000000000
+	},
+	"P1005":{
+		"StakingBlockNum":0,
+		"NodeId": "db18af9be2af9dff2347c3d06db4b1bada0598d099a210275251b68fa7b5a863d47fcdd382cc4b3ea01e5b55e9dd0bdbce654133b7f58928ce74629d5e68b974",
+		"Amount":8000000000000000000000
+	},
+	"P1103":{
+		"Addr":"0x493301712671ada506ba6ca7891f436d29185821"
+	},
+	"P1104":{
+		"StakingBlockNum":0,
+		"DelAddr":"0xc1f330b214668beac2e6418dd651b09c759a4bf5",
+		"NodeId": "db18af9be2af9dff2347c3d06db4b1bada0598d099a210275251b68fa7b5a863d47fcdd382cc4b3ea01e5b55e9dd0bdbce654133b7f58928ce74629d5e68b974"
+	},
+	"P1105":{
+		"NodeId": "db18af9be2af9dff2347c3d06db4b1bada0598d099a210275251b68fa7b5a863d47fcdd382cc4b3ea01e5b55e9dd0bdbce654133b7f58928ce74629d5e68b974"
+	},
+	"P2000":{
+		"Verifier": "db18af9be2af9dff2347c3d06db4b1bada0598d099a210275251b68fa7b5a863d47fcdd382cc4b3ea01e5b55e9dd0bdbce654133b7f58928ce74629d5e68b974",
+		"PIPID": "PIPID"
+	},
+	"P2001":{
+		"Verifier": "db18af9be2af9dff2347c3d06db4b1bada0598d099a210275251b68fa7b5a863d47fcdd382cc4b3ea01e5b55e9dd0bdbce654133b7f58928ce74629d5e68b974",
+		"PIPID": "PIPID",
+		"NewVersion":1,
+		"EndVotingRounds":1000
+	},
+	"P2002":{
+		"Verifier": "db18af9be2af9dff2347c3d06db4b1bada0598d099a210275251b68fa7b5a863d47fcdd382cc4b3ea01e5b55e9dd0bdbce654133b7f58928ce74629d5e68b974",
+		"PIPID": "PIPID",
+		"Module": "ga",
+		"Name":   "s",
+		"NewValue": "s"
+	},
+	"P2005": {
+		"Verifier": "db18af9be2af9dff2347c3d06db4b1bada0598d099a210275251b68fa7b5a863d47fcdd382cc4b3ea01e5b55e9dd0bdbce654133b7f58928ce74629d5e68b974",
+		"PIPID": "PIPID",
+		"EndVotingRounds":1000,
+		"TobeCanceled": "0x12c171900f010b17e969702efa044d077e86808212c171900f010b17e969702e"
+	},
+	"P2003":{
+		"Verifier": "db18af9be2af9dff2347c3d06db4b1bada0598d099a210275251b68fa7b5a863d47fcdd382cc4b3ea01e5b55e9dd0bdbce654133b7f58928ce74629d5e68b974",
+		"ProposalID": "0x12c171900f010b17e969702efa044d077e86808212c171900f010b17e969702e",
+		"Option":1,
+		"ProgramVersion":1792,
+		"VersionSign": "db18af9be2af9dff2347c3d06db4b1bada0598d099a210275251b68fa7b5a863d47fcdd382cc4b3ea01e5b55e9dd0bdbce654133b7f58928ce74629d5e68b97412"
+	},
+	"P2004":{
+		"Verifier": "db18af9be2af9dff2347c3d06db4b1bada0598d099a210275251b68fa7b5a863d47fcdd382cc4b3ea01e5b55e9dd0bdbce654133b7f58928ce74629d5e68b974",
+		"ProgramVersion":1792,
+		"VersionSign": "db18af9be2af9dff2347c3d06db4b1bada0598d099a210275251b68fa7b5a863d47fcdd382cc4b3ea01e5b55e9dd0bdbce654133b7f58928ce74629d5e68b97412"
+	},
+	"P2100":{
+		"ProposalID": "0x12c171900f010b17e969702efa044d077e86808212c171900f010b17e969702e"
+	},
+	"P2101":{
+		"ProposalID": "0x12c171900f010b17e969702efa044d077e86808212c171900f010b17e969702e"
+	},
+	"P2104": {
+		"Module": "ss",
+		"Name":  "ss"
+	},
+	"P2015": {
+		"ProposalID": "0x12c171900f010b17e969702efa044d077e86808212c171900f010b17e969702e",
+		"BlockHash": "0x12c171900f010b17e969702efa044d077e86808212c171900f010b17e969702e"
+	},
+	"P2016": {
+		"Module": "s"
+	},
+	"P3000":{
+		"DupType": 1,
+		"Data":"0x12c171900f010b17e969702efa044d077e868082"
+	},
+	"P3001":{
+		"Etype":1,
+		"Addr":"0x12c171900f010b17e969702efa044d077e868082",
+		"BlockNumber":1000
+	},
+	"P4000":{
+		"Account":"0x12c171900f010b17e969702efa044d077e868082",
+		"Plans":[{
+			"Epoch":2,
+			"Amount":1000000000000000000000000
+		},{
+			"Epoch":3,
+			"Amount":2000000000000000000000000
+		}]
+	},
+	"P4100":{
+		"Account":"0x12c171900f010b17e969702efa044d077e868082"
+	},
+	"P5100": {
+		"Addr": "0x12c171900f010b17e969702efa044d077e868082",
+		"NodeIDs": [
+			"db18af9be2af9dff2347c3d06db4b1bada0598d099a210275251b68fa7b5a863d47fcdd382cc4b3ea01e5b55e9dd0bdbce654133b7f58928ce74629d5e68b974",
+			"1f3a8672348ff6b789e416762ad53e69063138b8eb4d8780101658f24b2369f1a8e09499226b467d8bc0c4e03e1dc903df857eeb3c67733d21b6aaee2840e429"]
+	}
+}
