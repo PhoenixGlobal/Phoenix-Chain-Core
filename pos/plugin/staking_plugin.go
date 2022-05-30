@@ -1,11 +1,11 @@
 package plugin
 
 import (
+	"Phoenix-Chain-Core/ethereum/core/types/pbfttypes"
 	"bytes"
 	"encoding/hex"
 	"errors"
 	"fmt"
-	"Phoenix-Chain-Core/ethereum/core/types/pbfttypes"
 	"math/big"
 	"math/rand"
 	"sort"
@@ -22,14 +22,14 @@ import (
 
 	"Phoenix-Chain-Core/pos/gov"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/common/vm"
 	"Phoenix-Chain-Core/ethereum/core/db/snapshotdb"
 	"Phoenix-Chain-Core/ethereum/core/types"
+	"Phoenix-Chain-Core/ethereum/p2p/discover"
+	"Phoenix-Chain-Core/libs/common"
+	"Phoenix-Chain-Core/libs/common/vm"
 	"Phoenix-Chain-Core/libs/crypto/vrf"
 	"Phoenix-Chain-Core/libs/event"
 	"Phoenix-Chain-Core/libs/log"
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
 	"Phoenix-Chain-Core/pos/staking"
 	"Phoenix-Chain-Core/pos/xcom"
 	"Phoenix-Chain-Core/pos/xutil"
@@ -1714,6 +1714,16 @@ func (sk *StakingPlugin) GetRelatedListByDelAddr(blockHash common.Hash, addr com
 	return queue, nil
 }
 
+func IsExistInitialChosenValidators(nodeId discover.NodeID) bool{
+	initialChosenValidators:=xcom.GetInitialChosenValidators()
+	for _,validator:=range initialChosenValidators{
+		if nodeId==validator.NodeId{
+			return true
+		}
+	}
+	return false
+}
+
 func (sk *StakingPlugin) Election(blockHash common.Hash, header *types.Header, state xcom.StateDB) error {
 
 	blockNumber := header.Number.Uint64()
@@ -1890,6 +1900,21 @@ func (sk *StakingPlugin) Election(blockHash common.Hash, header *types.Header, s
 		invalidCan[nodeID] = struct{}{}
 	}
 
+	//Exclude the removeCan which nodeId is in initialChosenValidators
+	for nodeId := range removeCans{
+		if IsExistInitialChosenValidators(nodeId){
+			delete(removeCans, nodeId)
+		}
+	}
+	//Exclude invalidCan which nodeId is in initialChosenValidators
+	for nodeId := range invalidCan{
+		if IsExistInitialChosenValidators(nodeId){
+			delete(invalidCan, nodeId)
+		}
+	}
+
+
+
 	// some validators that meets the following conditions must be replaced first.
 	// eg.
 	// 1. Be reported as evil
@@ -1998,11 +2023,22 @@ func shuffleQueue(remainCurrQueue, vrfQueue staking.ValidatorQueue, blockNumber 
 
 	remainLen := len(remainCurrQueue)
 	totalQueue := append(remainCurrQueue, vrfQueue...)
+	totalQueueLen:=len(totalQueue)
 
-	for remainLen > int(xcom.MaxConsensusVals()-xcom.ShiftValidatorNum()) && len(totalQueue) > int(xcom.MaxConsensusVals()) {
-		totalQueue = totalQueue[1:]
-		remainLen--
+	for remainLen > int(xcom.MaxConsensusVals()-xcom.ShiftValidatorNum()) && totalQueueLen > int(xcom.MaxConsensusVals()) {
+		for i:=0;i<len(remainCurrQueue);i++{
+			validator:=remainCurrQueue[i]
+			if !IsExistInitialChosenValidators(validator.NodeId){
+				remainCurrQueue=append(remainCurrQueue[:i],remainCurrQueue[i+1:]...)
+				remainLen--
+				totalQueueLen--
+				break
+			}
+		}
+		//totalQueue = totalQueue[1:]
+		//remainLen--
 	}
+	totalQueue = append(remainCurrQueue, vrfQueue...)
 
 	if len(totalQueue) > int(xcom.MaxConsensusVals()) {
 		totalQueue = totalQueue[:xcom.MaxConsensusVals()]

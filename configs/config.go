@@ -67,9 +67,9 @@ var (
 		EIP155Block: big.NewInt(1),
 		Pbft: &PbftConfig{
 			InitialNodes:  ConvertNodeUrl(initialMainNetConsensusNodes),
-			Amount:        10,
+			Amount:        1,
 			ValidatorMode: "dpos",
-			Period:        20000,
+			Period:        2000,
 		},
 		GenesisVersion: GenesisVersion,
 	}
@@ -165,6 +165,11 @@ type PbftNode struct {
 type initNode struct {
 	Enode     string
 	BlsPubkey string
+}
+
+type Validator struct {
+	NodeId          discover.NodeID
+	BlsPubKey       bls.PublicKeyHex
 }
 
 type PbftConfig struct {

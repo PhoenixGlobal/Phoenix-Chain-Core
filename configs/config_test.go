@@ -1,6 +1,9 @@
 package configs
 
 import (
+	"Phoenix-Chain-Core/ethereum/p2p/discover"
+	"Phoenix-Chain-Core/libs/crypto/bls"
+	"fmt"
 	"math/big"
 	"reflect"
 	"testing"
@@ -50,5 +53,23 @@ func TestCheckCompatible(t *testing.T) {
 		if !reflect.DeepEqual(err, test.wantErr) {
 			t.Errorf("error mismatch:\nstored: %v\nnew: %v\nhead: %v\nerr: %v\nwant: %v", test.stored, test.new, test.head, err, test.wantErr)
 		}
+	}
+}
+
+func TestInit(t *testing.T) {
+	for _, n := range initialChosenTestnetDPosNodes {
+		validator := new(Validator)
+		if node, err := discover.ParseNode(n.Enode); nil == err {
+			validator.NodeId = node.ID
+		}
+		fmt.Println(11111,validator.NodeId)
+		if n.BlsPubkey != "" {
+			var blsPk bls.PublicKeyHex
+			if err := blsPk.UnmarshalText([]byte(n.BlsPubkey)); nil == err {
+				validator.BlsPubKey = blsPk
+			}
+		}
+		fmt.Println(22222,validator.BlsPubKey)
+		InitialChosenTestnetValidators = append(InitialChosenTestnetValidators, *validator)
 	}
 }

@@ -7,6 +7,7 @@ import (
 	"math/big"
 	"sync"
 
+	"Phoenix-Chain-Core/configs"
 	"Phoenix-Chain-Core/libs/log"
 
 	"Phoenix-Chain-Core/libs/common"
@@ -144,6 +145,7 @@ type EconomicModel struct {
 	Reward      rewardConfig      `json:"reward"`
 	Restricting restrictingConfig `json:"restricting"`
 	InnerAcc    innerAccount      `json:"innerAcc"`
+	InitialChosenValidators []configs.Validator `json:"initialChosenValidators"`
 }
 
 var (
@@ -238,6 +240,7 @@ func getDefaultEMConfig(netId int8) *EconomicModel {
 				CDFBalance:        new(big.Int).Set(cdfundBalance),
 			},
 		}
+		ec.InitialChosenValidators=configs.InitialChosenMainNetValidators
 	case DefaultTestNet:
 		ec = &EconomicModel{
 			Common: commonConfig{
@@ -293,6 +296,7 @@ func getDefaultEMConfig(netId int8) *EconomicModel {
 				CDFBalance:        new(big.Int).Set(cdfundBalance),
 			},
 		}
+		ec.InitialChosenValidators=configs.InitialChosenTestnetValidators
 	case DefaultUnitTestNet:
 		ec = &EconomicModel{
 			Common: commonConfig{
@@ -348,6 +352,7 @@ func getDefaultEMConfig(netId int8) *EconomicModel {
 				CDFBalance:        new(big.Int).Set(cdfundBalance),
 			},
 		}
+		ec.InitialChosenValidators=configs.InitialChosenTestnetValidators
 	default: // DefaultTestNet
 		log.Error("not support chainID", "netId", netId)
 		return nil
@@ -813,4 +818,8 @@ func CalcP(totalWeight float64, sqrtWeight float64) float64 {
 
 func CalcPV110(sqrtWeight float64) float64 {
 	return float64(ElectionBasePIP3) / sqrtWeight
+}
+
+func GetInitialChosenValidators() []configs.Validator {
+	return ec.InitialChosenValidators
 }

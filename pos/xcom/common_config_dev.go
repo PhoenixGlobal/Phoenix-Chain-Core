@@ -1,5 +1,4 @@
-
-
+package xcom
 
 // +build testpackage xcom
 
