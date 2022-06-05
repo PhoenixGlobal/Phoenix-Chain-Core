@@ -17,4 +17,29 @@ var (
 		Name:  "addressHRP",
 		Usage: "set address hrp",
 	}
+
+	configPathFlag = cli.StringFlag{
+		Name:  "config",
+		Usage: "config path",
+	}
+
+	keystoreFlag = cli.StringFlag{
+		Name:  "keystore",
+		Usage: "keystore file path",
+	}
+
+	nodeKeyFlag = cli.StringFlag{
+		Name:  "nodeKey",
+		Usage: "nodeKey file path",
+	}
+
+	blsKeyfileFlag = cli.StringFlag{
+		Name:  "blsKey",
+		Usage: "file containing the blsKey",
+	}
+
+	stakingParamsFlag = cli.StringFlag{
+		Name:  "stakingParams",
+		Usage: "stakingParams file path",
+	}
 )

@@ -87,6 +87,12 @@ func StoreKey(dir, auth string, scryptN, scryptP int) (accounts.Account, error) 
 	return a, err
 }
 
+// StoreKey generates a key, encrypts with 'auth' and stores in the given directory
+func StoreKeyWithName(dir, auth string, scryptN, scryptP int,name string) (accounts.Account, error) {
+	_, a, err := storeNewKeyWithName(&keyStorePassphrase{dir, scryptN, scryptP, false}, rand.Reader, auth,name)
+	return a, err
+}
+
 func (ks keyStorePassphrase) StoreKey(filename string, key *Key, auth string) error {
 	keyjson, err := EncryptKey(key, auth, ks.scryptN, ks.scryptP)
 	if err != nil {

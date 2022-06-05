@@ -1,20 +1,46 @@
 package dpos
 
 import (
-	"errors"
-
+	"Phoenix-Chain-Core/commands/chaintool/core"
+	"Phoenix-Chain-Core/configs"
+	"Phoenix-Chain-Core/ethereum/node"
 	"Phoenix-Chain-Core/libs/common"
-
-	"gopkg.in/urfave/cli.v1"
+	"Phoenix-Chain-Core/libs/crypto"
+	"Phoenix-Chain-Core/libs/crypto/bls"
+	"encoding/json"
+	"errors"
+	"fmt"
+	"io"
+	"math/big"
+	"os"
 
 	"Phoenix-Chain-Core/ethereum/p2p/discover"
+	"gopkg.in/urfave/cli.v1"
 )
+
+// createStaking
+type Dpos_1000 struct {
+	Typ                uint16
+	BenefitAddress     common.Address
+	NodeId             discover.NodeID
+	ExternalId         string
+	NodeName           string
+	Website            string
+	Details            string
+	Amount             *big.Int
+	RewardPer          uint16
+	ProgramVersion     uint32
+	ProgramVersionSign common.VersionSign
+	BlsPubKey          bls.PublicKeyHex
+	BlsProof           bls.SchnorrProofHex
+}
 
 var (
 	StakingCmd = cli.Command{
 		Name:  "staking",
 		Usage: "use for staking",
 		Subcommands: []cli.Command{
+			CreateStakingCmd,
 			GetVerifierListCmd,
 			getValidatorListCmd,
 			getCandidateListCmd,
@@ -25,6 +51,13 @@ var (
 			getStakingRewardCmd,
 			getAvgPackTimeCmd,
 		},
+	}
+	CreateStakingCmd = cli.Command{
+		Name:   "createStaking",
+		Usage:  "1000,create Staking",
+		Before: netCheck,
+		Action: createStaking,
+		Flags:  []cli.Flag{configPathFlag,keystoreFlag,blsKeyfileFlag,nodeKeyFlag,stakingParamsFlag},
 	}
 	GetVerifierListCmd = cli.Command{
 		Name:   "getVerifierList",
@@ -102,6 +135,72 @@ var (
 		Usage: "node id",
 	}
 )
+
+func createStaking(c *cli.Context) error {
+	//url := c.String(rpcUrlFlag.Name)
+	//if url == "" {
+	//	return errors.New("rpc url not set")
+	//}
+
+	keystorePath:=c.String(keystoreFlag.Name)
+	priKey,fromAddress:=getPrivateKey(keystorePath)
+
+	//Load Dpos_1000 from json
+	stakingParams:=c.String(stakingParamsFlag.Name)
+	file, err := os.Open(stakingParams)
+	if err != nil {
+		return fmt.Errorf("Failed to read stakingParams file: %v", err)
+	}
+	defer file.Close()
+	file.Seek(0, io.SeekStart)
+	var dpos_1000 Dpos_1000
+	if err := json.NewDecoder(file).Decode(&dpos_1000); err != nil {
+		return fmt.Errorf("parse config to json error,%s", err.Error())
+	}
+
+	//set Dpos_1000.BlsProof
+	blsKeyfilePath := c.String(blsKeyfileFlag.Name)
+	blsProof, err := getBlsProof(blsKeyfilePath)
+	if err != nil {
+		return fmt.Errorf("getBlsProof error: %v", err)
+	}
+	dpos_1000.BlsProof=blsProof
+
+	//set Dpos_1000.ProgramVersion and Dpos_1000.ProgramVersionSign
+	nodeKeyPath := c.String(nodeKeyFlag.Name)
+	nodeKey, err := GetNodeKey(nodeKeyPath)
+	if err != nil {
+		return fmt.Errorf("getNodeKey error: %v", err)
+	}
+	programVersion:=configs.CodeVersion()
+	node.GetCryptoHandler().SetPrivateKey(crypto.HexMustToECDSA(nodeKey))
+	versionSign := common.VersionSign{}
+	versionSign.SetBytes(node.GetCryptoHandler().MustSign(programVersion))
+	dpos_1000.ProgramVersion=programVersion
+	dpos_1000.ProgramVersionSign=versionSign
+	fmt.Println("CreateStaking params dpos_1000 is ",dpos_1000)
+
+	//SendRawTransaction
+	configPath:=c.String(configPathFlag.Name)
+	data,to:= EncodeDPOSStaking(1000, &dpos_1000)
+	res, err :=core.SendRawTransactionWithData(configPath,fromAddress,to.String(),0,priKey,data)
+	if err != nil {
+		return err
+	}
+	fmt.Println("Staking success,res is ",string(res))
+
+	//client, err := ethclient.Dial(url)
+	//if err != nil {
+	//	return err
+	//}
+	//res, err := CallDPosStakingContract(client, 1000, &dpos_1000)
+	//if err != nil {
+	//	return err
+	//}
+	//fmt.Println("Staking success,res is ",string(res))
+	return nil
+
+}
 
 func getVerifierList(c *cli.Context) error {
 	return query(c, 1100)

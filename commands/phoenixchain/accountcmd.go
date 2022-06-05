@@ -59,6 +59,7 @@ Print a short summary of all accounts`,
 					utils.KeyStoreDirFlag,
 					utils.PasswordFileFlag,
 					utils.LightKDFFlag,
+					utils.AccountNameFlag,
 					//utils.AddressHRPFlag,
 				},
 				Description: `
@@ -246,6 +247,8 @@ func accountCreate(ctx *cli.Context) error {
 	//	return err
 	//}
 
+	accountName:=ctx.GlobalString(utils.AccountNameFlag.Name)
+
 	cfg := phoenixchainConfig{Node: defaultNodeConfig()}
 	// Load config file.
 	if file := ctx.GlobalString(configFileFlag.Name); file != "" {
@@ -262,7 +265,12 @@ func accountCreate(ctx *cli.Context) error {
 
 	password := getPassPhrase("Your new account is locked with a password. Please give a password. Do not forget this password.", true, 0, utils.MakePasswordList(ctx))
 
-	account, err := keystore.StoreKey(keydir, password, scryptN, scryptP)
+	var account accounts.Account
+	if accountName!=""{
+		account, err = keystore.StoreKeyWithName(keydir, password, scryptN, scryptP,accountName)
+	}else {
+		account, err = keystore.StoreKey(keydir, password, scryptN, scryptP)
+	}
 
 	if err != nil {
 		utils.Fatalf("Failed to create account: %v", err)

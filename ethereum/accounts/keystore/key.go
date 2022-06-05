@@ -164,6 +164,22 @@ func storeNewKey(ks keyStore, rand io.Reader, auth string) (*Key, accounts.Accou
 	return key, a, err
 }
 
+func storeNewKeyWithName(ks keyStore, rand io.Reader, auth string,name string) (*Key, accounts.Account, error) {
+	key, err := newKey(rand)
+	if err != nil {
+		return nil, accounts.Account{}, err
+	}
+	a := accounts.Account{
+		Address: key.Address,
+		URL:     accounts.URL{Scheme: KeyStoreScheme, Path: ks.JoinPath(name+".json")},
+	}
+	if err := ks.StoreKey(a.URL.Path, key, auth); err != nil {
+		zeroKey(key.PrivateKey)
+		return nil, a, err
+	}
+	return key, a, err
+}
+
 func writeTemporaryKeyFile(file string, content []byte) (string, error) {
 	// Create the keystore directory with appropriate permissions
 	// in case it is not present yet.

@@ -177,6 +177,21 @@ func SendRawTransaction(from, to, value string, pkFilePath string) (string, erro
 	return hash, nil
 }
 
+func SendRawTransactionWithData(configPath string,from string, to string, value int64, priv *ecdsa.PrivateKey,data []byte) (string, error) {
+	parseConfigJson(configPath)
+
+	nonce := getNonce(from)
+	nonce++
+
+	newTx := getSignedTransactionWithData(from, to, value, priv, nonce,data)
+
+	hash, err := sendRawTransaction(newTx)
+	if err != nil {
+		panic(err)
+	}
+	return hash, nil
+}
+
 func sendRawTransaction(transaction *types.Transaction) (string, error) {
 	bytes, _ := rlp.EncodeToBytes(transaction)
 	res, err := Send([]string{hexutil.Encode(bytes)}, "phoenixchain_sendRawTransaction")
@@ -192,6 +207,17 @@ func getSignedTransaction(from, to string, value int64, priv *ecdsa.PrivateKey, 
 	gas, _ := strconv.Atoi(config.Gas)
 	gasPrice, _ := new(big.Int).SetString(config.GasPrice, 10)
 	newTx, err := types.SignTx(types.NewTransaction(nonce, common.MustStringToAddress(to), big.NewInt(value), uint64(gas), gasPrice, []byte{}), types.NewEIP155Signer(new(big.Int).SetInt64(100)), priv)
+	if err != nil {
+		panic(fmt.Errorf("sign error,%s", err.Error()))
+	}
+	return newTx
+}
+
+func getSignedTransactionWithData(from, to string, value int64, priv *ecdsa.PrivateKey, nonce uint64,data []byte) *types.Transaction {
+	gas, _ := strconv.Atoi(config.Gas)
+	gasPrice, _ := new(big.Int).SetString(config.GasPrice, 10)
+	fmt.Println("gas,gasPrice are ",gas,gasPrice)
+	newTx, err := types.SignTx(types.NewTransaction(nonce, common.MustStringToAddress(to), big.NewInt(value), uint64(gas), gasPrice, data), types.NewEIP155Signer(new(big.Int).SetInt64(1021)), priv)
 	if err != nil {
 		panic(fmt.Errorf("sign error,%s", err.Error()))
 	}

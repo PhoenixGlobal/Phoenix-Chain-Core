@@ -24,6 +24,7 @@ func init() {
 		commandInspect,
 		commandChangePassphrase,
 		commandSignMessage,
+		commandBlsProof,
 		commandVerifyMessage,
 		commandGenkeypair,
 		commandGenblskeypair,

@@ -130,7 +130,7 @@ func errorMessage(err error) *jsonrpcMessage {
 
 	//todo this is hack,plese update
 	if _, ok := err.(*common.BizError); ok {
-		msg.Error.Message = "inner contract exec failed"
+		msg.Error.Message = "inner contract exec failed,err msg is "+err.Error()
 	}
 
 	ec, ok := err.(Error)

@@ -48,6 +48,7 @@ var (
 		utils.BootnodesV4Flag,
 		//	utils.BootnodesV5Flag,
 		utils.DataDirFlag,
+		utils.AccountNameFlag,
 		utils.AncientFlag,
 		utils.KeyStoreDirFlag,
 		utils.NoUSBFlag,

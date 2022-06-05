@@ -98,6 +98,10 @@ func NewApp(gitCommit, gitDate, usage string) *cli.App {
 
 var (
 	// General settings
+	AccountNameFlag = cli.StringFlag{
+		Name:  "name",
+		Usage: "Name for the keystore",
+	}
 	DataDirFlag = DirectoryFlag{
 		Name:  "datadir",
 		Usage: "Data directory for the databases and keystore",

@@ -70,34 +70,33 @@ var (
 	}
 
 	addrArr = []common.Address{
+		common.MustStringToAddress("0xeB3eb44a60d935DfE53D224648E1a51851c6f3Ae"),
+		common.MustStringToAddress("0x1D9B304e70FD21706fd97BCe5f34392463788713"),
+		common.MustStringToAddress("0x3d5Da47598cAc4121166975EFa126038F72Cf51F"),
+		common.MustStringToAddress("0xC8ed168765E1709E2e70042c980d166629188EA1"),
 
-		common.MustStringToAddress("0xavltgjnqmy6alefayfry3cd9rpguduawcph8ja"),
-		common.MustStringToAddress("0xrkdnqnnsl5shqm7e00897dpey33h3pcntluqar"),
-		common.MustStringToAddress("0x84w6gavcetzpyytxja005ynq8rmjeaglx7ldlp"),
-		common.MustStringToAddress("0xerk3dpm9u9cfutnsqskfsrgkvc533r4p9e6xzl"),
+		common.MustStringToAddress("0xed5079841FFC3b44A6CE391418FCC6603EA2d284"),
+		common.MustStringToAddress("0x85134A57e27f512637E6B3Ac22e4295B0BF19f7A"),
+		common.MustStringToAddress("0x84C3c588a815c882e045bcE9DF8234051A954058"),
+		common.MustStringToAddress("0xe82DB9b00F63325323e95140BB7e2C52db3008C6"),
 
-		common.MustStringToAddress("0xa4g8npqllsa5ffkw8y2p3lxxvql2955y82fxea"),
-		common.MustStringToAddress("0xs5f554lz0agjvdlxkwkz9epftv9lr8m6n5w6hp"),
-		common.MustStringToAddress("0xsnputz9gzhyg9cz9hn5alq35q5df2szcauhfdn"),
-		common.MustStringToAddress("0xaqkmnvq0vve9xglf29qtkl3v2tdnqzxx45knn2"),
-
-		common.MustStringToAddress("0x7va4mfrudm9uv88s03ec0t7xau8297rx4rnqsg"),
-		common.MustStringToAddress("0x9e0mfauw87umrzvdulta3keagnrzqs97t2vy8j"),
-		common.MustStringToAddress("0x9pw0sn4ru9m7rlyl894whjfjngy02xa4z57x7d"),
-		common.MustStringToAddress("0xjxllmjyr9xham97ldl5jel20eduj0tkdw0g9h2"),
-		common.MustStringToAddress("0xtzmzll6sg6hjy5h3lrkttse59tdrjnmjzfuf5u"),
-		common.MustStringToAddress("0x3mq3dsgas527sg3v40ztasr23qx9rkffpqazlk"),
-		common.MustStringToAddress("0xxe8vht0ycdd7utu2qnuzpxatyd453g66qxn47n"),
-		common.MustStringToAddress("0xy6ykcw22rcfqjh5z9edssr5wlgzscuuvev7qry"),
-		common.MustStringToAddress("0xx9p98qjv66mmeutp8j4sqyndvpm00guffccn8r"),
-		common.MustStringToAddress("0x24z0qh23u306vjt6lmq0rfwkg5cmyxlqmjwcmv"),
-		common.MustStringToAddress("0x8k5rp7kj56vrm9ydwf3t9t0haffmj5a706xfnm"),
-		common.MustStringToAddress("0xs9d8jyxqxhe0h9z3ek35n95h3pzfcg5gm7auvu"),
-		common.MustStringToAddress("0xfnw5ncy9slyzf3mzne73ysuskux3q46qt3fek6"),
-		common.MustStringToAddress("0x6pqmt742fdepysd92yrlarceecd68elae9unre"),
-		common.MustStringToAddress("0xe0zc8hkmhe44rwrqxmqyqkttkzsznxnnp79644"),
-		common.MustStringToAddress("0xrs9y2zd6gm02gam44k9jpgvl8x9cypjzy5hnmw"),
-		common.MustStringToAddress("0xamssl39r4vee7knc3uac966hww8swhkwmxdu9d"),
+		common.MustStringToAddress("0xf33b5Da47c6ECbC61cF07C7387Afc6ef0EA2f866"),
+		common.MustStringToAddress("0x2E5FB4F78E3FB9b1898DE7d7D8dB3d44C62040be"),
+		common.MustStringToAddress("0x285CF84ea3E177E1fC9F396aEbc9329a08f51bb5"),
+		common.MustStringToAddress("0x91BffdC88329AfDD97DF6fe92cfd4FcB7927Aecd"),
+		common.MustStringToAddress("0x91BffdC88329AfDD97DF6fe92cfd4FcB7927Aecd"),
+		common.MustStringToAddress("0x8ec116c11d8515e8222Cabc4BEc06A880C51D929"),
+		common.MustStringToAddress("0x364eCBade4c35beE2F8a04F8209BaB236B48A35a"),
+		common.MustStringToAddress("0x26896c394A1E12095e822e5b080e8EfA050c738C"),
+		common.MustStringToAddress("0x314253824CD6b7BCF1613CAB00126D6076F7a389"),
+		common.MustStringToAddress("0x5544F05D51E45fa6497AFEC0F1A5d64531B21be0"),
+		common.MustStringToAddress("0x3da830FAd2A6983d948d7262B2AdF7eA53b953be"),
+		common.MustStringToAddress("0x815A7910C035F2FB9451cDA349969788449c2288"),
+		common.MustStringToAddress("0x4Cdd49e08587c824c7629e7d124390B70d105740"),
+		common.MustStringToAddress("0xD041b5fAaa4B721241A55107FE8F19ce1ba3E7fD"),
+		common.MustStringToAddress("0xcbc583DEdbbE6b51B86036C040596bB0a0299a73"),
+		common.MustStringToAddress("0x1c0A4509Ba46deA47775Ad8B20A19f398B820642"),
+		common.MustStringToAddress("0xEEE10Fc4A3AB339f5a788f3b82Eb57738F075EcE"),
 	}
 
 	priKeyArr = []*ecdsa.PrivateKey{
@@ -142,9 +141,8 @@ var (
 	lastBlockNumber uint64
 	lastBlockHash   common.Hash
 	lastHeader      types.Header
-
-	sender        = common.MustStringToAddress("0xpmhjxvfqeccm87kzpkkr08djgvpp55355nr8j7")
-	anotherSender = common.MustStringToAddress("0xpmhjxvfqeccm87kzpkkr08djgvpp5534f9hj0v")
+	sender        = common.MustStringToAddress("0x0eEf233120cE31b3FAc20DAC379db243021A5234")
+	anotherSender = common.MustStringToAddress("0x0eef233120CE31B3FAC20dAC379dB243021A5235")
 	sndb          = snapshotdb.Instance()
 
 	// serial use only

@@ -1,24 +1,38 @@
 package dpos
 
 import (
-	"Phoenix-Chain-Core/ethereum/ethclient"
-	"bytes"
-	"context"
-	"encoding/json"
-	"errors"
-	"fmt"
-
-	"gopkg.in/urfave/cli.v1"
-
 	phoenixchain "Phoenix-Chain-Core"
+	"Phoenix-Chain-Core/commands/utils"
+	"Phoenix-Chain-Core/ethereum/accounts/keystore"
+	"Phoenix-Chain-Core/ethereum/ethclient"
 	"Phoenix-Chain-Core/libs/common"
 	"Phoenix-Chain-Core/libs/common/hexutil"
 	"Phoenix-Chain-Core/libs/common/vm"
+	"Phoenix-Chain-Core/libs/crypto/bls"
 	"Phoenix-Chain-Core/libs/rlp"
+	"Phoenix-Chain-Core/web"
+	"bytes"
+	"context"
+	"crypto/ecdsa"
+	"encoding/json"
+	"errors"
+	"fmt"
+	"gopkg.in/urfave/cli.v1"
+	"io"
+	"io/ioutil"
+	"os"
 )
 
 func CallDPosContract(client *ethclient.Client, funcType uint16, params ...interface{}) ([]byte, error) {
 	send, to := EncodeDPOS(funcType, params...)
+	var msg phoenixchain.CallMsg
+	msg.Data = send
+	msg.To = &to
+	return client.CallContract(context.Background(), msg, nil)
+}
+
+func CallDPosStakingContract(client *ethclient.Client, funcType uint16, params *Dpos_1000) ([]byte, error) {
+	send, to := EncodeDPOSStaking(funcType, params)
 	var msg phoenixchain.CallMsg
 	msg.Data = send
 	msg.To = &to
@@ -49,6 +63,18 @@ func EncodeDPOS(funcType uint16, params ...interface{}) ([]byte, common.Address)
 	return buf.Bytes(), funcTypeToContractAddress(funcType)
 }
 
+func EncodeDPOSStaking(funcType uint16, params *Dpos_1000) ([]byte, common.Address) {
+	par := buildStakingParams(funcType, params)
+	buf := new(bytes.Buffer)
+	err := rlp.Encode(buf, par)
+	if err != nil {
+		panic(fmt.Errorf("encode rlp data fail: %v", err))
+	}
+	data:=buf.Bytes()
+	fmt.Printf("funcType:%d rlp data = %s\n", funcType, hexutil.Encode(data))
+	return data, funcTypeToContractAddress(funcType)
+}
+
 func buildParams(funcType uint16, params ...interface{}) [][]byte {
 	var res [][]byte
 	res = make([][]byte, 0)
@@ -61,6 +87,43 @@ func buildParams(funcType uint16, params ...interface{}) [][]byte {
 		}
 		res = append(res, val)
 	}
+	return res
+}
+
+func buildStakingParams(funcType uint16, params *Dpos_1000) [][]byte {
+	var res [][]byte
+	res = make([][]byte, 0)
+	fnType, _ := rlp.EncodeToBytes(funcType)
+	res = append(res, fnType)
+
+	typ, _ := rlp.EncodeToBytes(params.Typ)
+	benefitAddress, _ := rlp.EncodeToBytes(params.BenefitAddress.Bytes())
+	nodeId, _ := rlp.EncodeToBytes(params.NodeId)
+	externalId, _ := rlp.EncodeToBytes(params.ExternalId)
+	nodeName, _ := rlp.EncodeToBytes(params.NodeName)
+	website, _ := rlp.EncodeToBytes(params.Website)
+	details, _ := rlp.EncodeToBytes(params.Details)
+	amount, _ := rlp.EncodeToBytes(params.Amount)
+	rewardPer, _ := rlp.EncodeToBytes(params.RewardPer)
+	programVersion, _ := rlp.EncodeToBytes(params.ProgramVersion)
+	programVersionSign, _ := rlp.EncodeToBytes(params.ProgramVersionSign)
+	blsPubKey, _ := rlp.EncodeToBytes(params.BlsPubKey)
+	blsProof, _ := rlp.EncodeToBytes(params.BlsProof)
+
+	res = append(res, typ)
+	res = append(res, benefitAddress)
+	res = append(res, nodeId)
+	res = append(res, externalId)
+	res = append(res, nodeName)
+	res = append(res, website)
+	res = append(res, details)
+	res = append(res, amount)
+	res = append(res, rewardPer)
+	res = append(res, programVersion)
+	res = append(res, programVersionSign)
+	res = append(res, blsPubKey)
+	res = append(res, blsProof)
+
 	return res
 }
 
@@ -113,4 +176,73 @@ func query(c *cli.Context, funcType uint16, params ...interface{}) error {
 		fmt.Println(string(res))
 		return nil
 	}
+}
+
+func getBlsProof(keyfilepath string) (bls.SchnorrProofHex,error) {
+	var proofHex bls.SchnorrProofHex
+	blsKey,err:=bls.LoadBLS(keyfilepath)
+	if err != nil {
+		return proofHex,fmt.Errorf("bls.LoadBLS error,%s", err.Error())
+	}
+	proof, _ := blsKey.MakeSchnorrNIZKP()
+	proofByte, _ := proof.MarshalText()
+	proofHex.UnmarshalText(proofByte)
+	return proofHex,nil
+}
+
+func GetNodeKey(file string) (string, error)  {
+	buf := make([]byte, 64)
+	fd, err := os.Open(file)
+	if err != nil {
+		return "", err
+	}
+	defer fd.Close()
+	if _, err := io.ReadFull(fd, buf); err != nil {
+		return "", err
+	}
+	return string(buf),nil
+}
+
+// promptPassphrase prompts the user for a passphrase.  Set confirmation to true
+// to require the user to confirm the passphrase.
+func promptPassphrase(confirmation bool) string {
+	passphrase, err := web.Stdin.PromptPassword("Passphrase: ")
+	if err != nil {
+		utils.Fatalf("Failed to read passphrase: %v", err)
+	}
+
+	if confirmation {
+		confirm, err := web.Stdin.PromptPassword("Repeat passphrase: ")
+		if err != nil {
+			utils.Fatalf("Failed to read passphrase confirmation: %v", err)
+		}
+		if passphrase != confirm {
+			utils.Fatalf("Passphrases do not match")
+		}
+	}
+
+	return passphrase
+}
+
+// getPassphrase obtains a passphrase given by the user.
+func getPassphrase(confirmation bool) string {
+
+	// Otherwise prompt the user for the passphrase.
+	return promptPassphrase(confirmation)
+}
+
+func getPrivateKey(keystorePath string) (*ecdsa.PrivateKey,string){
+	// Read key from file.
+	keyjson, err := ioutil.ReadFile(keystorePath)
+	if err != nil {
+		utils.Fatalf("Failed to read the keyfile at '%s': %v", keystorePath, err)
+	}
+
+	// Decrypt key with passphrase.
+	passphrase := getPassphrase(false)
+	key, err := keystore.DecryptKey(keyjson, passphrase)
+	if err != nil {
+		utils.Fatalf("Error decrypting key: %v", err)
+	}
+	return key.PrivateKey,key.Address.String()
 }

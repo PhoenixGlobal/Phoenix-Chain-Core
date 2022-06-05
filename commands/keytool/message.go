@@ -1,6 +1,7 @@
 package main
 
 import (
+	"Phoenix-Chain-Core/libs/crypto/bls"
 	"encoding/hex"
 	"fmt"
 	"io/ioutil"
@@ -62,6 +63,50 @@ To sign a message contained in a file, use the --msgfile flag.
 			mustPrintJSON(out)
 		} else {
 			fmt.Println("Signature:", out.Signature)
+		}
+		return nil
+	},
+}
+
+type blsProof struct {
+	BlsProof string
+}
+
+var blsKeyfileFlag = cli.StringFlag{
+	Name:  "blsKey",
+	Usage: "file containing the blsKey",
+}
+
+var commandBlsProof = cli.Command{
+	Name:      "blsProof",
+	Usage:     "generate a bls proof",
+	ArgsUsage: "<blskeyfile>",
+	Description: `
+Generate a bls proof with a keyfile.
+`,
+	Flags: []cli.Flag{
+		blsKeyfileFlag,
+		jsonFlag,
+	},
+	Action: func(ctx *cli.Context) error {
+		// Load the keyfile.
+		keyfilepath := ctx.String(blsKeyfileFlag.Name)
+
+		blsKey,err:=bls.LoadBLS(keyfilepath)
+		if err != nil {
+			return fmt.Errorf("bls.LoadBLS error,%s", err.Error())
+		}
+
+		proof, _ := blsKey.MakeSchnorrNIZKP()
+		proofByte, _ := proof.MarshalText()
+		var proofHex bls.SchnorrProofHex
+		proofHex.UnmarshalText(proofByte)
+
+		out := blsProof{BlsProof: proofHex.String()}
+		if ctx.Bool(jsonFlag.Name) {
+			mustPrintJSON(out)
+		} else {
+			fmt.Println("BlsProof:", out.BlsProof)
 		}
 		return nil
 	},
