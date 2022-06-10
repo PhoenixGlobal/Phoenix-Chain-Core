@@ -44,14 +44,14 @@ func (pbft *Pbft) OnPrepareBlock(id string, msg *protocols.PrepareBlock) error {
 		}
 
 		if err.Fetch() {
-			if pbft.isProposer(msg.Epoch, msg.ViewNumber, msg.ProposalIndex) {
+			if pbft.isProposer(msg.Epoch, msg.BlockNum(), msg.ProposalIndex) {
 				pbft.log.Info("Epoch or viewNumber higher than local, try to fetch block", "fetchHash", msg.Block.ParentHash(), "fetchNumber", msg.Block.NumberU64()-1)
 				pbft.fetchBlock(id, msg.Block.ParentHash(), msg.Block.NumberU64()-1, nil)
 			}
 			return err
 		}
 		if err.FetchPrepare() {
-			if pbft.isProposer(msg.Epoch, msg.ViewNumber, msg.ProposalIndex) {
+			if pbft.isProposer(msg.Epoch, msg.BlockNum(), msg.ProposalIndex) {
 				pbft.log.Debug("err.FetchPrepare(), prepareBlockFetchRules", "prepare", msg.String())
 				pbft.prepareBlockFetchRules(id, msg)
 			}
@@ -951,17 +951,7 @@ func (pbft *Pbft) generateViewChange(qc *ctypes.QuorumCert) (*protocols.ViewChan
 // change view
 func (pbft *Pbft) changeView(epoch, viewNumber uint64, block *types.Block, qc *ctypes.QuorumCert, viewChangeQC *ctypes.ViewChangeQC) {
 	interval := func() uint64 {
-		if block.NumberU64() == 0 {
-			return viewNumber - state.DefaultViewNumber + 1
-		}
-		if qc.ViewNumber+1 == viewNumber {
-			return 1
-		}
-		minuend := qc.ViewNumber
-		if qc.Epoch != epoch {
-			minuend = state.DefaultViewNumber
-		}
-		return viewNumber - minuend + 1
+		return 1
 	}
 	// last epoch and last viewNumber
 	// when pbft is started or fast synchronization ends, the preEpoch, preViewNumber defaults to 0, 0

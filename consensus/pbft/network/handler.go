@@ -43,7 +43,7 @@ const (
 	SyncPrepareVoteInterval = 1
 
 	// SyncPreCommitInterval is PreCommit synchronization detection interval.
-	SyncPreCommitInterval = 2
+	SyncPreCommitInterval = 1500
 
 	// removeBlacklistInterval is remove blacklist detection interval.
 	removeBlacklistInterval = 20
@@ -726,7 +726,7 @@ func (h *EngineManager) synchronize() {
 	viewTicker := time.NewTicker(SyncViewChangeInterval * time.Second)
 	pureBlacklistTicker := time.NewTicker(removeBlacklistInterval * time.Second)
 	voteTicker := time.NewTicker(SyncPrepareVoteInterval * time.Second)
-	preCommitTicker := time.NewTicker(SyncPreCommitInterval * time.Second)
+	preCommitTicker := time.NewTicker(SyncPreCommitInterval * time.Millisecond)
 
 	// Logic used to synchronize QC.
 	syncQCBnFunc := func() {

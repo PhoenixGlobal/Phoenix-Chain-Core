@@ -796,7 +796,8 @@ func (pbft *Pbft) OnSeal(block *types.Block, results chan<- *types.Block, stop <
 	}
 	numValidators := pbft.validatorPool.Len(pbft.state.Epoch())
 	//currentProposer := pbft.state.BlockNumber() % uint64(numValidators)
-	currentProposer := (pbft.state.BlockNumber()-1)% uint64(numValidators)
+	//currentProposer := (pbft.state.BlockNumber()-1)% uint64(numValidators)
+	currentProposer := pbft.CalCurrentProposer(numValidators)
 	if currentProposer != uint64(me.Index) {
 		pbft.log.Warn("You are not the current proposer", "index", me.Index, "currentProposer", currentProposer)
 		return
@@ -1161,6 +1162,28 @@ func (pbft *Pbft) ShouldSeal(curTime time.Time) (bool, error) {
 	}
 }
 
+func (pbft *Pbft) CalCurrentProposer(numValidators int) uint64 {
+	var currentProposer uint64
+	if pbft.IsAddBlockTimeOver(){
+		currentProposer = pbft.state.BlockNumber() % uint64(numValidators)
+		pbft.log.Debug("CalCurrentProposer,IsAddBlockTimeOver", "old currentProposer",  (pbft.state.BlockNumber()-1) % uint64(numValidators), "new currentProposer", currentProposer)
+	}else {
+		currentProposer = (pbft.state.BlockNumber()-1) % uint64(numValidators)
+	}
+	return currentProposer
+}
+
+func (pbft *Pbft) CalCurrentProposerWithBlockNumber(blockNumber uint64,numValidators int) uint64 {
+	var currentProposer uint64
+	if pbft.IsAddBlockTimeOver(){
+		currentProposer = blockNumber % uint64(numValidators)
+		pbft.log.Debug("CalCurrentProposerWithBlockNumber,IsAddBlockTimeOver", "old currentProposer",  (blockNumber-1) % uint64(numValidators), "new currentProposer", currentProposer)
+	}else {
+		currentProposer = (blockNumber-1) % uint64(numValidators)
+	}
+	return currentProposer
+}
+
 // OnShouldSeal determines whether the current condition
 // of the block is satisfied.
 func (pbft *Pbft) OnShouldSeal(result chan error) {
@@ -1187,7 +1210,8 @@ func (pbft *Pbft) OnShouldSeal(result chan error) {
 	}
 
 	numValidators := pbft.validatorPool.Len(pbft.state.Epoch())
-	currentProposer := pbft.state.ViewNumber() % uint64(numValidators)
+	//currentProposer := (pbft.state.BlockNumber()-1) % uint64(numValidators)
+	currentProposer:=pbft.CalCurrentProposer(numValidators)
 	validator, err := pbft.validatorPool.GetValidatorByNodeID(pbft.state.Epoch(), pbft.config.Option.NodeID)
 	if err != nil {
 		pbft.log.Error("Should seal fail", "err", err)
@@ -1235,6 +1259,15 @@ func (pbft *Pbft) CalcBlockDeadline(timePoint time.Time) time.Time {
 		return timePoint.Add(produceInterval - rtt - executeTime)
 	}
 	return pbft.state.Deadline()
+}
+
+func (pbft *Pbft) IsAddBlockTimeOver() bool {
+	if time.Now().Unix()-pbft.state.LastAddBlockNumberTime()>cstate.AddBlockNumberTimeInterval{
+		pbft.log.Debug("AddBlockNumber is time over", "LastAddBlockNumberTime", pbft.state.LastAddBlockNumberTime(), "now time", time.Now().Unix())
+		return true
+	}else {
+		return false
+	}
 }
 
 // CalcNextBlockTime returns the deadline  of the next block.
@@ -1416,17 +1449,24 @@ func (pbft *Pbft) isCurrentValidator() (*pbfttypes.ValidateNode, error) {
 func (pbft *Pbft) currentProposer() *pbfttypes.ValidateNode {
 	length := pbft.validatorPool.Len(pbft.state.Epoch())
 	//currentProposer := pbft.state.BlockNumber() % uint64(length)
-	currentProposer := (pbft.state.BlockNumber()-1) % uint64(length)
+	//currentProposer := (pbft.state.BlockNumber()-1) % uint64(length)
+	currentProposer:=pbft.CalCurrentProposer(length)
 	validator, _ := pbft.validatorPool.GetValidatorByIndex(pbft.state.Epoch(), uint32(currentProposer))
 	return validator
 }
 
-func (pbft *Pbft) isProposer(epoch, viewNumber uint64, nodeIndex uint32) bool {
+func (pbft *Pbft) isProposer(epoch, blockNumber uint64, nodeIndex uint32) bool {
 	if err := pbft.validatorPool.EnableVerifyEpoch(epoch); err != nil {
 		return false
 	}
 	length := pbft.validatorPool.Len(epoch)
-	index := viewNumber % uint64(length)
+	var index uint64
+	if blockNumber>0{
+		//index = (blockNumber-1) % uint64(length)
+		index = pbft.CalCurrentProposerWithBlockNumber(blockNumber,length)
+	}else {
+		index = 0
+	}
 	if validator, err := pbft.validatorPool.GetValidatorByIndex(epoch, uint32(index)); err == nil {
 		return validator.Index == nodeIndex
 	}

@@ -20,6 +20,7 @@ const DefaultViewNumber = 0
 
 const NodeLens = 4
 const ViewCacheLen = 2*NodeLens+1
+const AddBlockNumberTimeInterval = 5
 
 type PrepareVoteQueue struct {
 	Votes []*protocols.PrepareVote `json:"votes"`
@@ -492,6 +493,7 @@ type view struct {
 	epoch      uint64
 	viewNumber uint64
 	blockNumber uint64
+	lastAddBlockNumberTime int64
 	maxExecutedBlockNumber uint64
 	Step       uint32
 
@@ -551,6 +553,7 @@ func newView() *view {
 	return &view{
 		executing:          executing{math.MaxUint32, false},
 		blockNumber:        1,
+		lastAddBlockNumberTime: time.Now().Unix(),
 		maxExecutedBlockNumber: 0,
 		viewChanges:        newViewChanges(),
 		hadSendPrepareVote: newPrepareVoteQueue(),
@@ -608,6 +611,10 @@ func (v *view) BlockNumber() uint64 {
 	return atomic.LoadUint64(&v.blockNumber)
 }
 
+func (v *view) LastAddBlockNumberTime() int64 {
+	return atomic.LoadInt64(&v.lastAddBlockNumberTime)
+}
+
 func (v *view) MaxExecutedBlockNumber() uint64 {
 	return atomic.LoadUint64(&v.maxExecutedBlockNumber)
 }
@@ -615,11 +622,13 @@ func (v *view) MaxExecutedBlockNumber() uint64 {
 func (v *view) AddBlockNumber(qc *ctypes.QuorumCert) {
 	//blockNumber:=v.BlockNumber()
 	atomic.StoreUint64(&v.blockNumber, qc.BlockNumber+1)
+	atomic.StoreInt64(&v.lastAddBlockNumberTime, time.Now().Unix())
 }
 
 func (v *view) SetBlockNumber(blockNumber uint64) {
 	//blockNumber:=v.BlockNumber()
 	atomic.StoreUint64(&v.blockNumber, blockNumber)
+	atomic.StoreInt64(&v.lastAddBlockNumberTime, time.Now().Unix())
 }
 
 func (v *view) HadSendVoteNumber() uint64 {
@@ -663,6 +672,7 @@ func (v *view) MarshalJSON() ([]byte, error) {
 		Epoch              uint64               `json:"epoch"`
 		ViewNumber         uint64               `json:"viewNumber"`
 		BlockNumber        uint64               `json:"blockNumber"`
+		LastAddBlockNumberTime int64            `json:"lastAddBlockNumberTime"`
 		Step               uint32               `json:"step"`
 		Executing          executing            `json:"executing"`
 		ViewChanges        *viewChanges         `json:"viewchange"`
@@ -691,6 +701,7 @@ func (v *view) MarshalJSON() ([]byte, error) {
 		Epoch:              atomic.LoadUint64(&v.epoch),
 		ViewNumber:         atomic.LoadUint64(&v.viewNumber),
 		BlockNumber:        atomic.LoadUint64(&v.blockNumber),
+		LastAddBlockNumberTime: atomic.LoadInt64(&v.lastAddBlockNumberTime),
 		Step:               atomic.LoadUint32(&v.Step),
 		Executing:          v.executing,
 		ViewChanges:        v.viewChanges,
@@ -719,6 +730,7 @@ func (v *view) UnmarshalJSON(input []byte) error {
 		Epoch              uint64               `json:"epoch"`
 		ViewNumber         uint64               `json:"viewNumber"`
 		BlockNumber        uint64               `json:"blockNumber"`
+		LastAddBlockNumberTime int64			`json:"lastAddBlockNumberTime"`
 		Step               uint32               `json:"step"`
 		Executing          executing            `json:"executing"`
 		ViewChanges        *viewChanges         `json:"viewchange"`
@@ -752,6 +764,7 @@ func (v *view) UnmarshalJSON(input []byte) error {
 	v.epoch = vv.Epoch
 	v.viewNumber = vv.ViewNumber
 	v.blockNumber = vv.BlockNumber
+	v.lastAddBlockNumberTime=vv.LastAddBlockNumberTime
 	v.Step = vv.Step
 	v.executing = vv.Executing
 	v.viewChanges = vv.ViewChanges
@@ -1272,30 +1285,38 @@ func (vs *ViewState) HighestBlockString() string {
 }
 
 func (vs *ViewState) HighestExecutedBlock() *types.Block {
-	if vs.executing.BlockIndex == math.MaxUint32 || (vs.executing.BlockIndex == 0 && !vs.executing.Finish) {
-		block := vs.HighestQCBlock()
-		if vs.lastViewChangeQC != nil {
-			_, _, _, _, hash, _ := vs.lastViewChangeQC.MaxBlock()
-			// fixme insertQCBlock should also change the state of executing
-			if b := vs.blockTree.FindBlockByHash(hash); b != nil {
-				if b.NumberU64()>block.NumberU64(){
-					block = b
-				}
-			}
-		}
+	var block *types.Block
+	maxNumber:=vs.view.MaxExecutedBlockNumber()
+	if maxNumber==0{
+		block = vs.HighestQCBlock()
 		return block
 	}
+	block = vs.viewBlocks.index(maxNumber).block()
 
-	var block *types.Block
-	if vs.executing.Finish {
-		block = vs.viewBlocks.index(vs.viewBlocks.MaxNumber()).block()
-	} else {
-		//if vs.executing.BlockIndex<=0{
-		//	return block
-		//}
-		block = vs.HighestPreCommitQCBlock()
-		//block = vs.viewBlocks.index(vs.executing.BlockIndex-1).block()
-	}
+	//if vs.executing.BlockIndex == math.MaxUint32 || (vs.executing.BlockIndex == 0 && !vs.executing.Finish) {
+	//	block := vs.HighestQCBlock()
+	//	if vs.lastViewChangeQC != nil {
+	//		_, _, _, _, hash, _ := vs.lastViewChangeQC.MaxBlock()
+	//		// fixme insertQCBlock should also change the state of executing
+	//		if b := vs.blockTree.FindBlockByHash(hash); b != nil {
+	//			if b.NumberU64()>block.NumberU64(){
+	//				block = b
+	//			}
+	//		}
+	//	}
+	//	return block
+	//}
+	//
+	//var block *types.Block
+	//if vs.executing.Finish {
+	//	block = vs.viewBlocks.index(vs.viewBlocks.MaxNumber()).block()
+	//} else {
+	//	//if vs.executing.BlockIndex<=0{
+	//	//	return block
+	//	//}
+	//	block = vs.HighestPreCommitQCBlock()
+	//	//block = vs.viewBlocks.index(vs.executing.BlockIndex-1).block()
+	//}
 	return block
 }
 
