@@ -2,8 +2,10 @@ package main
 
 import (
 	"crypto/ecdsa"
+	"encoding/hex"
 	"flag"
 	"fmt"
+	"io/ioutil"
 	"net"
 	"os"
 
@@ -100,6 +102,8 @@ func main() {
 		}
 	}
 
+	SavePublicKey("publicKey",nodeKey)
+
 	if *runv5 {
 		if _, err := discv5.ListenUDP(nodeKey, conn, realaddr, "", restrictList); err != nil {
 			utils.Fatalf("%v", err)
@@ -116,4 +120,10 @@ func main() {
 	}
 
 	select {}
+}
+
+
+func SavePublicKey(file string, key *ecdsa.PrivateKey) error {
+	k := hex.EncodeToString(crypto.FromECDSAPub(&key.PublicKey)[1:])
+	return ioutil.WriteFile(file, []byte(k), 0600)
 }
