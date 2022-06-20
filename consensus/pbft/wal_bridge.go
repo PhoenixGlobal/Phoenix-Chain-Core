@@ -408,6 +408,7 @@ func (pbft *Pbft) recoveryChainStateProcess(stateType uint16, s *protocols.State
 
 	switch stateType {
 	case protocols.CommitState:
+		pbft.TrySetHighestPreCommitQCBlock(s.Block)
 		pbft.state.SetHighestCommitBlock(s.Block)
 	case protocols.LockState:
 		pbft.state.SetHighestLockBlock(s.Block)

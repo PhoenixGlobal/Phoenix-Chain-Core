@@ -18,9 +18,9 @@ import (
 const DefaultEpoch = 1
 const DefaultViewNumber = 0
 
-const NodeLens = 4
-const ViewCacheLen = 2*NodeLens+1
-const AddBlockNumberTimeInterval = 5
+const NodeLens = 43
+const ViewCacheLen = NodeLens+1
+const AddBlockNumberTimeInterval = 4
 
 type PrepareVoteQueue struct {
 	Votes []*protocols.PrepareVote `json:"votes"`

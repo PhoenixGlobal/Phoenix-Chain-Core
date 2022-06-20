@@ -26,10 +26,10 @@ func (pbft *Pbft) fetchBlock(id string, hash common.Hash, number uint64, qc *cty
 		return
 	}
 	highestQC := pbft.state.HighestPreCommitQCBlock()
-	//if highestQC.NumberU64()+3 < number {
-	//	pbft.log.Debug(fmt.Sprintf("Local state too low, local.highestQC:%s,%d, remote.msg:%s,%d", highestQC.Hash().String(), highestQC.NumberU64(), hash.String(), number))
-	//	return
-	//}
+	if highestQC.NumberU64()+2 < number {
+		pbft.log.Debug(fmt.Sprintf("Local state too low, local.highestQC:%s,%d, remote.msg:%s,%d", highestQC.Hash().String(), highestQC.NumberU64(), hash.String(), number))
+		return
+	}
 
 	baseBlockHash, baseBlockNumber := common.Hash{}, uint64(0)
 	var parentBlock *types.Block
@@ -258,7 +258,7 @@ func (pbft *Pbft) preCommitFetchRules(id string, vote *protocols.PreCommit) {
 
 // OnGetPrepareBlock handles the  message type of GetPrepareBlockMsg.
 func (pbft *Pbft) OnGetPrepareBlock(id string, msg *protocols.GetPrepareBlock) error {
-	if msg.Epoch <= pbft.state.Epoch() && msg.BlockNumber <= pbft.state.MaxViewBlockNumber() {
+	if msg.Epoch == pbft.state.Epoch() && msg.BlockNumber <= pbft.state.MaxViewBlockNumber() {
 		prepareBlock := pbft.state.PrepareBlockByIndex(msg.BlockNumber)
 		if prepareBlock != nil {
 			pbft.log.Debug("Send PrepareBlock", "peer", id, "prepareBlock", prepareBlock.String())
@@ -389,6 +389,11 @@ func (pbft *Pbft) OnGetQCBlockList(id string, msg *protocols.GetQCBlockList) err
 		return fmt.Errorf("peer state too high")
 	}
 
+	if highestQC.NumberU64() > msg.BlockNumber+2{
+		pbft.log.Debug(fmt.Sprintf("Receive GetQCBlockList failed, local.highestQC:%s,%d, msg:%s", highestQC.Hash().TerminalString(), highestQC.NumberU64(), msg.String()))
+		return fmt.Errorf("peer state too low")
+	}
+
 	//if highestQC.Hash() == msg.BlockHash && highestQC.NumberU64() == msg.BlockNumber {
 	//	pbft.log.Debug(fmt.Sprintf("Receive GetQCBlockList failed, local.highestQC:%s,%d, msg:%s", highestQC.Hash().TerminalString(), highestQC.NumberU64(), msg.String()))
 	//	return fmt.Errorf("peer state too low")
@@ -455,7 +460,7 @@ func (pbft *Pbft) OnGetQCBlockList(id string, msg *protocols.GetQCBlockList) err
 func (pbft *Pbft) OnGetPrepareVote(id string, msg *protocols.GetPrepareVote) error {
 	pbft.log.Debug("Received message on OnGetPrepareVote", "from", id, "msgHash", msg.MsgHash(), "message", msg.String())
 
-	if (msg.Epoch+1 == pbft.state.Epoch()||msg.Epoch== pbft.state.Epoch()) && msg.BlockNumber <= pbft.state.MaxViewVotesNumber(){
+	if msg.Epoch== pbft.state.Epoch() && msg.BlockNumber <= pbft.state.MaxViewVotesNumber(){
 		// If the block has already QC, that response QC instead of votes.
 		// Avoid the sender spent a lot of time to verifies PrepareVote msg.
 		_, qc := pbft.state.ViewBlockAndQC(msg.BlockNumber)
@@ -495,7 +500,7 @@ func (pbft *Pbft) OnGetPrepareVote(id string, msg *protocols.GetPrepareVote) err
 // PrepareVotes message to the sender.
 func (pbft *Pbft) OnGetPreCommit(id string, msg *protocols.GetPreCommit) error {
 	pbft.log.Debug("Received message on OnGetPreCommit", "from", id, "msgHash", msg.MsgHash(), "message", msg.String())
-	if (msg.Epoch+1 == pbft.state.Epoch()||msg.Epoch== pbft.state.Epoch()) && msg.BlockNumber <= pbft.state.MaxViewPreCommitsNumber() {
+	if msg.Epoch== pbft.state.Epoch() && msg.BlockNumber <= pbft.state.MaxViewPreCommitsNumber() {
 		// If the block has already QC, that response QC instead of votes.
 		// Avoid the sender spent a lot of time to verifies PrepareVote msg.
 		_, qc := pbft.state.ViewBlockAndPreCommitQC(msg.BlockNumber)
