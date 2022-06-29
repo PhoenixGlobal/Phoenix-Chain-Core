@@ -28,7 +28,7 @@ type Dpos_1000 struct {
 	Website            string
 	Details            string
 	Amount             *big.Int
-	RewardPer          uint16
+	RewardPer          uint64
 	ProgramVersion     uint32
 	ProgramVersionSign common.VersionSign
 	BlsPubKey          bls.PublicKeyHex
@@ -172,13 +172,14 @@ func createStaking(c *cli.Context) error {
 	if err != nil {
 		return fmt.Errorf("getNodeKey error: %v", err)
 	}
-	programVersion:=configs.CodeVersion()
+	programVersion:=configs.GenesisVersion
 	node.GetCryptoHandler().SetPrivateKey(crypto.HexMustToECDSA(nodeKey))
 	versionSign := common.VersionSign{}
 	versionSign.SetBytes(node.GetCryptoHandler().MustSign(programVersion))
+	fmt.Println("versionSign is ",versionSign.String())
 	dpos_1000.ProgramVersion=programVersion
 	dpos_1000.ProgramVersionSign=versionSign
-	fmt.Println("CreateStaking params dpos_1000 is ",dpos_1000)
+	fmt.Println("CreateStaking params dpos_1000 is ",dpos_1000.Amount,dpos_1000.ProgramVersion,dpos_1000)
 
 	//SendRawTransaction
 	configPath:=c.String(configPathFlag.Name)

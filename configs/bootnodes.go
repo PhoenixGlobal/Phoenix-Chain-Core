@@ -3,8 +3,7 @@ package configs
 // MainnetBootnodes are the enode URLs of the P2P bootstrap nodes running on
 // the main PhoenixChain network.
 var MainnetBootnodes = []string{
-	"enode://3f900d32151e8e1e6126124e0f3408ea70aaebfd7e4c1fd9f8e905cbd4573b45ab6d0dbef624e1fef955b68954e73fcce81747225242056e3bcfd59a2eb977f8@39.104.68.32:16888",
-	"enode://0ed45e0e1b1c0db14e0dbe592e57c74bee7baecd64a1abffd66b499e5122d382c2de5ddeb2b57fa7c6b05950ba3c69551992ebcaaa03bfe7433b3610549a7efb@39.104.62.41:16888",
+	"enode://0c88323c5dab6e2b5bac92b54fe9e632e7b8cc5f0345433ac32b188980142d691320d0215c665b61e9de94982a0ddfb64f0407d5a9b4d93e97eae3e2f3704960@39.104.61.131:16888",
 }
 
 // TestnetBootnodes are the enode URLs of the P2P bootstrap nodes running on the test network.

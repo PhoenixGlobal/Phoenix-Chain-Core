@@ -1873,27 +1873,11 @@ var ETH_UNITS = [
     'Gvon',
     'szabo',
     'finney',
-    'femtolat',
-    'picolat',
-    'nanolat',
-    'microlat',
-    'millilat',
     'nano',
     'micro',
     'milli',
-    'lat',
+    'phc',
     'grand',
-    'Mlat',
-    'Glat',
-    'Tlat',
-    'Plat',
-    'Elat',
-    'Zlat',
-    'Ylat',
-    'Nlat',
-    'Dlat',
-    'Vlat',
-    'Ulat'
 ];
 
 module.exports = {
@@ -2150,7 +2134,7 @@ var unitMap = {
     'finney':       '1000000000000000',
     'millilat':   '1000000000000000',
     'milli':        '1000000000000000',
-    'lat':        '1000000000000000000',
+    'phc':        '1000000000000000000',
     'klat':       '1000000000000000000000',
     'grand':        '1000000000000000000000',
     'mlat':       '1000000000000000000000000',
@@ -2382,12 +2366,12 @@ var toHex = function (val) {
  * Returns value of unit in von
  *
  * @method getValueOfUnit
- * @param {String} unit the unit to convert to, default lat
+ * @param {String} unit the unit to convert to, default phc
  * @returns {BigNumber} value of the unit (in von)
  * @throws error if the unit is not correct:w
  */
 var getValueOfUnit = function (unit) {
-    unit = unit ? unit.toLowerCase() : 'lat';
+    unit = unit ? unit.toLowerCase() : 'phc';
     var unitValue = unitMap[unit];
     if (unitValue === undefined) {
         throw new Error('This unit doesn\'t exists, please use the one of the following units' + JSON.stringify(unitMap, null, 2));
@@ -2396,7 +2380,7 @@ var getValueOfUnit = function (unit) {
 };
 
 /**
- * Takes a number of von and converts it to any other lat unit.
+ * Takes a number of von and converts it to any other phc unit.
  *
  * Possible units are:
  *   SI Short   SI Full        Effigy       Other
@@ -2405,7 +2389,7 @@ var getValueOfUnit = function (unit) {
  * - gvon       nanolat      shannon      nano
  * - --         microlat     szabo        micro
  * - --         millilat     finney       milli
- * - lat      --             --
+ * - phc      --             --
  * - klat                    --           grand
  * - mlat
  * - glat
@@ -2413,7 +2397,7 @@ var getValueOfUnit = function (unit) {
  *
  * @method fromVon
  * @param {Number|String} number can be a number, number string or a HEX of a decimal
- * @param {String} unit the unit to convert to, default lat
+ * @param {String} unit the unit to convert to, default phc
  * @return {String|Object} When given a BigNumber object it returns one as well, otherwise a number
 */
 var fromVon = function(number, unit) {
@@ -2432,7 +2416,7 @@ var fromVon = function(number, unit) {
  * - gvon       nanolat      shannon      nano
  * - --         microlat     szabo        micro
  * - --         millilat     finney       milli
- * - lat      --             --
+ * - phc      --             --
  * - klat                    --           grand
  * - mlat
  * - glat
@@ -2440,7 +2424,7 @@ var fromVon = function(number, unit) {
  *
  * @method toVon
  * @param {Number|String|BigNumber} number can be a number, number string or a HEX of a decimal
- * @param {String} unit the unit to convert from, default lat
+ * @param {String} unit the unit to convert from, default phc
  * @return {String|Object} When given a BigNumber object it returns one as well, otherwise a number
 */
 var toVon = function(number, unit) {

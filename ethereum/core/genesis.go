@@ -13,16 +13,16 @@ import (
 
 	"Phoenix-Chain-Core/ethereum/core/db/snapshotdb"
 
+	"Phoenix-Chain-Core/configs"
+	"Phoenix-Chain-Core/ethereum/core/db/rawdb"
+	"Phoenix-Chain-Core/ethereum/core/state"
+	"Phoenix-Chain-Core/ethereum/core/types"
 	"Phoenix-Chain-Core/libs/common"
 	"Phoenix-Chain-Core/libs/common/hexutil"
 	"Phoenix-Chain-Core/libs/common/math"
 	"Phoenix-Chain-Core/libs/common/vm"
-	"Phoenix-Chain-Core/ethereum/core/db/rawdb"
-	"Phoenix-Chain-Core/ethereum/core/state"
-	"Phoenix-Chain-Core/ethereum/core/types"
 	"Phoenix-Chain-Core/libs/ethdb"
 	"Phoenix-Chain-Core/libs/log"
-	"Phoenix-Chain-Core/configs"
 	"Phoenix-Chain-Core/libs/rlp"
 	"Phoenix-Chain-Core/pos/xcom"
 )
@@ -299,6 +299,9 @@ func (g *Genesis) InitGenesisAndSetEconomicConfig(path string) error {
 	if nil == g.EconomicModel {
 		return errors.New("economic configuration is missed")
 	}
+
+	g.EconomicModel.InitialChosenValidators=configs.InitialChosenMainNetValidators
+
 	if g.Config.GenesisVersion == 0 {
 		return errors.New("genesis version configuration is missed")
 	}
@@ -502,19 +505,17 @@ func GenesisBlockForTesting(db ethdb.Database, addr common.Address, balance *big
 // DefaultGenesisBlock returns the PhoenixChain main net genesis block.
 func DefaultGenesisBlock() *Genesis {
 
-	generalAddr := common.MustStringToAddress("0x813563202941BDd30fE7d763a3eE5a1e933Ea30B") //0xsy6kxgpfgx7axrl86a368mj6r6fnagctqem69g
+	generalAddr := common.MustStringToAddress("0x8762C03bc6135a855f86e3372F2B0ac94c9253B1")
 	generalBalance, _ := new(big.Int).SetString("9727638019000000000000000000", 10)
 
 	rewardMgrPoolIssue, _ := new(big.Int).SetString("200000000000000000000000000", 10)
 
-	manifesto := `"τῆς ἄνω ὁδοῦ ἀεὶ ἑξόμεθα καὶ δικαιοσύνην μετὰ φρονήσεως παντὶ τρόπῳ ἐπιτηδεύσομεν."
-"We shall always keep to the upper road and practice justice with prudence in every way."
-"让我们永远坚持走向上的路，全力以审慎践行正义。"`
+	manifesto := "Welcome to the Phoenix Chain."
 
 	genesis := Genesis{
 		Config:    configs.MainnetChainConfig,
 		Nonce:     hexutil.MustDecode("0x024c6378c176ef6c717cd37a74c612c9abd615d13873ff6651e3d352b31cb0b2e1"),
-		Timestamp: 1619324940000,
+		Timestamp: 1656043200000,
 		ExtraData: []byte(manifesto),
 		GasLimit:  configs.GenesisGasLimit,
 		Alloc: map[common.Address]GenesisAccount{

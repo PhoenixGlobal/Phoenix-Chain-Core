@@ -40,13 +40,6 @@ To sign a message contained in a file, use the --msgfile flag.
 Change the passphrase of a keyfile.
 use the `--newpasswordfile` to point to the new password file.
 
-
-### `phoenixkey updateaddress <address> <address>...`
-
-update hex/bech32 address to  bech32 address.  
-use the `--addressPrefix` to  set the address hrp,if not set,use default address hrp lat.
-
-
 ## Passphrases
 
 For every command that uses a keyfile, you will be prompted to provide the 

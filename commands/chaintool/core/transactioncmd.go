@@ -1,6 +1,7 @@
 package core
 
 import (
+	"Phoenix-Chain-Core/configs"
 	"crypto/ecdsa"
 	"encoding/json"
 	"fmt"
@@ -147,7 +148,7 @@ func SendRawTransaction(from, to, value string, pkFilePath string) (string, erro
 	if !ok {
 		return "", fmt.Errorf("private key not found in private key file,addr:%s", from)
 	}
-	nonce := getNonce(from)
+	nonce := GetNonce(from)
 	nonce++
 
 	//// getBalance
@@ -180,7 +181,7 @@ func SendRawTransaction(from, to, value string, pkFilePath string) (string, erro
 func SendRawTransactionWithData(configPath string,from string, to string, value int64, priv *ecdsa.PrivateKey,data []byte) (string, error) {
 	parseConfigJson(configPath)
 
-	nonce := getNonce(from)
+	nonce := GetNonce(from)
 	nonce++
 
 	newTx := getSignedTransactionWithData(from, to, value, priv, nonce,data)
@@ -206,7 +207,7 @@ func sendRawTransaction(transaction *types.Transaction) (string, error) {
 func getSignedTransaction(from, to string, value int64, priv *ecdsa.PrivateKey, nonce uint64) *types.Transaction {
 	gas, _ := strconv.Atoi(config.Gas)
 	gasPrice, _ := new(big.Int).SetString(config.GasPrice, 10)
-	newTx, err := types.SignTx(types.NewTransaction(nonce, common.MustStringToAddress(to), big.NewInt(value), uint64(gas), gasPrice, []byte{}), types.NewEIP155Signer(new(big.Int).SetInt64(100)), priv)
+	newTx, err := types.SignTx(types.NewTransaction(nonce, common.MustStringToAddress(to), big.NewInt(value), uint64(gas), gasPrice, []byte{}), types.NewEIP155Signer(new(big.Int).SetInt64(configs.ChainId)), priv)
 	if err != nil {
 		panic(fmt.Errorf("sign error,%s", err.Error()))
 	}
@@ -217,14 +218,14 @@ func getSignedTransactionWithData(from, to string, value int64, priv *ecdsa.Priv
 	gas, _ := strconv.Atoi(config.Gas)
 	gasPrice, _ := new(big.Int).SetString(config.GasPrice, 10)
 	fmt.Println("gas,gasPrice are ",gas,gasPrice)
-	newTx, err := types.SignTx(types.NewTransaction(nonce, common.MustStringToAddress(to), big.NewInt(value), uint64(gas), gasPrice, data), types.NewEIP155Signer(new(big.Int).SetInt64(1021)), priv)
+	newTx, err := types.SignTx(types.NewTransaction(nonce, common.MustStringToAddress(to), big.NewInt(value), uint64(gas), gasPrice, data), types.NewEIP155Signer(new(big.Int).SetInt64(configs.ChainId)), priv)
 	if err != nil {
 		panic(fmt.Errorf("sign error,%s", err.Error()))
 	}
 	return newTx
 }
 
-func getNonce(addr string) uint64 {
+func GetNonce(addr string) uint64 {
 	res, _ := Send([]string{addr, "latest"}, "phoenixchain_getTransactionCount")
 	response := parseResponse(res)
 	nonce, _ := hexutil.DecodeBig(response.Result)

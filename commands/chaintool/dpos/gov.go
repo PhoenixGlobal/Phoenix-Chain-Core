@@ -1,18 +1,30 @@
 package dpos
 
 import (
+	"Phoenix-Chain-Core/commands/chaintool/core"
+	"Phoenix-Chain-Core/ethereum/p2p/discover"
+	"encoding/json"
 	"errors"
-
+	"fmt"
 	"gopkg.in/urfave/cli.v1"
+	"io"
+	"os"
 
 	"Phoenix-Chain-Core/libs/common"
 )
+
+// submitText
+type Dpos_2000 struct {
+	Verifier discover.NodeID
+	PIPID    string
+}
 
 var (
 	GovCmd = cli.Command{
 		Name:  "gov",
 		Usage: "use for gov func",
 		Subcommands: []cli.Command{
+			SubmitTextCmd,
 			getProposalCmd,
 			getTallyResultCmd,
 			listProposalCmd,
@@ -21,6 +33,13 @@ var (
 			getAccuVerifiersCountCmd,
 			listGovernParamCmd,
 		},
+	}
+	SubmitTextCmd = cli.Command{
+		Name:   "submitText",
+		Usage:  "2000,submit text",
+		Before: netCheck,
+		Action: submitText,
+		Flags:  []cli.Flag{configPathFlag,keystoreFlag,govParamsFlag},
 	}
 	getProposalCmd = cli.Command{
 		Name:   "getProposal",
@@ -111,6 +130,37 @@ func getTallyResult(c *cli.Context) error {
 
 func listProposal(c *cli.Context) error {
 	return query(c, 2102)
+}
+
+func submitText(c *cli.Context) error {
+	keystorePath:=c.String(keystoreFlag.Name)
+	priKey,fromAddress:=getPrivateKey(keystorePath)
+
+	//Load Dpos_2000 from json
+	govParams:=c.String(govParamsFlag.Name)
+	file, err := os.Open(govParams)
+	if err != nil {
+		return fmt.Errorf("Failed to read govParams file: %v", err)
+	}
+	defer file.Close()
+	file.Seek(0, io.SeekStart)
+	var dpos_2000 Dpos_2000
+	if err := json.NewDecoder(file).Decode(&dpos_2000); err != nil {
+		return fmt.Errorf("parse config to json error,%s", err.Error())
+	}
+
+	fmt.Println("submitText params dpos_2000 is ",dpos_2000)
+
+	//SendRawTransaction
+	configPath:=c.String(configPathFlag.Name)
+	data,to:= EncodeDPOSGov(2000, &dpos_2000)
+	res, err :=core.SendRawTransactionWithData(configPath,fromAddress,to.String(),0,priKey,data)
+	if err != nil {
+		return err
+	}
+	fmt.Println("submitText success,res is ",string(res))
+
+	return nil
 }
 
 func getActiveVersion(c *cli.Context) error {

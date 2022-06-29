@@ -177,7 +177,7 @@ func getDefaultEMConfig(netId int8) *EconomicModel {
 		cdfundBalance *big.Int
 	)
 
-	// 3.22361981  thousand millions PHC
+	// 3.22361981 hundred million PHC
 	if cdfundBalance, ok = new(big.Int).SetString("322361981000000000000000000", 10); !ok {
 		return nil
 	}
@@ -188,11 +188,11 @@ func getDefaultEMConfig(netId int8) *EconomicModel {
 	case DefaultMainNet:
 		ec = &EconomicModel{
 			Common: commonConfig{
-				MaxEpochMinutes:     uint64(360), // 6 hours
-				NodeBlockTimeWindow: uint64(20),  // 20 seconds
-				PerRoundBlocks:      uint64(10),
+				MaxEpochMinutes:     uint64(36), // 36 minutes
+				NodeBlockTimeWindow: uint64(2),  // 2 seconds
+				PerRoundBlocks:      uint64(1),
 				MaxConsensusVals:    uint64(43),
-				AdditionalCycleTime: uint64(525960),
+				AdditionalCycleTime: uint64(52596),
 			},
 			Staking: stakingConfig{
 				StakeThreshold:          new(big.Int).Set(StakeLowerLimit),
@@ -206,16 +206,16 @@ func getDefaultEMConfig(netId int8) *EconomicModel {
 				SlashFractionDuplicateSign: uint32(10),
 				DuplicateSignReportReward:  uint32(50),
 				MaxEvidenceAge:             uint32(27),
-				SlashBlocksReward:          uint32(2500),
+				SlashBlocksReward:          uint32(250),
 				ZeroProduceCumulativeTime:  uint16(20),
 				ZeroProduceNumberThreshold: uint16(1),
 				ZeroProduceFreezeDuration:  uint64(56),
 			},
 			Gov: governanceConfig{
-				VersionProposalVoteDurationSeconds: uint64(14 * 24 * 3600),
+				VersionProposalVoteDurationSeconds: uint64(14 * 24 * 360),
 				//VersionProposalActive_ConsensusRounds: uint64(5),
 				VersionProposalSupportRate:       6670,
-				TextProposalVoteDurationSeconds:  uint64(14 * 24 * 3600),
+				TextProposalVoteDurationSeconds:  uint64(14 * 24 * 360),
 				TextProposalVoteRate:             5000,
 				TextProposalSupportRate:          6670,
 				CancelProposalVoteRate:           5000,
@@ -227,16 +227,16 @@ func getDefaultEMConfig(netId int8) *EconomicModel {
 			Reward: rewardConfig{
 				NewBlockRate:                 50,
 				PhoenixChainFoundationYear:         10,
-				IncreaseIssuanceRatio:        250,
+				IncreaseIssuanceRatio:        1000,
 				TheNumberOfDelegationsReward: 20,
 			},
 			Restricting: restrictingConfig{
 				MinimumRelease: new(big.Int).Mul(one, new(big.Int).SetInt64(100)),
 			},
 			InnerAcc: innerAccount{
-				PhoenixChainFundAccount: common.StringToAddressWithoutCheck("0xeF7021Fc6227E7D9b29edf434fCdbFfd93Edb173"), //0xaaczrlrzylnanv57map5lndllkf7mvtnd9h8dj
+				PhoenixChainFundAccount: common.StringToAddressWithoutCheck("0xEA93addE2B99fB3eFE7e1979d63cb68941D9B297"),
 				PhoenixChainFundBalance: new(big.Int).SetInt64(0),
-				CDFAccount:        common.StringToAddressWithoutCheck("0x48718b2C338FBa5A8DB2290d01183e0aE36eE5F4"), //0xfpccktpn37a94rdj9yxszxp7pt3kae05j6lr9l
+				CDFAccount:        common.StringToAddressWithoutCheck("0xBA01322472e4f0f1229D1d11de5f812D6B3760A9"),
 				CDFBalance:        new(big.Int).Set(cdfundBalance),
 			},
 		}

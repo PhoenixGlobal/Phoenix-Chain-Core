@@ -16,9 +16,9 @@ import (
 
 	"Phoenix-Chain-Core/libs/common/hexutil"
 
+	"Phoenix-Chain-Core/ethereum/core/types"
 	"Phoenix-Chain-Core/libs/common"
 	"Phoenix-Chain-Core/libs/common/vm"
-	"Phoenix-Chain-Core/ethereum/core/types"
 	"Phoenix-Chain-Core/libs/log"
 	"Phoenix-Chain-Core/libs/rlp"
 	"Phoenix-Chain-Core/pos/restricting"
@@ -161,12 +161,12 @@ func (rp *RestrictingPlugin) InitGenesisRestrictingPlans(statedb xcom.StateDB) e
 		new(big.Int).Mul(big.NewInt(7615018), big.NewInt(1e18)),
 	}
 
-	//initial release from genesis restricting plans(62215742LAT)
+	//initial release from genesis restricting plans(62215742PHC)
 	initialRelease := new(big.Int).Mul(big.NewInt(62215742), big.NewInt(1e18))
 	statedb.SubBalance(xcom.CDFAccount(), initialRelease)
 	statedb.AddBalance(vm.RewardManagerPoolAddr, initialRelease)
 
-	//transfer 259096239LAT from CDFAccount to vm.RestrictingContractAddr
+	//transfer 259096239PHC from CDFAccount to vm.RestrictingContractAddr
 	totalRestrictingPlan := new(big.Int).Mul(big.NewInt(259096239), big.NewInt(1e18))
 	statedb.SubBalance(xcom.CDFAccount(), totalRestrictingPlan)
 	statedb.AddBalance(vm.RestrictingContractAddr, totalRestrictingPlan)

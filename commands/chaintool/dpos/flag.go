@@ -42,4 +42,9 @@ var (
 		Name:  "stakingParams",
 		Usage: "stakingParams file path",
 	}
+
+	govParamsFlag = cli.StringFlag{
+		Name:  "govParams",
+		Usage: "gov file path",
+	}
 )

@@ -6,11 +6,11 @@ import (
 	"fmt"
 	"reflect"
 
+	"Phoenix-Chain-Core/ethereum/core/types"
+	"Phoenix-Chain-Core/ethereum/p2p/discover"
 	"Phoenix-Chain-Core/libs/common"
 	"Phoenix-Chain-Core/libs/common/byteutil"
-	"Phoenix-Chain-Core/ethereum/core/types"
 	"Phoenix-Chain-Core/libs/log"
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
 	"Phoenix-Chain-Core/libs/rlp"
 	"Phoenix-Chain-Core/pos/xcom"
 	gerr "github.com/go-errors/errors"
@@ -73,6 +73,7 @@ func VerifyTxData(input []byte, command map[uint16]interface{}) (cnCode uint16, 
 			params[i] = reflect.ValueOf(byteutil.Bytes2X_CMD[targetType]).Call(inputByte)[0]
 			//fmt.Println("num", i+1, "type", targetType)
 		}
+		log.Debug("Success to Verify PhoenixChain inner contract tx data","fnCode",fnCode,"fn",fn,"params",params)
 		return fnCode, fn, params, nil
 	}
 }

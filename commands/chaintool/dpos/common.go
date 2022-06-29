@@ -74,6 +74,18 @@ func EncodeDPOSStaking(funcType uint16, params *Dpos_1000) ([]byte, common.Addre
 	fmt.Printf("funcType:%d rlp data = %s\n", funcType, hexutil.Encode(data))
 	return data, funcTypeToContractAddress(funcType)
 }
+func EncodeDPOSGov(funcType uint16, params *Dpos_2000) ([]byte, common.Address) {
+	par := buildGovParams(funcType, params)
+	buf := new(bytes.Buffer)
+	err := rlp.Encode(buf, par)
+	if err != nil {
+		panic(fmt.Errorf("encode rlp data fail: %v", err))
+	}
+	data:=buf.Bytes()
+	fmt.Printf("funcType:%d rlp data = %s\n", funcType, hexutil.Encode(data))
+	return data, funcTypeToContractAddress(funcType)
+}
+
 
 func buildParams(funcType uint16, params ...interface{}) [][]byte {
 	var res [][]byte
@@ -124,6 +136,19 @@ func buildStakingParams(funcType uint16, params *Dpos_1000) [][]byte {
 	res = append(res, blsPubKey)
 	res = append(res, blsProof)
 
+	return res
+}
+
+func buildGovParams(funcType uint16, params *Dpos_2000) [][]byte {
+	var res [][]byte
+	res = make([][]byte, 0)
+	fnType, _ := rlp.EncodeToBytes(funcType)
+	res = append(res, fnType)
+
+	verifier, _ := rlp.EncodeToBytes(params.Verifier)
+	pipID, _ := rlp.EncodeToBytes(params.PIPID)
+	res = append(res, verifier)
+	res = append(res, pipID)
 	return res
 }
 
