@@ -1165,7 +1165,9 @@ func (pbft *Pbft) ShouldSeal(curTime time.Time) (bool, error) {
 func (pbft *Pbft) CalCurrentProposer(numValidators int) uint64 {
 	var currentProposer uint64
 	if pbft.IsAddBlockTimeOver(){
-		currentProposer = pbft.state.BlockNumber() % uint64(numValidators)
+		timeOverInterval:=time.Now().Unix()-pbft.state.LastAddBlockNumberTime()-cstate.AddBlockNumberTimeInterval
+		modInt:=(timeOverInterval/cstate.AddBlockNumberTimeInterval)% int64(numValidators)
+		currentProposer = (pbft.state.BlockNumber()+uint64(modInt)) % uint64(numValidators)
 		pbft.log.Debug("CalCurrentProposer,IsAddBlockTimeOver", "old currentProposer",  (pbft.state.BlockNumber()-1) % uint64(numValidators), "new currentProposer", currentProposer)
 	}else {
 		currentProposer = (pbft.state.BlockNumber()-1) % uint64(numValidators)

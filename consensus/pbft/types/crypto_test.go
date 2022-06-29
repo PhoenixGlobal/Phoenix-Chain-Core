@@ -41,7 +41,7 @@ func Test_ViewChangeQC(t *testing.T) {
 	assert.NotEmpty(t, viewChangeQC.String())
 	assert.Equal(t, 2, viewChangeQC.Len())
 	viewChangeQC.AppendQuorumCert(makeViewChangeQuorumCert(2, 4, hash3, 9, 2, 3))
-	assert.NotNil(t, viewChangeQC.EqualAll(2, 3,1))
+	assert.NotNil(t, viewChangeQC.EqualAll(2, 3,0))
 	last := viewChangeQC.QCs[len(viewChangeQC.QCs)-1]
 	copy := last.Copy()
 	assert.NotEmpty(t, copy.String())
