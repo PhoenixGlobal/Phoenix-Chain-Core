@@ -21,6 +21,7 @@ const (
 
 var (
 	config = Config{}
+	RpcUrl="http://127.0.0.1:6789"
 )
 
 type JsonParam struct {

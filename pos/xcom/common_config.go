@@ -51,7 +51,7 @@ const (
 
 	ElectionBasePIP3 = 43
 
-	MainNetECHash = "0x259176769541cdb61bc19806cbf5a3f3489f4829b6b69f804f45f947a0c9c3e9"
+	MainNetECHash = "0x6fed5701753ad15149265a8346b0e32775adcf2eea0545038e0aa7bff6b3e1f3"
 )
 
 var (
@@ -64,8 +64,8 @@ var (
 	DelegateUpperLimit, _ = new(big.Int).SetString("10000000000000000000000", 10)
 
 	// hard code genesis staking balance
-	// 15W PHC
-	GeneStakingAmount, _ = new(big.Int).SetString("150000000000000000000000", 10)
+	// 25W PHC
+	GeneStakingAmount, _ = new(big.Int).SetString("250000000000000000000000", 10)
 
 	// 10W
 	StakeLowerLimit, _ = new(big.Int).SetString("100000000000000000000000", 10)

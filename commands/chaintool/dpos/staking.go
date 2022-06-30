@@ -1,12 +1,12 @@
 package dpos
 
 import (
-	"Phoenix-Chain-Core/commands/chaintool/core"
-	"Phoenix-Chain-Core/configs"
+	"Phoenix-Chain-Core/commands/chaintool/dpos/lib"
 	"Phoenix-Chain-Core/ethereum/node"
 	"Phoenix-Chain-Core/libs/common"
 	"Phoenix-Chain-Core/libs/crypto"
 	"Phoenix-Chain-Core/libs/crypto/bls"
+	"encoding/hex"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -143,7 +143,7 @@ func createStaking(c *cli.Context) error {
 	//}
 
 	keystorePath:=c.String(keystoreFlag.Name)
-	priKey,fromAddress:=getPrivateKey(keystorePath)
+	priKey,_:=getPrivateKey(keystorePath)
 
 	//Load Dpos_1000 from json
 	stakingParams:=c.String(stakingParamsFlag.Name)
@@ -166,29 +166,55 @@ func createStaking(c *cli.Context) error {
 	}
 	dpos_1000.BlsProof=blsProof
 
-	//set Dpos_1000.ProgramVersion and Dpos_1000.ProgramVersionSign
+	//set Dpos_1000.ProgramVersionSign,   ProgramVersion is GenesisVersion
 	nodeKeyPath := c.String(nodeKeyFlag.Name)
 	nodeKey, err := GetNodeKey(nodeKeyPath)
 	if err != nil {
 		return fmt.Errorf("getNodeKey error: %v", err)
 	}
-	programVersion:=configs.GenesisVersion
 	node.GetCryptoHandler().SetPrivateKey(crypto.HexMustToECDSA(nodeKey))
 	versionSign := common.VersionSign{}
-	versionSign.SetBytes(node.GetCryptoHandler().MustSign(programVersion))
+	versionSign.SetBytes(node.GetCryptoHandler().MustSign(dpos_1000.ProgramVersion))
 	fmt.Println("versionSign is ",versionSign.String())
-	dpos_1000.ProgramVersion=programVersion
 	dpos_1000.ProgramVersionSign=versionSign
 	fmt.Println("CreateStaking params dpos_1000 is ",dpos_1000.Amount,dpos_1000.ProgramVersion,dpos_1000)
 
-	//SendRawTransaction
-	configPath:=c.String(configPathFlag.Name)
-	data,to:= EncodeDPOSStaking(1000, &dpos_1000)
-	res, err :=core.SendRawTransactionWithData(configPath,fromAddress,to.String(),0,priKey,data)
-	if err != nil {
-		return err
+	priKeyStr := hex.EncodeToString(crypto.FromECDSA(priKey))
+	keyCredentials,err:=lib.NewCredential(priKeyStr)
+	config := lib.DposMainNetParams
+	sc := lib.NewStakingContract(config, keyCredentials)
+	sp := lib.StakingParam{
+		NodeId:            "0x"+dpos_1000.NodeId.String(),
+		Amount:            dpos_1000.Amount,
+		StakingAmountType: lib.StakingAmountType(dpos_1000.Typ),
+		BenefitAddress:    dpos_1000.BenefitAddress.String(),
+		ExternalId:        dpos_1000.ExternalId,
+		NodeName:          dpos_1000.NodeName,
+		WebSite:           dpos_1000.Website,
+		Details:           dpos_1000.Details,
+		ProcessVersion: lib.ProgramVersion{
+			Version: big.NewInt(int64(dpos_1000.ProgramVersion)),
+			Sign:    dpos_1000.ProgramVersionSign.String(),
+		},
+		BlsPubKey:  "0x"+dpos_1000.BlsPubKey.String(),
+		BlsProof:  "0x"+dpos_1000.BlsProof.String(),
+		RewardPer: big.NewInt(int64(dpos_1000.RewardPer)),
 	}
-	fmt.Println("Staking success,res is ",string(res))
+	fmt.Println("Staking params sp is ",sp)
+	result, err := sc.Staking(sp)
+	if err != nil {
+		return fmt.Errorf("StakingContract.Staking failed: %v", err)
+	}
+	fmt.Println("Staking success,res is ",result)
+
+	////SendRawTransaction
+	//configPath:=c.String(configPathFlag.Name)
+	//data,to:= EncodeDPOSStaking(1000, &dpos_1000)
+	//res, err :=core.SendRawTransactionWithData(configPath,fromAddress,to.String(),0,priKey,data)
+	//if err != nil {
+	//	return err
+	//}
+	//fmt.Println("Staking success,res is ",string(res))
 
 	//client, err := ethclient.Dial(url)
 	//if err != nil {

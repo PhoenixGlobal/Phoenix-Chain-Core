@@ -229,6 +229,6 @@ func GetNonce(addr string) uint64 {
 	res, _ := Send([]string{addr, "latest"}, "phoenixchain_getTransactionCount")
 	response := parseResponse(res)
 	nonce, _ := hexutil.DecodeBig(response.Result)
-	fmt.Println(addr, nonce)
+	fmt.Println("the nonce of "+addr +" is ", nonce)
 	return nonce.Uint64()
 }

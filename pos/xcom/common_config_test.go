@@ -3,6 +3,7 @@ package xcom
 import (
 	"Phoenix-Chain-Core/libs/common"
 	"Phoenix-Chain-Core/libs/rlp"
+	"fmt"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -43,5 +44,6 @@ func TestMainNetHash(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
+	fmt.Println(1111,common.RlpHash(bytes).Hex())
 	assert.True(t, common.RlpHash(bytes).Hex() == MainNetECHash)
 }

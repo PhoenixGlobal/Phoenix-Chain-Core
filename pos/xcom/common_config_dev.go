@@ -1,6 +1,6 @@
-package xcom
-
 // +build testpackage xcom
+
+package xcom
 
 import "Phoenix-Chain-Core/libs/log"
 

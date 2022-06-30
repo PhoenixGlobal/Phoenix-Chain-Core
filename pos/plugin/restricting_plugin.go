@@ -161,8 +161,8 @@ func (rp *RestrictingPlugin) InitGenesisRestrictingPlans(statedb xcom.StateDB) e
 		new(big.Int).Mul(big.NewInt(7615018), big.NewInt(1e18)),
 	}
 
-	//initial release from genesis restricting plans(62215742PHC)
-	initialRelease := new(big.Int).Mul(big.NewInt(62215742), big.NewInt(1e18))
+	//initial release from genesis restricting plans(62265742PHC)
+	initialRelease := new(big.Int).Mul(big.NewInt(62265742), big.NewInt(1e18))
 	statedb.SubBalance(xcom.CDFAccount(), initialRelease)
 	statedb.AddBalance(vm.RewardManagerPoolAddr, initialRelease)
 
