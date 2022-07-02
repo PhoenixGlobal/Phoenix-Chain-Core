@@ -1164,25 +1164,27 @@ func (pbft *Pbft) ShouldSeal(curTime time.Time) (bool, error) {
 
 func (pbft *Pbft) CalCurrentProposer(numValidators int) uint64 {
 	var currentProposer uint64
-	if pbft.IsAddBlockTimeOver(){
-		timeOverInterval:=time.Now().Unix()-pbft.state.LastAddBlockNumberTime()-cstate.AddBlockNumberTimeInterval
-		modInt:=(timeOverInterval/cstate.AddBlockNumberTimeInterval)% int64(numValidators)
-		currentProposer = (pbft.state.BlockNumber()+uint64(modInt)) % uint64(numValidators)
-		pbft.log.Debug("CalCurrentProposer,IsAddBlockTimeOver", "old currentProposer",  (pbft.state.BlockNumber()-1) % uint64(numValidators), "new currentProposer", currentProposer)
-	}else {
-		currentProposer = (pbft.state.BlockNumber()-1) % uint64(numValidators)
-	}
+	//if pbft.IsAddBlockTimeOver(){
+	//	timeOverInterval:=time.Now().Unix()-pbft.state.LastAddBlockNumberTime()-cstate.AddBlockNumberTimeInterval
+	//	modInt:=(timeOverInterval/cstate.AddBlockNumberTimeInterval)% int64(numValidators)
+	//	currentProposer = (pbft.state.BlockNumber()+uint64(modInt)) % uint64(numValidators)
+	//	pbft.log.Debug("CalCurrentProposer,IsAddBlockTimeOver", "old currentProposer",  (pbft.state.BlockNumber()-1) % uint64(numValidators), "new currentProposer", currentProposer)
+	//}else {
+	//	currentProposer = (pbft.state.BlockNumber()-1) % uint64(numValidators)
+	//}
+	currentProposer = (pbft.state.BlockNumber()-1+pbft.state.ViewNumber()/10) % uint64(numValidators)
 	return currentProposer
 }
 
 func (pbft *Pbft) CalCurrentProposerWithBlockNumber(blockNumber uint64,numValidators int) uint64 {
 	var currentProposer uint64
-	if pbft.IsAddBlockTimeOver(){
-		currentProposer = blockNumber % uint64(numValidators)
-		pbft.log.Debug("CalCurrentProposerWithBlockNumber,IsAddBlockTimeOver", "old currentProposer",  (blockNumber-1) % uint64(numValidators), "new currentProposer", currentProposer)
-	}else {
-		currentProposer = (blockNumber-1) % uint64(numValidators)
-	}
+	//if pbft.IsAddBlockTimeOver(){
+	//	currentProposer = blockNumber % uint64(numValidators)
+	//	pbft.log.Debug("CalCurrentProposerWithBlockNumber,IsAddBlockTimeOver", "old currentProposer",  (blockNumber-1) % uint64(numValidators), "new currentProposer", currentProposer)
+	//}else {
+	//	currentProposer = (blockNumber-1) % uint64(numValidators)
+	//}
+	currentProposer = (blockNumber-1+pbft.state.ViewNumber()/10) % uint64(numValidators)
 	return currentProposer
 }
 
