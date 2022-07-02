@@ -911,7 +911,7 @@ func (pbft *Pbft) Protocols() []p2p.Protocol {
 func (pbft *Pbft) NextBaseBlock() *types.Block {
 	result := make(chan *types.Block, 1)
 	pbft.asyncCallCh <- func() {
-		block := pbft.state.HighestExecutedBlock()
+		block := pbft.state.HighestPreCommitQCBlock()
 		pbft.log.Debug("Base block", "hash", block.Hash(), "number", block.Number())
 		result <- block
 	}
