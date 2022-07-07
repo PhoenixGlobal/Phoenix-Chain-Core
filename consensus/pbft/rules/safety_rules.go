@@ -287,7 +287,7 @@ func (r *baseSafetyRules) PrepareBlockRules(block *protocols.PrepareBlock) Safet
 		if (isCommitChild()|| isLockChild()) && acceptViewChangeQC() {
 			return newViewError("need change view")
 		}
-		return newCommonError(fmt.Sprintf("viewNumber higher than local(local:%d, msg:%d)", r.viewState.ViewNumber(), block.ViewNumber))
+		return newFetchError(fmt.Sprintf("viewNumber higher than local(local:%d, msg:%d)", r.viewState.ViewNumber(), block.ViewNumber))
 	}
 
 	// if local epoch and viewNumber is the same with msg
@@ -307,7 +307,7 @@ func (r *baseSafetyRules) PrepareBlockRules(block *protocols.PrepareBlock) Safet
 // 3.Lost more than the time window
 func (r *baseSafetyRules) PrepareVoteRules(vote *protocols.PrepareVote) SafetyError {
 	alreadyQCBlock := func() bool {
-		return r.blockTree.FindBlockByHash(vote.BlockHash) != nil || vote.BlockNumber <= r.viewState.HighestQCBlock().NumberU64()
+		return r.blockTree.FindBlockByHash(vote.BlockHash) != nil || vote.BlockNumber <= r.viewState.HighestPreCommitQCBlock().NumberU64()
 	}
 
 	existsPrepare := func() bool {

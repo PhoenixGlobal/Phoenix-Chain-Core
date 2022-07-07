@@ -782,10 +782,9 @@ func (pbft *Pbft) OnSeal(block *types.Block, results chan<- *types.Block, stop <
 	// When the seal ends, the completion signal will be passed to the goroutine of worker
 	defer func() { complete <- struct{}{} }()
 
-	if pbft.state.HighestExecutedBlock().Hash() != block.ParentHash() {
-		pbft.log.Warn("Futile block cause highest executed block changed", "number", block.Number(), "parentHash", block.ParentHash(),
-			"qcNumber", pbft.state.HighestQCBlock().Number(), "qcHash", pbft.state.HighestQCBlock().Hash(),
-			"executedNumber", pbft.state.HighestExecutedBlock().Number(), "executedHash", pbft.state.HighestExecutedBlock().Hash())
+	if pbft.state.HighestPreCommitQCBlock().Hash() != block.ParentHash() {
+		pbft.log.Warn("Futile block cause highest preCommitQC block changed", "number", block.Number(), "parentHash", block.ParentHash(),
+			"qcNumber", pbft.state.HighestPreCommitQCBlock().Number(), "qcHash", pbft.state.HighestPreCommitQCBlock().Hash())
 		return
 	}
 
@@ -1207,7 +1206,7 @@ func (pbft *Pbft) OnShouldSeal(result chan error) {
 		result <- fmt.Errorf("view timeout: %s", common.Beautiful(pbft.state.Deadline()))
 		return
 	}
-	currentExecutedBlockNumber := pbft.state.HighestExecutedBlock().NumberU64()
+	highestPreCommitQCBlockNumber := pbft.state.HighestPreCommitQCBlock().NumberU64()
 	if !pbft.validatorPool.IsValidator(pbft.state.Epoch(), pbft.config.Option.NodeID) {
 		result <- ErrorNotValidator
 		return
@@ -1233,11 +1232,11 @@ func (pbft *Pbft) OnShouldSeal(result chan error) {
 		return
 	}
 
-	qcBlock := pbft.state.HighestQCBlock()
+	qcBlock := pbft.state.HighestPreCommitQCBlock()
 	_, qc := pbft.blockTree.FindBlockAndQC(qcBlock.Hash(), qcBlock.NumberU64())
-	if pbft.validatorPool.ShouldSwitch(currentExecutedBlockNumber) && qc != nil && qc.Epoch == pbft.state.Epoch() {
-		pbft.log.Debug("New epoch, waiting for view's timeout", "executed", currentExecutedBlockNumber, "index", validator.Index)
-		result <- errors.New("current node not the proposer")
+	if pbft.validatorPool.ShouldSwitch(highestPreCommitQCBlockNumber) && qc != nil && qc.Epoch == pbft.state.Epoch() {
+		pbft.log.Debug("New epoch, waiting for view's timeout", "highestPreCommitQCBlock", highestPreCommitQCBlockNumber, "index", validator.Index)
+		result <- errors.New("new epoch,waiting for view's timeout")
 		return
 	}
 

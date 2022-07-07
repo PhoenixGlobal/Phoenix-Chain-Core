@@ -50,13 +50,6 @@ func (pbft *Pbft) OnPrepareBlock(id string, msg *protocols.PrepareBlock) error {
 			}
 			return err
 		}
-		if err.FetchPrepare() {
-			if pbft.isProposer(msg.Epoch, msg.BlockNum(), msg.ProposalIndex) {
-				pbft.log.Debug("err.FetchPrepare(), prepareBlockFetchRules", "prepare", msg.String())
-				pbft.prepareBlockFetchRules(id, msg)
-			}
-			return err
-		}
 		if err.NewView() {
 			var block *types.Block
 			var qc *ctypes.QuorumCert
@@ -326,7 +319,7 @@ func (pbft *Pbft) insertQCBlock(block *types.Block, qc *ctypes.QuorumCert) {
 
 func (pbft *Pbft) TrySetHighestQCBlock(block *types.Block) {
 	h := pbft.state.HighestQCBlock()
-	if h.NumberU64()<block.NumberU64(){
+	if h.NumberU64()<=block.NumberU64(){
 		pbft.state.SetHighestQCBlock(block)
 	}
 	return
@@ -977,7 +970,7 @@ func (pbft *Pbft) changeView(epoch, viewNumber uint64, block *types.Block, qc *c
 	pbft.clearInvalidBlocks(block)
 	pbft.evPool.Clear(epoch, block.NumberU64())
 	// view change maybe lags behind the other nodes,active sync prepare block
-	pbft.SyncPrepareBlock("", epoch, block.NumberU64(), 0)
+	pbft.SyncPrepareBlock("", epoch, block.NumberU64(), 0,pbft.state.ViewNumber())
 	pbft.log = log.New("epoch", pbft.state.Epoch(), "view", pbft.state.ViewNumber(),"blockNumber",pbft.state.BlockNumber())
 	pbft.log.Info("Success to change view, current view deadline", "deadline", pbft.state.Deadline())
 }
