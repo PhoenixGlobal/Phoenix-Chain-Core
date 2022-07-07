@@ -326,7 +326,7 @@ func (pbft *Pbft) insertQCBlock(block *types.Block, qc *ctypes.QuorumCert) {
 
 func (pbft *Pbft) TrySetHighestQCBlock(block *types.Block) {
 	h := pbft.state.HighestQCBlock()
-	if h.NumberU64()<block.NumberU64(){
+	if h.NumberU64()<=block.NumberU64(){
 		pbft.state.SetHighestQCBlock(block)
 	}
 	return

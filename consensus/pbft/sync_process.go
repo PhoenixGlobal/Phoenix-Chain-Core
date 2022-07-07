@@ -258,7 +258,7 @@ func (pbft *Pbft) preCommitFetchRules(id string, vote *protocols.PreCommit) {
 
 // OnGetPrepareBlock handles the  message type of GetPrepareBlockMsg.
 func (pbft *Pbft) OnGetPrepareBlock(id string, msg *protocols.GetPrepareBlock) error {
-	if msg.Epoch == pbft.state.Epoch() && msg.BlockNumber <= pbft.state.MaxViewBlockNumber() {
+	if msg.Epoch == pbft.state.Epoch() && msg.BlockNumber == pbft.state.BlockNumber()&& msg.ViewNumber == pbft.state.ViewNumber() {
 		prepareBlock := pbft.state.PrepareBlockByIndex(msg.BlockNumber)
 		if prepareBlock != nil {
 			pbft.log.Debug("Send PrepareBlock", "peer", id, "prepareBlock", prepareBlock.String())
@@ -292,8 +292,8 @@ func (pbft *Pbft) OnGetBlockQuorumCert(id string, msg *protocols.GetBlockQuorumC
 // OnBlockQuorumCert handles the message type of BlockQuorumCertMsg.
 func (pbft *Pbft) OnBlockQuorumCert(id string, msg *protocols.BlockQuorumCert) error {
 	pbft.log.Debug("Receive BlockQuorumCert", "peer", id, "msg", msg.String())
-	if msg.BlockQC.Epoch != pbft.state.Epoch() || (msg.BlockQC.BlockNumber != pbft.state.BlockNumber()&&pbft.state.BlockNumber()!=0) {
-		pbft.log.Trace("Receive BlockQuorumCert response failed", "local.epoch", pbft.state.Epoch(), "local.blockNumber", pbft.state.BlockNumber(), "msg", msg.String())
+	if msg.BlockQC.Epoch != pbft.state.Epoch() || (msg.BlockQC.BlockNumber != pbft.state.BlockNumber()&&pbft.state.BlockNumber()!=0) || msg.BlockQC.ViewNumber != pbft.state.ViewNumber(){
+		pbft.log.Trace("Receive BlockQuorumCert response failed", "local.epoch", pbft.state.Epoch(), "local.blockNumber", pbft.state.BlockNumber(),"local.viewNumber", pbft.state.ViewNumber(),  "msg", msg.String())
 		return fmt.Errorf("msg is not match current state")
 	}
 
@@ -348,8 +348,8 @@ func (pbft *Pbft) OnGetBlockPreCommitQuorumCert(id string, msg *protocols.GetBlo
 // OnBlockQuorumCert handles the message type of BlockQuorumCertMsg.
 func (pbft *Pbft) OnBlockPreCommitQuorumCert(id string, msg *protocols.BlockPreCommitQuorumCert) error {
 	pbft.log.Debug("Receive BlockPreCommitQuorumCert", "peer", id, "msg", msg.String())
-	if msg.BlockQC.Epoch != pbft.state.Epoch() || (msg.BlockQC.BlockNumber != pbft.state.BlockNumber()&&pbft.state.BlockNumber()!=0) {
-		pbft.log.Trace("Receive BlockPreCommitQuorumCert response failed", "local.epoch", pbft.state.Epoch(), "local.BlockNumber", pbft.state.BlockNumber(), "msg", msg.String())
+	if msg.BlockQC.Epoch != pbft.state.Epoch() || (msg.BlockQC.BlockNumber != pbft.state.BlockNumber()&&pbft.state.BlockNumber()!=0) || msg.BlockQC.ViewNumber != pbft.state.ViewNumber(){
+		pbft.log.Trace("Receive BlockPreCommitQuorumCert response failed", "local.epoch", pbft.state.Epoch(), "local.BlockNumber", pbft.state.BlockNumber(),"local.ViewNumber", pbft.state.ViewNumber(),  "msg", msg.String())
 		return fmt.Errorf("msg is not match current state")
 	}
 
@@ -460,7 +460,7 @@ func (pbft *Pbft) OnGetQCBlockList(id string, msg *protocols.GetQCBlockList) err
 func (pbft *Pbft) OnGetPrepareVote(id string, msg *protocols.GetPrepareVote) error {
 	pbft.log.Debug("Received message on OnGetPrepareVote", "from", id, "msgHash", msg.MsgHash(), "message", msg.String())
 
-	if msg.Epoch== pbft.state.Epoch() && msg.BlockNumber <= pbft.state.MaxViewVotesNumber(){
+	if msg.Epoch== pbft.state.Epoch() && msg.BlockNumber == pbft.state.BlockNumber()&& msg.ViewNumber == pbft.state.ViewNumber(){
 		// If the block has already QC, that response QC instead of votes.
 		// Avoid the sender spent a lot of time to verifies PrepareVote msg.
 		_, qc := pbft.state.ViewBlockAndQC(msg.BlockNumber)
@@ -500,7 +500,7 @@ func (pbft *Pbft) OnGetPrepareVote(id string, msg *protocols.GetPrepareVote) err
 // PrepareVotes message to the sender.
 func (pbft *Pbft) OnGetPreCommit(id string, msg *protocols.GetPreCommit) error {
 	pbft.log.Debug("Received message on OnGetPreCommit", "from", id, "msgHash", msg.MsgHash(), "message", msg.String())
-	if msg.Epoch== pbft.state.Epoch() && msg.BlockNumber <= pbft.state.MaxViewPreCommitsNumber() {
+	if msg.Epoch== pbft.state.Epoch() && msg.BlockNumber == pbft.state.BlockNumber()&& msg.ViewNumber == pbft.state.ViewNumber() {
 		// If the block has already QC, that response QC instead of votes.
 		// Avoid the sender spent a lot of time to verifies PrepareVote msg.
 		_, qc := pbft.state.ViewBlockAndPreCommitQC(msg.BlockNumber)

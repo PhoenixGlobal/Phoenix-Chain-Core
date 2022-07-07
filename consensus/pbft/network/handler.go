@@ -43,7 +43,7 @@ const (
 	SyncPrepareVoteInterval = 1
 
 	// SyncPreCommitInterval is PreCommit synchronization detection interval.
-	SyncPreCommitInterval = 1500
+	SyncPreCommitInterval = 1100
 
 	// removeBlacklistInterval is remove blacklist detection interval.
 	removeBlacklistInterval = 20

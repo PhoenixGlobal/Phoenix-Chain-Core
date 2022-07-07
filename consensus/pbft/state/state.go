@@ -223,9 +223,9 @@ func (v *viewBlocks) addBlock(block viewBlock) {
 }
 
 func (v *viewBlocks) clear(blockNumber uint64) {
-	//if len(v.Blocks)>=ViewCacheLen{
-	//	v.Blocks = make(map[uint64]viewBlock)
-	//}
+	v.Lock.Lock()
+	defer v.Lock.Unlock()
+	delete(v.Blocks,blockNumber)
 	v.IsProduced=false
 }
 
