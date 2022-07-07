@@ -287,7 +287,7 @@ func (r *baseSafetyRules) PrepareBlockRules(block *protocols.PrepareBlock) Safet
 		if (isCommitChild()|| isLockChild()) && acceptViewChangeQC() {
 			return newViewError("need change view")
 		}
-		return newCommonError(fmt.Sprintf("viewNumber higher than local(local:%d, msg:%d)", r.viewState.ViewNumber(), block.ViewNumber))
+		return newFetchError(fmt.Sprintf("viewNumber higher than local(local:%d, msg:%d)", r.viewState.ViewNumber(), block.ViewNumber))
 	}
 
 	// if local epoch and viewNumber is the same with msg

@@ -50,13 +50,6 @@ func (pbft *Pbft) OnPrepareBlock(id string, msg *protocols.PrepareBlock) error {
 			}
 			return err
 		}
-		if err.FetchPrepare() {
-			if pbft.isProposer(msg.Epoch, msg.BlockNum(), msg.ProposalIndex) {
-				pbft.log.Debug("err.FetchPrepare(), prepareBlockFetchRules", "prepare", msg.String())
-				pbft.prepareBlockFetchRules(id, msg)
-			}
-			return err
-		}
 		if err.NewView() {
 			var block *types.Block
 			var qc *ctypes.QuorumCert

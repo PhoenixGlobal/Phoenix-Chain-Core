@@ -218,7 +218,7 @@ func (h *EngineManager) PartBroadcast(msg types.Message) {
 //
 // Note:
 // 1. message type that need to be forwarded:
-//    PrepareBlockMsg/PrepareVoteMsg/ViewChangeMsg/BlockQuorumCertMsg
+//    PrepareBlockMsg/PrepareVoteMsg/ViewChangeMsg/PreCommitMsg
 // 2. message type that need not to be forwarded:
 //    (Except for the above types, the rest are not forwarded).
 func (h *EngineManager) Forwarding(nodeID string, msg types.Message) error {
@@ -268,7 +268,7 @@ func (h *EngineManager) Forwarding(nodeID string, msg types.Message) error {
 	}
 	// PrepareBlockMsg does not forward, the message will be forwarded using PrepareBlockHash.
 	switch msgType {
-	case protocols.PrepareBlockMsg, protocols.PrepareVoteMsg, protocols.ViewChangeMsg:
+	case protocols.PrepareBlockMsg, protocols.PrepareVoteMsg,protocols.PreCommitMsg, protocols.ViewChangeMsg:
 		err := forward()
 		if err != nil {
 			messageGossipMeter.Mark(1)

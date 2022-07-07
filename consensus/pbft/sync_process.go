@@ -212,8 +212,7 @@ func (pbft *Pbft) prepareBlockFetchRules(id string, pb *protocols.PrepareBlock) 
 
 // Get votes and blocks that are not available locally based on the height of the vote
 func (pbft *Pbft) prepareVoteFetchRules(id string, vote *protocols.PrepareVote) {
-	// Greater than QC+1 means the vote is behind
-	if vote.BlockNumber >= pbft.state.BlockNumber() {
+	if vote.BlockNumber == pbft.state.BlockNumber() && vote.ViewNumber == pbft.state.ViewNumber() {
 		baseBlockNumber:=pbft.state.BlockNumber()
 		b, qc := pbft.state.ViewBlockAndQC(baseBlockNumber)
 		if b == nil {
@@ -221,22 +220,12 @@ func (pbft *Pbft) prepareVoteFetchRules(id string, vote *protocols.PrepareVote) 
 		} else if qc == nil {
 			pbft.SyncBlockQuorumCert(id, b.NumberU64(), b.Hash(), 0)
 		}
-
-		//for i := uint32(0); i <= vote.BlockIndex; i++ {
-		//	b, qc := pbft.state.ViewBlockAndQC(i)
-		//	if b == nil {
-		//		pbft.SyncPrepareBlock(id, pbft.state.Epoch(), pbft.state.BlockNumber(), i)
-		//	} else if qc == nil {
-		//		pbft.SyncBlockQuorumCert(id, b.NumberU64(), b.Hash(), i)
-		//	}
-		//}
 	}
 }
 
 // Get votes and blocks that are not available locally based on the height of the vote
 func (pbft *Pbft) preCommitFetchRules(id string, vote *protocols.PreCommit) {
-	// Greater than QC+1 means the vote is behind
-	if vote.BlockNumber >= pbft.state.BlockNumber() {
+	if vote.BlockNumber == pbft.state.BlockNumber() && vote.ViewNumber == pbft.state.ViewNumber() {
 		baseBlockNumber:=pbft.state.BlockNumber()
 		b, qc := pbft.state.ViewBlockAndPreCommitQC(baseBlockNumber)
 		if b == nil {
@@ -244,15 +233,6 @@ func (pbft *Pbft) preCommitFetchRules(id string, vote *protocols.PreCommit) {
 		} else if qc == nil {
 			pbft.SyncBlockPreCommitQuorumCert(id, b.NumberU64(), b.Hash(), 0)
 		}
-
-		//for i := uint32(0); i <= vote.BlockIndex; i++ {
-		//	b, qc := pbft.state.ViewBlockAndPreCommitQC(i)
-		//	if b == nil {
-		//		pbft.SyncPrepareBlock(id, pbft.state.Epoch(), pbft.state.BlockNumber(), i)
-		//	} else if qc == nil {
-		//		pbft.SyncBlockPreCommitQuorumCert(id, b.NumberU64(), b.Hash(), i)
-		//	}
-		//}
 	}
 }
 
@@ -677,7 +657,7 @@ func (pbft *Pbft) OnLatestStatus(id string, msg *protocols.LatestStatus) error {
 // the block data.
 func (pbft *Pbft) OnPrepareBlockHash(id string, msg *protocols.PrepareBlockHash) error {
 	pbft.log.Debug("Received message OnPrepareBlockHash", "from", id, "msgHash", msg.MsgHash(), "message", msg.String())
-	if msg.Epoch == pbft.state.Epoch() && msg.BlockNumber == pbft.state.BlockNumber() {
+	if msg.Epoch == pbft.state.Epoch() && msg.BlockNumber == pbft.state.BlockNumber()&& msg.ViewNumber == pbft.state.ViewNumber() {
 		block := pbft.state.ViewBlockByIndex(msg.BlockNumber)
 		if block == nil {
 			pbft.network.RemoveMessageHash(id, msg.MsgHash())
