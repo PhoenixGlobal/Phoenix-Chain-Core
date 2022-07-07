@@ -198,7 +198,7 @@ func (pbft *Pbft) prepareBlockFetchRules(id string, pb *protocols.PrepareBlock) 
 		baseBlockNumber:=pbft.state.BlockNumber()
 		b := pbft.state.ViewBlockByIndex(baseBlockNumber)
 		if b == nil {
-			pbft.SyncPrepareBlock(id, pbft.state.Epoch(), baseBlockNumber, 0)
+			pbft.SyncPrepareBlock(id, pbft.state.Epoch(), baseBlockNumber, 0,pbft.state.ViewNumber())
 		}
 
 		//for i := uint32(0); i <= pb.BlockIndex; i++ {
@@ -217,7 +217,7 @@ func (pbft *Pbft) prepareVoteFetchRules(id string, vote *protocols.PrepareVote) 
 		baseBlockNumber:=pbft.state.BlockNumber()
 		b, qc := pbft.state.ViewBlockAndQC(baseBlockNumber)
 		if b == nil {
-			pbft.SyncPrepareBlock(id, pbft.state.Epoch(), baseBlockNumber, 0)
+			pbft.SyncPrepareBlock(id, pbft.state.Epoch(), baseBlockNumber, 0,pbft.state.ViewNumber())
 		} else if qc == nil {
 			pbft.SyncBlockQuorumCert(id, b.NumberU64(), b.Hash(), 0)
 		}
@@ -240,7 +240,7 @@ func (pbft *Pbft) preCommitFetchRules(id string, vote *protocols.PreCommit) {
 		baseBlockNumber:=pbft.state.BlockNumber()
 		b, qc := pbft.state.ViewBlockAndPreCommitQC(baseBlockNumber)
 		if b == nil {
-			pbft.SyncPrepareBlock(id, pbft.state.Epoch(), baseBlockNumber, 0)
+			pbft.SyncPrepareBlock(id, pbft.state.Epoch(), baseBlockNumber, 0,pbft.state.ViewNumber())
 		} else if qc == nil {
 			pbft.SyncBlockPreCommitQuorumCert(id, b.NumberU64(), b.Hash(), 0)
 		}
@@ -681,7 +681,7 @@ func (pbft *Pbft) OnPrepareBlockHash(id string, msg *protocols.PrepareBlockHash)
 		block := pbft.state.ViewBlockByIndex(msg.BlockNumber)
 		if block == nil {
 			pbft.network.RemoveMessageHash(id, msg.MsgHash())
-			pbft.SyncPrepareBlock(id, msg.Epoch, msg.BlockNumber, msg.BlockIndex)
+			pbft.SyncPrepareBlock(id, msg.Epoch, msg.BlockNumber, msg.BlockIndex,msg.ViewNumber)
 		}
 	}
 	return nil
@@ -1107,12 +1107,12 @@ func calAverage(latencyList *list.List) int64 {
 	return 0
 }
 
-func (pbft *Pbft) SyncPrepareBlock(id string, epoch uint64, blockNumber uint64, blockIndex uint32) {
+func (pbft *Pbft) SyncPrepareBlock(id string, epoch uint64, blockNumber uint64, blockIndex uint32,viewNumber uint64) {
 	if msg := pbft.csPool.GetPrepareBlock(epoch, blockNumber, blockIndex); msg != nil {
 		go pbft.ReceiveMessage(msg)
 	}
 	if pbft.syncingCache.AddOrReplace(blockNumber) {
-		msg := &protocols.GetPrepareBlock{Epoch: epoch, BlockNumber: blockNumber, BlockIndex: blockIndex}
+		msg := &protocols.GetPrepareBlock{Epoch: epoch, BlockNumber: blockNumber, BlockIndex: blockIndex,ViewNumber: viewNumber}
 		if id == "" {
 			pbft.network.PartBroadcast(msg)
 			pbft.log.Debug("Send GetPrepareBlock by part broadcast", "msg", msg.String())

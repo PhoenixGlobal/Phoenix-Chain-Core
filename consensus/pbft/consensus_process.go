@@ -977,7 +977,7 @@ func (pbft *Pbft) changeView(epoch, viewNumber uint64, block *types.Block, qc *c
 	pbft.clearInvalidBlocks(block)
 	pbft.evPool.Clear(epoch, block.NumberU64())
 	// view change maybe lags behind the other nodes,active sync prepare block
-	pbft.SyncPrepareBlock("", epoch, block.NumberU64(), 0)
+	pbft.SyncPrepareBlock("", epoch, block.NumberU64(), 0,pbft.state.ViewNumber())
 	pbft.log = log.New("epoch", pbft.state.Epoch(), "view", pbft.state.ViewNumber(),"blockNumber",pbft.state.BlockNumber())
 	pbft.log.Info("Success to change view, current view deadline", "deadline", pbft.state.Deadline())
 }
