@@ -979,15 +979,11 @@ func (pbft *Pbft) changeView(epoch, viewNumber uint64, block *types.Block, qc *c
 func (pbft *Pbft) clearInvalidBlocks(newBlock *types.Block) {
 	var rollback []*types.Block
 	newHead := newBlock.Header()
-	for _, p := range pbft.state.HadSendPrepareVote().Peek() {
-		if p.BlockNumber > newBlock.NumberU64() {
-			block := pbft.state.ViewBlockByIndex(p.BlockNumber)
-			rollback = append(rollback, block)
-		}
-	}
-	for _, p := range pbft.state.PendingPrepareVote().Peek() {
-		if p.BlockNumber > newBlock.NumberU64() {
-			block := pbft.state.ViewBlockByIndex(p.BlockNumber)
+	maxBlockNumber:=pbft.state.MaxViewBlockNumber()
+	highestPreCommitQCBlock:=pbft.state.HighestPreCommitQCBlock()
+	if pbft.state.ViewNumber()>=1 && maxBlockNumber > highestPreCommitQCBlock.NumberU64() {
+		block := pbft.state.ViewBlockByIndex(maxBlockNumber)
+		if block!=nil{
 			rollback = append(rollback, block)
 		}
 	}

@@ -223,9 +223,9 @@ func (v *viewBlocks) addBlock(block viewBlock) {
 }
 
 func (v *viewBlocks) clear(blockNumber uint64) {
-	v.Lock.Lock()
-	defer v.Lock.Unlock()
-	delete(v.Blocks,blockNumber)
+	//v.Lock.Lock()
+	//defer v.Lock.Unlock()
+	//delete(v.Blocks,blockNumber)
 	v.IsProduced=false
 }
 
