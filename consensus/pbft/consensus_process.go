@@ -980,12 +980,12 @@ func (pbft *Pbft) clearInvalidBlocks(newBlock *types.Block) {
 	var rollback []*types.Block
 	newHead := newBlock.Header()
 	maxBlockNumber:=pbft.state.MaxViewBlockNumber()
-	highestPreCommitQCBlock:=pbft.state.HighestPreCommitQCBlock()
-	if pbft.state.ViewNumber()>=1 && maxBlockNumber > highestPreCommitQCBlock.NumberU64() {
+	for pbft.state.ViewNumber()>=1 && maxBlockNumber > newBlock.NumberU64() {
 		block := pbft.state.ViewBlockByIndex(maxBlockNumber)
 		if block!=nil{
 			rollback = append(rollback, block)
 		}
+		maxBlockNumber--
 	}
 	pbft.blockCacheWriter.ClearCache(pbft.state.HighestCommitBlock())
 
