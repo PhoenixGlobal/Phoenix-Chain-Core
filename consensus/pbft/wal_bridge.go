@@ -533,7 +533,7 @@ func (pbft *Pbft) recoveryMsg(msg interface{}) error {
 			}
 
 			//pbft.state.HadSendPrepareVote().Push(m.Vote)
-			pbft.tryAddHadSendVote(m.Vote.BlockNumber-1,m.Vote)
+			pbft.tryAddHadSendVote(m.Vote.BlockNumber,m.Vote)
 			node, _ := pbft.validatorPool.GetValidatorByNodeID(m.Vote.Epoch, pbft.config.Option.NodeID)
 			pbft.state.AddPrepareVote(uint32(node.Index), m.Vote)
 		}
@@ -562,7 +562,7 @@ func (pbft *Pbft) recoveryMsg(msg interface{}) error {
 			}
 
 			//pbft.state.HadSendPreCommit=m.Vote
-			pbft.tryAddHadSendPreCommit(m.Vote.BlockNumber-1,m.Vote)
+			pbft.tryAddHadSendPreCommit(m.Vote.BlockNumber,m.Vote)
 			node, _ := pbft.validatorPool.GetValidatorByNodeID(m.Vote.Epoch, pbft.config.Option.NodeID)
 			pbft.state.AddPreCommit(uint32(node.Index), m.Vote)
 		}
