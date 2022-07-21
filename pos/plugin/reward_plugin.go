@@ -690,7 +690,7 @@ func (rmp *RewardMgrPlugin) CalcEpochReward(blockHash common.Hash, head *types.H
 	if yearStartTime == 0 {
 		yearStartBlockNumber = head.Number.Uint64()
 		yearStartTime = int64(head.Time)
-		if yearStartBlockNumber==0{
+		if yearStartBlockNumber==1||yearStartBlockNumber==0{
 			incIssuanceTime = yearStartTime + int64(xcom.FirstAdditionalCycleTime()*uint64(minutes))
 		}else {
 			incIssuanceTime = yearStartTime + int64(xcom.AdditionalCycleTime()*uint64(minutes))
