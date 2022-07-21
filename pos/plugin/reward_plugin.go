@@ -23,9 +23,9 @@ import (
 
 	"Phoenix-Chain-Core/pos/staking"
 
+	"Phoenix-Chain-Core/ethereum/core/types"
 	"Phoenix-Chain-Core/libs/common"
 	"Phoenix-Chain-Core/libs/common/vm"
-	"Phoenix-Chain-Core/ethereum/core/types"
 	"Phoenix-Chain-Core/libs/log"
 	"Phoenix-Chain-Core/pos/reward"
 	"Phoenix-Chain-Core/pos/xcom"
@@ -646,9 +646,16 @@ func (rmp *RewardMgrPlugin) runIncreaseIssuance(blockHash common.Hash, head *typ
 			log.Error("Failed to execute runIncreaseIssuance function", "currentBlockNumber", head.Number, "currentBlockHash", blockHash.TerminalString(), "err", err)
 			return err
 		}
-		if err := xcom.StorageIncIssuanceTime(blockHash, rmp.db, incIssuanceTime+int64(xcom.AdditionalCycleTime()*uint64(minutes))); nil != err {
-			log.Error("storage incIssuanceTime fail", "currentBlockNumber", head.Number, "currentBlockHash", blockHash.TerminalString(), "err", err)
-			return err
+		if head.Number.Uint64()==0{
+			if err := xcom.StorageIncIssuanceTime(blockHash, rmp.db, incIssuanceTime+int64(xcom.FirstAdditionalCycleTime()*uint64(minutes))); nil != err {
+				log.Error("storage incIssuanceTime fail", "currentBlockNumber", head.Number, "currentBlockHash", blockHash.TerminalString(), "err", err)
+				return err
+			}
+		}else {
+			if err := xcom.StorageIncIssuanceTime(blockHash, rmp.db, incIssuanceTime+int64(xcom.AdditionalCycleTime()*uint64(minutes))); nil != err {
+				log.Error("storage incIssuanceTime fail", "currentBlockNumber", head.Number, "currentBlockHash", blockHash.TerminalString(), "err", err)
+				return err
+			}
 		}
 		remainReward, err := LoadRemainingReward(blockHash, rmp.db)
 		if nil != err {
@@ -683,7 +690,11 @@ func (rmp *RewardMgrPlugin) CalcEpochReward(blockHash common.Hash, head *types.H
 	if yearStartTime == 0 {
 		yearStartBlockNumber = head.Number.Uint64()
 		yearStartTime = int64(head.Time)
-		incIssuanceTime = yearStartTime + int64(xcom.AdditionalCycleTime()*uint64(minutes))
+		if yearStartBlockNumber==0{
+			incIssuanceTime = yearStartTime + int64(xcom.FirstAdditionalCycleTime()*uint64(minutes))
+		}else {
+			incIssuanceTime = yearStartTime + int64(xcom.AdditionalCycleTime()*uint64(minutes))
+		}
 		if err := xcom.StorageIncIssuanceTime(blockHash, rmp.db, incIssuanceTime); nil != err {
 			log.Error("storage incIssuanceTime fail", "currentBlockNumber", head.Number, "currentBlockHash", blockHash.TerminalString(), "err", err)
 			return nil, nil, err

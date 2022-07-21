@@ -618,6 +618,10 @@ func AdditionalCycleTime() uint64 {
 	return ec.Common.AdditionalCycleTime*10
 }
 
+func FirstAdditionalCycleTime() uint64 {
+	return ec.Common.AdditionalCycleTime
+}
+
 func ConsensusSize() uint64 {
 	return BlocksWillCreate() * MaxConsensusVals()
 }
