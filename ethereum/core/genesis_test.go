@@ -1,18 +1,19 @@
 package core
 
 import (
+	"Phoenix-Chain-Core/configs"
 	"testing"
 )
 
 func TestDefaultGenesisBlock(t *testing.T) {
-	//block := DefaultGenesisBlock().ToBlock(nil, nil)
-	//if block.Hash() != params.MainnetGenesisHash {
-	//	t.Errorf("wrong mainnet genesis hash, got %v, want %v", block.Hash().String(), params.MainnetGenesisHash.String())
-	//}
-	//block = DefaultTestnetGenesisBlock().ToBlock(nil, nil)
-	//if block.Hash() != params.TestnetGenesisHash {
-	//	t.Errorf("wrong testnet genesis hash, got %v, want %v", block.Hash().String(), params.TestnetGenesisHash.String())
-	//}
+	block := DefaultGenesisBlock().ToBlock(nil, nil)
+	if block.Hash() != configs.MainnetGenesisHash {
+		t.Errorf("wrong mainnet genesis hash, got %v, want %v", block.Hash().String(), configs.MainnetGenesisHash.String())
+	}
+	block = DefaultTestnetGenesisBlock().ToBlock(nil, nil)
+	if block.Hash() != configs.TestnetGenesisHash {
+		t.Errorf("wrong testnet genesis hash, got %v, want %v", block.Hash().String(), configs.TestnetGenesisHash.String())
+	}
 }
 
 func TestSetupGenesis(t *testing.T) {
