@@ -248,7 +248,7 @@ func getDefaultEMConfig(netId int8) *EconomicModel {
 				NodeBlockTimeWindow: uint64(20),  // 20 seconds
 				PerRoundBlocks:      uint64(10),
 				MaxConsensusVals:    uint64(25),
-				AdditionalCycleTime: uint64(525960),
+				AdditionalCycleTime: uint64(52596),
 			},
 			Staking: stakingConfig{
 				StakeThreshold:          new(big.Int).Set(StakeLowerLimit),
@@ -499,11 +499,11 @@ func CheckEconomicModel() error {
 	}
 
 	// additionalCycle Size, how many epoch duration
-	additionalCycleSize := ec.Common.AdditionalCycleTime * 60 / realEpochDuration
+	additionalCycleSize := ec.Common.AdditionalCycleTime *10 * 60 / realEpochDuration
 	// realAdditionalCycleDuration
 	realAdditionalCycleDuration := additionalCycleSize * realEpochDuration / 60
 
-	log.Info("Call CheckEconomicModel: additional cycle and epoch,", "config additional cycle duration", fmt.Sprintf("%d min", ec.Common.AdditionalCycleTime),
+	log.Info("Call CheckEconomicModel: additional cycle and epoch,", "config additional cycle duration", fmt.Sprintf("%d min", ec.Common.AdditionalCycleTime*10),
 		"real additional cycle duration", fmt.Sprintf("%d min", realAdditionalCycleDuration), "epoch count of additional cycle", additionalCycleSize)
 
 	if additionalCycleSize < 4 {
@@ -615,6 +615,10 @@ func MaxConsensusVals() uint64 {
 }
 
 func AdditionalCycleTime() uint64 {
+	return ec.Common.AdditionalCycleTime*10
+}
+
+func FirstAdditionalCycleTime() uint64 {
 	return ec.Common.AdditionalCycleTime
 }
 
