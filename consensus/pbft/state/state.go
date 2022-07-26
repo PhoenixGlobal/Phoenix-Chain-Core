@@ -18,8 +18,7 @@ import (
 const DefaultEpoch = 1
 const DefaultViewNumber = 0
 
-const NodeLens = 43
-const ViewCacheLen = NodeLens+1
+const ViewCacheLen = 10
 const AddBlockNumberTimeInterval = 8
 
 type PrepareVoteQueue struct {
