@@ -598,7 +598,7 @@ func (pbft *Pbft) executeBlock(block *types.Block, parent *types.Block, index ui
 // if the msg does not belong to the current view or the msg number is smaller than the qc number discard it.
 func (pbft *Pbft) shouldRecovery(msg protocols.WalMsg) (bool, error) {
 	if pbft.higherViewState(msg) {
-		return false, fmt.Errorf("higher view state, curEpoch:%d, curBlockNum:%d, curViewNum:%d, msgEpoch:%d,msgBlockNum:%d, msgViewNum:%d", pbft.state.Epoch(),pbft.state.BlockNumber(), pbft.state.ViewNumber(), msg.Epoch(), msg.BlockNumber(),msg.ViewNumber())
+		return false, nil
 	}
 	if pbft.lowerViewState(msg) {
 		// The state may have reached the automatic switch point, so advance to the next view
@@ -613,7 +613,7 @@ func (pbft *Pbft) shouldRecovery(msg protocols.WalMsg) (bool, error) {
 // if the msg does not belong to the current view or the msg number is smaller than the qc number discard it.
 func (pbft *Pbft) shouldViewChangeRecovery(msg protocols.WalMsg) (bool, error) {
 	if msg.Epoch() > pbft.state.Epoch() || msg.Epoch() == pbft.state.Epoch() && msg.BlockNumber()+1 > pbft.state.BlockNumber()|| msg.Epoch() == pbft.state.Epoch() && msg.BlockNumber()+1 == pbft.state.BlockNumber()&& msg.ViewNumber() > pbft.state.ViewNumber() {
-		return false, fmt.Errorf("higher view state, curEpoch:%d, curBlockNum:%d, curViewNum:%d, msgEpoch:%d,msgBlockNum:%d, msgViewNum:%d", pbft.state.Epoch(),pbft.state.BlockNumber(), pbft.state.ViewNumber(), msg.Epoch(), msg.BlockNumber(),msg.ViewNumber())
+		return false, nil
 	}
 	if msg.Epoch() < pbft.state.Epoch() || msg.Epoch() == pbft.state.Epoch() && msg.BlockNumber()+1 < pbft.state.BlockNumber()|| msg.Epoch() == pbft.state.Epoch() && msg.BlockNumber()+1 == pbft.state.BlockNumber()&& msg.ViewNumber() < pbft.state.ViewNumber(){
 		// The state may have reached the automatic switch point, so advance to the next view
