@@ -2,17 +2,17 @@ package eth
 
 import (
 	"fmt"
-	"Phoenix-Chain-Core/ethereum/eth/downloader"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/eth/downloader"
 	"math/big"
 	"sync"
 	"testing"
 	"time"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/ethereum/core/types"
-	"Phoenix-Chain-Core/libs/crypto"
-	"Phoenix-Chain-Core/ethereum/p2p"
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 )
 
 func init() {

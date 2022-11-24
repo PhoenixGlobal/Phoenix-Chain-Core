@@ -11,12 +11,12 @@ import (
 	"testing"
 	"time"
 
-	"Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
 
 	"github.com/syndtr/goleveldb/leveldb/iterator"
 	"github.com/syndtr/goleveldb/leveldb/util"
 
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 func TestCommitZeroBlock(t *testing.T) {

@@ -1,19 +1,19 @@
 package vm
 
 import (
-	"Phoenix-Chain-Core/libs/crypto/blake2b"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto/blake2b"
 	"crypto/sha256"
 	"encoding/binary"
 	"errors"
 	"math/big"
 
-	"Phoenix-Chain-Core/libs/common/vm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/vm"
 
-	"Phoenix-Chain-Core/configs"
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/common/math"
-	"Phoenix-Chain-Core/libs/crypto"
-	"Phoenix-Chain-Core/libs/crypto/bn256"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/math"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto/bn256"
 	"golang.org/x/crypto/ripemd160"
 )
 

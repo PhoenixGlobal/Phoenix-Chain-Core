@@ -1,6 +1,6 @@
 package bind
 
-import "Phoenix-Chain-Core/ethereum/accounts/abi"
+import "github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts/abi"
 
 // tmplData is the data structure required to fill the binding template.
 type tmplData struct {
@@ -73,12 +73,12 @@ import (
 	"math/big"
 	"strings"
 
-	phoenixchain "Phoenix-Chain-Core"
-	"Phoenix-Chain-Core/accounts/abi"
-	"Phoenix-Chain-Core/accounts/abi/bind"
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/core/types"
-	"Phoenix-Chain-Core/libs/event"
+	phoenixchain "github.com/PhoenixGlobal/Phoenix-Chain-Core"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/accounts/abi"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/accounts/abi/bind"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/event"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.

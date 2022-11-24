@@ -1,8 +1,8 @@
 package consensus
 
 import (
-	"Phoenix-Chain-Core/libs/crypto/bls"
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto/bls"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
 )
 
 type EvidenceType uint8

@@ -6,10 +6,10 @@ import (
 	"encoding/json"
 	"math/big"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/common/hexutil"
-	"Phoenix-Chain-Core/libs/common/math"
-	"Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/hexutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/math"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
 )
 
 var _ = (*btHeaderMarshaling)(nil)

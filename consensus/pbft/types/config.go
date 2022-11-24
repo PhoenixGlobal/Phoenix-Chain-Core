@@ -3,9 +3,9 @@ package types
 import (
 	"crypto/ecdsa"
 
-	"Phoenix-Chain-Core/configs"
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
-	"Phoenix-Chain-Core/libs/crypto/bls"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto/bls"
 )
 
 type OptionsConfig struct {

@@ -9,7 +9,7 @@ import (
 	"math"
 	"reflect"
 
-	"Phoenix-Chain-Core/libs/wagon/exec/internal/compile"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/exec/internal/compile"
 )
 
 type function interface {

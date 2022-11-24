@@ -13,11 +13,11 @@ import (
 	"strings"
 	"sync"
 
-	"Phoenix-Chain-Core/libs/event"
-	"Phoenix-Chain-Core/ethereum/p2p"
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
-	"Phoenix-Chain-Core/ethereum/p2p/simulations/adapters"
-	"Phoenix-Chain-Core/libs/rpc"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/event"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/simulations/adapters"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rpc"
 	"github.com/gorilla/websocket"
 	"github.com/julienschmidt/httprouter"
 )

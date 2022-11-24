@@ -1,8 +1,8 @@
 package web
 
 import (
-	eth2 "Phoenix-Chain-Core/ethereum/eth"
-	"Phoenix-Chain-Core/pos/xcom"
+	eth2 "github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/eth"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/xcom"
 	"bytes"
 	"errors"
 	"fmt"
@@ -12,17 +12,17 @@ import (
 	"testing"
 	"time"
 
-	"Phoenix-Chain-Core/ethereum/core/db/snapshotdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/db/snapshotdb"
 
-	"Phoenix-Chain-Core/ethereum/core"
-	"Phoenix-Chain-Core/libs/crypto/bls"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto/bls"
 
-	"Phoenix-Chain-Core/configs"
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
 
-	"Phoenix-Chain-Core/ethereum/node"
-	"Phoenix-Chain-Core/internal/jsre"
-	_ "Phoenix-Chain-Core/pos/xcom"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/node"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/internal/jsre"
+	_ "github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/xcom"
 )
 
 const (

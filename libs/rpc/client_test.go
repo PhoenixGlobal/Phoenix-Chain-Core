@@ -15,7 +15,7 @@ import (
 	"testing"
 	"time"
 
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 	"github.com/davecgh/go-spew/spew"
 )
 

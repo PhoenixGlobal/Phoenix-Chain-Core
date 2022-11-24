@@ -6,8 +6,8 @@ import (
 	"math/big"
 	"time"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/common/math"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/math"
 )
 
 type JSONLogger struct {

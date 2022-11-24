@@ -5,9 +5,9 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"Phoenix-Chain-Core/consensus/pbft/utils"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/utils"
 
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 func Test_QuorumCert(t *testing.T) {

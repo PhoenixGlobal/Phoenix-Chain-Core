@@ -8,12 +8,12 @@ import (
 	"sync/atomic"
 	"time"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/ethereum/core/db/rawdb"
-	"Phoenix-Chain-Core/ethereum/core/types"
-	"Phoenix-Chain-Core/libs/ethdb"
-	"Phoenix-Chain-Core/libs/event"
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/db/rawdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/ethdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/event"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 )
 
 // ChainIndexerBackend defines the methods needed to process chain segments in

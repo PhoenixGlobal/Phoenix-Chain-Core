@@ -3,7 +3,7 @@ package downloader
 import (
 	"fmt"
 
-	"Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
 )
 
 // peerDropFn is a callback type for dropping a peer detected as malicious.

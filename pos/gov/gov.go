@@ -3,18 +3,18 @@ package gov
 import (
 	"errors"
 	"fmt"
-	"Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
 	"math/big"
 	"strconv"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/common/byteutil"
-	"Phoenix-Chain-Core/libs/log"
-	"Phoenix-Chain-Core/ethereum/node"
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
-	"Phoenix-Chain-Core/pos/staking"
-	"Phoenix-Chain-Core/pos/xcom"
-	"Phoenix-Chain-Core/pos/xutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/byteutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/node"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/staking"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/xcom"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/xutil"
 )
 
 type Staking interface {

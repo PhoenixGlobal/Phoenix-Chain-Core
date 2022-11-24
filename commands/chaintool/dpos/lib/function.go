@@ -1,6 +1,6 @@
 package lib
 
-import "Phoenix-Chain-Core/libs/common"
+import "github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 
 type Function struct {
 	Type        FunctionType

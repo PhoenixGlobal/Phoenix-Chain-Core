@@ -1,7 +1,7 @@
 package network
 
 import (
-	ctpyes "Phoenix-Chain-Core/consensus/pbft/types"
+	ctpyes "github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/types"
 )
 
 // SetSendQueueHook

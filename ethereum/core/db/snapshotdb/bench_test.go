@@ -9,8 +9,8 @@ import (
 	"runtime"
 	"testing"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 )
 
 type valueGen struct {

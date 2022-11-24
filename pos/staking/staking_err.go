@@ -1,6 +1,6 @@
 package staking
 
-import "Phoenix-Chain-Core/libs/common"
+import "github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 
 var (
 	ErrWrongBlsPubKey              = common.NewBizError(301000, "Invalid BLS public key length")

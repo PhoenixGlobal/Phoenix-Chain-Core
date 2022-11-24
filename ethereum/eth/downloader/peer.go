@@ -13,9 +13,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/event"
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/event"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 )
 
 const (

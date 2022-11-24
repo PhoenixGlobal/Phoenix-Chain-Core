@@ -4,7 +4,7 @@
 
 package operators
 
-import "Phoenix-Chain-Core/libs/wagon/wasm"
+import "github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm"
 
 // These opcodes implement optimizations in wagon execution, and are invalid
 // opcodes for any uses other than internal use. Expect them to change at any

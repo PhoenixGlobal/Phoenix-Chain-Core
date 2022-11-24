@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"io"
 
-	"Phoenix-Chain-Core/libs/wagon/wasm/leb128"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm/leb128"
 )
 
 type Marshaler interface {

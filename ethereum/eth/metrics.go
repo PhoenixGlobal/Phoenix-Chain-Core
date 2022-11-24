@@ -1,9 +1,9 @@
 package eth
 
 import (
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/metrics"
-	"Phoenix-Chain-Core/ethereum/p2p"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/metrics"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p"
 )
 
 var (

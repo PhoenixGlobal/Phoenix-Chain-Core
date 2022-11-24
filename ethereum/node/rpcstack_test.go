@@ -7,7 +7,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"Phoenix-Chain-Core/libs/rpc"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rpc"
 )
 
 func TestNewWebsocketUpgradeHandler_websocket(t *testing.T) {

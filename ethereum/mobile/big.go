@@ -6,7 +6,7 @@ import (
 	"errors"
 	"math/big"
 
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 // A BigInt represents a signed multi-precision integer.

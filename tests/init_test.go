@@ -13,7 +13,7 @@ import (
 	"strings"
 	"testing"
 
-	"Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
 )
 
 var (

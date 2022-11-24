@@ -1,16 +1,16 @@
 package eth
 
 import (
-	"Phoenix-Chain-Core/ethereum/eth/downloader"
-	"Phoenix-Chain-Core/ethereum/eth/gasprice"
-	"Phoenix-Chain-Core/ethereum/miner"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/eth/downloader"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/eth/gasprice"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/miner"
 	"math/big"
 	"time"
 
-	"Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
 
-	"Phoenix-Chain-Core/consensus/pbft/types"
-	"Phoenix-Chain-Core/ethereum/core"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core"
 )
 
 // DefaultConfig contains default settings for use on the Ethereum main net.

@@ -14,9 +14,9 @@ import (
 
 	"github.com/pborman/uuid"
 
-	"Phoenix-Chain-Core/ethereum/accounts"
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
 )
 
 const (

@@ -6,8 +6,8 @@ import (
 	"errors"
 	"math/big"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 // NotFound is returned by API methods if the requested item does not exist.

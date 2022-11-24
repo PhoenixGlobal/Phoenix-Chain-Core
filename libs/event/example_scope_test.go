@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sync"
 
-	"Phoenix-Chain-Core/libs/event"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/event"
 )
 
 // This example demonstrates how SubscriptionScope can be used to control the lifetime of

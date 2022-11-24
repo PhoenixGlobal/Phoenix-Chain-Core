@@ -7,11 +7,11 @@ import (
 	"os"
 	"time"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/ethdb"
-	"Phoenix-Chain-Core/libs/ethdb/leveldb"
-	"Phoenix-Chain-Core/libs/ethdb/memorydb"
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/ethdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/ethdb/leveldb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/ethdb/memorydb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 	"github.com/olekukonko/tablewriter"
 )
 

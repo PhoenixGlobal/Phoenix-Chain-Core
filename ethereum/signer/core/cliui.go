@@ -1,7 +1,7 @@
 package core
 
 import (
-	"Phoenix-Chain-Core/internal/ethapi"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/internal/ethapi"
 	"bufio"
 	"fmt"
 	"os"
@@ -9,8 +9,8 @@ import (
 
 	"sync"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 	"github.com/davecgh/go-spew/spew"
 	"golang.org/x/crypto/ssh/terminal"
 )

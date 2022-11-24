@@ -13,7 +13,7 @@ import (
 	"sync"
 	"testing"
 
-	"Phoenix-Chain-Core/libs/common/hexutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/hexutil"
 )
 
 type testEncoder struct {

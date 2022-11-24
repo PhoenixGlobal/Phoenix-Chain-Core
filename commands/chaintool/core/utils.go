@@ -8,8 +8,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"Phoenix-Chain-Core/libs/common/hexutil"
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/hexutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 )
 
 const (

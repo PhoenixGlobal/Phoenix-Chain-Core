@@ -1,7 +1,7 @@
 package rawdb
 
 import (
-	"Phoenix-Chain-Core/libs/ethdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/ethdb"
 )
 
 // table is a wrapper around a database that prefixes each key access with a pre-

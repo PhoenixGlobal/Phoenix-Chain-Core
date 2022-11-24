@@ -3,11 +3,11 @@ package network
 import (
 	"testing"
 
-	"Phoenix-Chain-Core/libs/metrics"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/metrics"
 
-	"Phoenix-Chain-Core/consensus/pbft/protocols"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/protocols"
 
-	"Phoenix-Chain-Core/ethereum/p2p"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p"
 	"github.com/stretchr/testify/assert"
 )
 

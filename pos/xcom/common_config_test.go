@@ -1,8 +1,8 @@
 package xcom
 
 import (
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 	"fmt"
 	"github.com/stretchr/testify/assert"
 	"testing"

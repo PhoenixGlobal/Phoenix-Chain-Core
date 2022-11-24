@@ -3,11 +3,11 @@ package types
 import (
 	"io"
 
-	json2 "Phoenix-Chain-Core/libs/common/json"
+	json2 "github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/json"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/common/hexutil"
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/hexutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 )
 
 //go:generate gencodec -type Log -field-override logMarshaling -out gen_log_json.go

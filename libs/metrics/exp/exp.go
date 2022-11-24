@@ -8,8 +8,8 @@ import (
 	"net/http"
 	"sync"
 
-	"Phoenix-Chain-Core/libs/metrics"
-	"Phoenix-Chain-Core/libs/metrics/prometheus"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/metrics"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/metrics/prometheus"
 )
 
 type exp struct {

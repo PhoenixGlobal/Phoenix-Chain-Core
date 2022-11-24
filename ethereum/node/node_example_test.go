@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"log"
 
-	"Phoenix-Chain-Core/ethereum/node"
-	"Phoenix-Chain-Core/ethereum/p2p"
-	"Phoenix-Chain-Core/libs/rpc"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/node"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rpc"
 )
 
 // SampleService is a trivial network service that can be attached to a node for

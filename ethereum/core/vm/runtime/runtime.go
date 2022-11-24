@@ -6,13 +6,13 @@ import (
 	"math/big"
 	"time"
 
-	"Phoenix-Chain-Core/ethereum/core/db/rawdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/db/rawdb"
 
-	"Phoenix-Chain-Core/configs"
-	"Phoenix-Chain-Core/ethereum/core/state"
-	"Phoenix-Chain-Core/ethereum/core/vm"
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/state"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/vm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
 )
 
 // Config is a basic type specifying certain configuration flags for running

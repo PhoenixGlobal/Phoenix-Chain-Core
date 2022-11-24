@@ -11,12 +11,12 @@ import (
 	"io"
 	"math/big"
 
-	"Phoenix-Chain-Core/ethereum/accounts"
-	"Phoenix-Chain-Core/ethereum/accounts/wallet/internal/trezor"
-	"Phoenix-Chain-Core/ethereum/core/types"
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/common/hexutil"
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts/wallet/internal/trezor"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/hexutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 	"github.com/golang/protobuf/proto"
 )
 

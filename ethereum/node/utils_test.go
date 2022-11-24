@@ -6,8 +6,8 @@ package node
 import (
 	"reflect"
 
-	"Phoenix-Chain-Core/ethereum/p2p"
-	"Phoenix-Chain-Core/libs/rpc"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rpc"
 )
 
 // NoopService is a trivial implementation of the Service interface.

@@ -9,19 +9,19 @@ import (
 	"testing"
 	"time"
 
-	ethereum "Phoenix-Chain-Core"
+	ethereum "github.com/PhoenixGlobal/Phoenix-Chain-Core"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/consensus"
-	"Phoenix-Chain-Core/ethereum/core"
-	"Phoenix-Chain-Core/ethereum/core/bloombits"
-	"Phoenix-Chain-Core/ethereum/core/db/rawdb"
-	"Phoenix-Chain-Core/ethereum/core/types"
-	"Phoenix-Chain-Core/libs/ethdb"
-	"Phoenix-Chain-Core/libs/event"
-	"Phoenix-Chain-Core/configs"
-	"Phoenix-Chain-Core/libs/rpc"
-	_ "Phoenix-Chain-Core/pos/xcom"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/bloombits"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/db/rawdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/ethdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/event"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rpc"
+	_ "github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/xcom"
 )
 
 type testBackend struct {

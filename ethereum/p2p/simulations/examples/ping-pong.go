@@ -9,13 +9,13 @@ import (
 	"sync/atomic"
 	"time"
 
-	"Phoenix-Chain-Core/libs/log"
-	"Phoenix-Chain-Core/ethereum/node"
-	"Phoenix-Chain-Core/ethereum/p2p"
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
-	"Phoenix-Chain-Core/ethereum/p2p/simulations"
-	"Phoenix-Chain-Core/ethereum/p2p/simulations/adapters"
-	"Phoenix-Chain-Core/libs/rpc"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/node"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/simulations"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/simulations/adapters"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rpc"
 )
 
 var adapterType = flag.String("adapter", "sim", `node adapter to use (one of "sim", "exec" or "docker")`)

@@ -3,9 +3,9 @@ package keystore
 import (
 	"math/big"
 
-	ethereum "Phoenix-Chain-Core"
-	"Phoenix-Chain-Core/ethereum/accounts"
-	"Phoenix-Chain-Core/ethereum/core/types"
+	ethereum "github.com/PhoenixGlobal/Phoenix-Chain-Core"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
 )
 
 // keystoreWallet implements the accounts.Wallet interface for the original

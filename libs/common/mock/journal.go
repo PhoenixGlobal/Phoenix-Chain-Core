@@ -4,9 +4,9 @@ import (
 	"golang.org/x/crypto/sha3"
 	"math/big"
 
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 type journalEntry interface {

@@ -7,7 +7,7 @@ package operators
 import (
 	"regexp"
 
-	"Phoenix-Chain-Core/libs/wagon/wasm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm"
 )
 
 var reCvrtOp = regexp.MustCompile(`(.+)\.(?:[a-z]|\_)+\/(.+)`)

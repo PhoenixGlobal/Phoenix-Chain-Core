@@ -7,12 +7,12 @@ import (
 	"sync"
 	"time"
 
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/ethereum/core/state"
-	"Phoenix-Chain-Core/ethereum/core/types"
-	"Phoenix-Chain-Core/ethereum/core/vm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/state"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/vm"
 )
 
 type Result struct {

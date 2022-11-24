@@ -7,7 +7,7 @@ import (
 
 	mapset "github.com/deckarep/golang-set"
 
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 )
 
 const MetadataApi = "rpc"

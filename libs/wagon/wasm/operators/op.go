@@ -9,7 +9,7 @@ package operators
 import (
 	"fmt"
 
-	"Phoenix-Chain-Core/libs/wagon/wasm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm"
 )
 
 var (

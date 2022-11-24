@@ -5,10 +5,10 @@ import (
 
 	"github.com/syndtr/goleveldb/leveldb/iterator"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/ethereum/core/db/snapshotdb"
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/db/snapshotdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 )
 
 type StakingDB struct {

@@ -10,7 +10,7 @@ import (
 	"io"
 	"reflect"
 
-	"Phoenix-Chain-Core/libs/wagon/wasm/internal/readpos"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm/internal/readpos"
 )
 
 var ErrInvalidMagic = errors.New("wasm: Invalid magic number")

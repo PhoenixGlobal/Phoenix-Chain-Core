@@ -7,8 +7,8 @@ import (
 	"fmt"
 	"io"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
 )
 
 // The ABI holds information about a contract's context and available

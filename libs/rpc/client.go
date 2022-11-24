@@ -12,7 +12,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 )
 
 var (

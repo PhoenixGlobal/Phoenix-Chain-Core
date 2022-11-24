@@ -15,9 +15,9 @@ import (
 	"strings"
 	"unsafe"
 
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 
-	"Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
 )
 
 // Init --

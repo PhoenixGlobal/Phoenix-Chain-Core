@@ -39,7 +39,7 @@ import (
 	"math/big"
 	"testing"
 
-	"Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
 )
 
 // Ensure the KDF generates appropriately sized keys.

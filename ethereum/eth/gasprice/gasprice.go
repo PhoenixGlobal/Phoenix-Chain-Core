@@ -1,16 +1,16 @@
 package gasprice
 
 import (
-	"Phoenix-Chain-Core/internal/ethapi"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/internal/ethapi"
 	"context"
 	"math/big"
 	"sort"
 	"sync"
 
-	"Phoenix-Chain-Core/configs"
-	"Phoenix-Chain-Core/ethereum/core/types"
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/rpc"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rpc"
 )
 
 var maxPrice = big.NewInt(500 * configs.GVon)

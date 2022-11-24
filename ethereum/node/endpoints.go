@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"time"
 
-	"Phoenix-Chain-Core/libs/log"
-	"Phoenix-Chain-Core/libs/rpc"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rpc"
 )
 
 // StartHTTPEndpoint starts the HTTP RPC endpoint.

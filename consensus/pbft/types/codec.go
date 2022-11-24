@@ -3,7 +3,7 @@ package types
 import (
 	"errors"
 
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 )
 
 // EncodeExtra encode pbft version and `QuorumCert` as extra data.

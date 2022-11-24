@@ -4,7 +4,7 @@
 package eth
 
 import (
-	"Phoenix-Chain-Core/ethereum/eth/downloader"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/eth/downloader"
 	"crypto/ecdsa"
 	"crypto/rand"
 	"math/big"
@@ -12,21 +12,21 @@ import (
 	"sync"
 	"testing"
 
-	"Phoenix-Chain-Core/ethereum/core/db/rawdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/db/rawdb"
 
-	"Phoenix-Chain-Core/consensus"
-	"Phoenix-Chain-Core/pos/xcom"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/xcom"
 
-	"Phoenix-Chain-Core/configs"
-	"Phoenix-Chain-Core/ethereum/core"
-	"Phoenix-Chain-Core/ethereum/core/types"
-	"Phoenix-Chain-Core/ethereum/p2p"
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/crypto"
-	"Phoenix-Chain-Core/libs/ethdb"
-	"Phoenix-Chain-Core/libs/event"
-	_ "Phoenix-Chain-Core/pos/xcom"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/ethdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/event"
+	_ "github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/xcom"
 )
 
 var (

@@ -7,9 +7,9 @@ import (
 	"math"
 	"strings"
 
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 
-	"Phoenix-Chain-Core/libs/common/hexutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/hexutil"
 )
 
 // API describes the set of methods offered over the RPC interface

@@ -1,14 +1,14 @@
 package eth
 
 import (
-	"Phoenix-Chain-Core/ethereum/eth/downloader"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/eth/downloader"
 	"math/big"
 	"sync/atomic"
 	"testing"
 	"time"
 
-	"Phoenix-Chain-Core/ethereum/p2p"
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
 )
 
 // Tests that fast sync gets disabled as soon as a real block is successfully

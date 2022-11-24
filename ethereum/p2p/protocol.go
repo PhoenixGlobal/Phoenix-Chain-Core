@@ -3,7 +3,7 @@ package p2p
 import (
 	"fmt"
 
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
 )
 
 // Protocol represents a P2P subprotocol implementation.

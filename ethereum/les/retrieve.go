@@ -10,8 +10,8 @@ import (
 	"sync"
 	"time"
 
-	"Phoenix-Chain-Core/libs/common/mclock"
-	"Phoenix-Chain-Core/ethereum/light"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/mclock"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/light"
 )
 
 var (

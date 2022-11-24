@@ -8,7 +8,7 @@ import (
 
 	"github.com/docker/docker/pkg/reexec"
 
-	"Phoenix-Chain-Core/internal/cmdtest"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/internal/cmdtest"
 )
 
 func tmpdir(t *testing.T) string {

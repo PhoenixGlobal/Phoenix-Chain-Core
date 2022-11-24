@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"testing"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/rpc"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rpc"
 )
 
 func TestUnmarshalJSONNewFilterArgs(t *testing.T) {

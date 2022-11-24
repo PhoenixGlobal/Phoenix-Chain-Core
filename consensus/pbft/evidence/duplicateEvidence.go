@@ -4,13 +4,13 @@ import (
 	"bytes"
 	"fmt"
 
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
-	"Phoenix-Chain-Core/libs/crypto/bls"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto/bls"
 
-	"Phoenix-Chain-Core/libs/common/consensus"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/consensus"
 
-	"Phoenix-Chain-Core/libs/crypto"
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 )
 
 const (

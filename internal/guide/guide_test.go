@@ -14,8 +14,8 @@ import (
 	"testing"
 	"time"
 
-	"Phoenix-Chain-Core/ethereum/accounts/keystore"
-	"Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts/keystore"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
 )
 
 // Tests that the account management snippets work correctly.

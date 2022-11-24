@@ -6,11 +6,11 @@ import (
 	"math/big"
 	"testing"
 
-	"Phoenix-Chain-Core/ethereum/core/db/rawdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/db/rawdb"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/ethereum/core/state"
-	"Phoenix-Chain-Core/ethereum/core/vm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/state"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/vm"
 )
 
 type account struct{}

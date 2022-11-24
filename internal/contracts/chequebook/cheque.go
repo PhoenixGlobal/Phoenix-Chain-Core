@@ -9,7 +9,7 @@ package chequebook
 //go:generate go run ./gencode.go
 
 import (
-	contract3 "Phoenix-Chain-Core/internal/contracts/chequebook/contract"
+	contract3 "github.com/PhoenixGlobal/Phoenix-Chain-Core/internal/contracts/chequebook/contract"
 	"bytes"
 	"context"
 	"crypto/ecdsa"
@@ -21,12 +21,12 @@ import (
 	"sync"
 	"time"
 
-	"Phoenix-Chain-Core/ethereum/core/types"
-	"Phoenix-Chain-Core/ethereum/accounts/abi/bind"
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/common/hexutil"
-	"Phoenix-Chain-Core/libs/crypto"
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts/abi/bind"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/hexutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 )
 
 // TODO(zelig): watch peer solvency and notify of bouncing cheques

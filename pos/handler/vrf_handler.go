@@ -8,15 +8,15 @@ import (
 	"math/big"
 	"sync"
 
-	"Phoenix-Chain-Core/pos/gov"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/gov"
 
-	"Phoenix-Chain-Core/ethereum/core/db/snapshotdb"
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/db/snapshotdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/crypto/vrf"
-	"Phoenix-Chain-Core/libs/log"
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto/vrf"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 )
 
 var (

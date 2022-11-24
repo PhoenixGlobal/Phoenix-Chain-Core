@@ -6,7 +6,7 @@ import (
 	"math/big"
 	"testing"
 
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 func TestHexOrDecimal256(t *testing.T) {

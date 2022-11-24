@@ -7,8 +7,8 @@ import (
 
 	"gopkg.in/urfave/cli.v1"
 
-	"Phoenix-Chain-Core/commands/utils"
-	"Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/commands/utils"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
 )
 
 type outputGenkeypair struct {

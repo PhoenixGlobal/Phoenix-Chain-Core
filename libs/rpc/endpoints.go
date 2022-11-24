@@ -4,7 +4,7 @@ import (
 	"net"
 	"strings"
 
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 )
 
 // StartIPCEndpoint starts an IPC endpoint.

@@ -11,7 +11,7 @@ import (
 	"io"
 	"math"
 
-	"Phoenix-Chain-Core/libs/wagon/wasm/leb128"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm/leb128"
 )
 
 const (

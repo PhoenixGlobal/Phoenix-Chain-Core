@@ -6,8 +6,8 @@ import (
 	"testing"
 	"time"
 
-	"Phoenix-Chain-Core/consensus/pbft/protocols"
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/protocols"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 	"github.com/stretchr/testify/assert"
 )
 

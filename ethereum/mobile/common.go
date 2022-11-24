@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"strings"
 
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 // Hash represents the 32 byte Keccak256 hash of arbitrary data.

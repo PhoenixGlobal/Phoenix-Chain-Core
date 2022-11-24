@@ -8,20 +8,20 @@ import (
 	"fmt"
 	"math/big"
 
-	"Phoenix-Chain-Core/ethereum/core/db/rawdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/db/rawdb"
 
-	"Phoenix-Chain-Core/ethereum/core/db/snapshotdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/db/snapshotdb"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/common/hexutil"
-	"Phoenix-Chain-Core/libs/common/math"
-	"Phoenix-Chain-Core/ethereum/core"
-	"Phoenix-Chain-Core/ethereum/core/state"
-	"Phoenix-Chain-Core/ethereum/core/types"
-	"Phoenix-Chain-Core/ethereum/core/vm"
-	"Phoenix-Chain-Core/configs"
-	"Phoenix-Chain-Core/libs/rlp"
-	_ "Phoenix-Chain-Core/pos/xcom"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/hexutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/math"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/state"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/vm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
+	_ "github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/xcom"
 )
 
 // A BlockTest checks handling of entire blocks.

@@ -7,11 +7,11 @@ import (
 	"math/big"
 	"testing"
 
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 	"github.com/stretchr/testify/assert"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/common/mock"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/mock"
 )
 
 func TestWasmRun(t *testing.T) {

@@ -2,15 +2,15 @@ package les
 
 import (
 	"fmt"
-	"Phoenix-Chain-Core/ethereum/eth"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/eth"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/ethereum/core"
-	"Phoenix-Chain-Core/libs/ethdb"
-	"Phoenix-Chain-Core/ethereum/light"
-	"Phoenix-Chain-Core/ethereum/p2p"
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
-	"Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/ethdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/light"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
 )
 
 // lesCommons contains fields needed by both server and client.

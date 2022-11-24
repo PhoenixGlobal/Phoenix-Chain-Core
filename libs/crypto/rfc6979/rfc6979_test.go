@@ -6,7 +6,7 @@ import (
 	"crypto/sha256"
 	"encoding/hex"
 	"fmt"
-	"Phoenix-Chain-Core/libs/crypto/secp256k1"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto/secp256k1"
 	"math/big"
 	"testing"
 )

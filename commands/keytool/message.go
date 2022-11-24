@@ -1,17 +1,17 @@
 package main
 
 import (
-	"Phoenix-Chain-Core/libs/crypto/bls"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto/bls"
 	"encoding/hex"
 	"fmt"
 	"io/ioutil"
 
 	"gopkg.in/urfave/cli.v1"
 
-	"Phoenix-Chain-Core/commands/utils"
-	"Phoenix-Chain-Core/ethereum/accounts/keystore"
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/commands/utils"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts/keystore"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
 )
 
 type outputSign struct {

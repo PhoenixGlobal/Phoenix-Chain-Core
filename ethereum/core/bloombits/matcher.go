@@ -10,8 +10,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"Phoenix-Chain-Core/libs/common/bitutil"
-	"Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/bitutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
 )
 
 // bloomIndexes represents the bit indexes inside the bloom filter that belong

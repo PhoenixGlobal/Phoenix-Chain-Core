@@ -3,8 +3,8 @@ package vm
 import (
 	"math/big"
 
-	"Phoenix-Chain-Core/ethereum/core/types"
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 // StateDB is an EVM database for full state querying.

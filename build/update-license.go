@@ -112,7 +112,7 @@ func (i info) ShortLicense() string {
 
 func (i info) Whole(startOfSentence bool) string {
 	if i.gpl() {
-		return "Phoenix-Chain-Core"
+		return "github.com/PhoenixGlobal/Phoenix-Chain-Core"
 	}
 	if startOfSentence {
 		return "The Phoenix-Chain-Core library"

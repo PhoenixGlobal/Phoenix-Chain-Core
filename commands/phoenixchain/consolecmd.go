@@ -8,10 +8,10 @@ import (
 	"strings"
 	"syscall"
 
-	"Phoenix-Chain-Core/commands/utils"
-	"Phoenix-Chain-Core/ethereum/node"
-	"Phoenix-Chain-Core/libs/rpc"
-	"Phoenix-Chain-Core/web"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/commands/utils"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/node"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rpc"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/web"
 	"gopkg.in/urfave/cli.v1"
 )
 

@@ -2,7 +2,7 @@
 package ethstats
 
 import (
-	eth2 "Phoenix-Chain-Core/ethereum/eth"
+	eth2 "github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/eth"
 	"context"
 	"errors"
 	"fmt"
@@ -14,16 +14,16 @@ import (
 	"strings"
 	"time"
 
-	"Phoenix-Chain-Core/consensus"
-	"Phoenix-Chain-Core/ethereum/core"
-	"Phoenix-Chain-Core/ethereum/core/types"
-	"Phoenix-Chain-Core/ethereum/les"
-	"Phoenix-Chain-Core/ethereum/p2p"
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/common/mclock"
-	"Phoenix-Chain-Core/libs/event"
-	"Phoenix-Chain-Core/libs/log"
-	"Phoenix-Chain-Core/libs/rpc"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/les"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/mclock"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/event"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rpc"
 	"github.com/gorilla/websocket"
 )
 

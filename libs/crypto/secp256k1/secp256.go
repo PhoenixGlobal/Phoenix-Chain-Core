@@ -38,7 +38,7 @@ import (
 	"math/big"
 	"unsafe"
 
-	"Phoenix-Chain-Core/libs/common/math"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/math"
 )
 
 var context *C.secp256k1_context

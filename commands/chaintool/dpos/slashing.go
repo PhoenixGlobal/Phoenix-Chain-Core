@@ -5,7 +5,7 @@ import (
 
 	"gopkg.in/urfave/cli.v1"
 
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
 )
 
 var (

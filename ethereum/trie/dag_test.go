@@ -9,13 +9,13 @@ package trie
 //	"testing"
 //	"time"
 //
-//	"Phoenix-Chain-Core/libs/ethdb/memorydb"
+//	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/ethdb/memorydb"
 //
 //	"github.com/stretchr/testify/assert"
 //
-//	"Phoenix-Chain-Core/libs/common"
-//	"Phoenix-Chain-Core/libs/crypto"
-//	"Phoenix-Chain-Core/libs/rlp"
+//	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+//	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
+//	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 //)
 //
 //func TestTrieDAG2(t *testing.T) {

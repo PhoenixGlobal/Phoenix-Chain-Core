@@ -1,11 +1,11 @@
 package reward
 
 import (
-	"Phoenix-Chain-Core/pos/xutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/xutil"
 
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
 
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 const DelegateRewardPerLength = 1000

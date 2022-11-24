@@ -1,7 +1,7 @@
 package vm
 
 import (
-	"Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
 	"testing"
 )
 

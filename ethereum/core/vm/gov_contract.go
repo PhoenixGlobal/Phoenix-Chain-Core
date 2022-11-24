@@ -3,15 +3,15 @@ package vm
 import (
 	"math/big"
 
-	"Phoenix-Chain-Core/pos/xutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/xutil"
 
-	"Phoenix-Chain-Core/configs"
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/common/vm"
-	"Phoenix-Chain-Core/libs/log"
-	"Phoenix-Chain-Core/pos/gov"
-	"Phoenix-Chain-Core/pos/plugin"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/vm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/gov"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/plugin"
 )
 
 const (

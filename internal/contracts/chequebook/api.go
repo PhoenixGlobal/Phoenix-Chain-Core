@@ -4,7 +4,7 @@ import (
 	"errors"
 	"math/big"
 
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 const Version = "1.0"

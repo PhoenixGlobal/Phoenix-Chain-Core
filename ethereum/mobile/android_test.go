@@ -1,7 +1,7 @@
 package phoenixchain
 
 import (
-	"Phoenix-Chain-Core/internal/build"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/internal/build"
 	"io/ioutil"
 	"os"
 	"os/exec"
@@ -190,7 +190,7 @@ func TestAndroid(t *testing.T) {
 		}
 	}
 	// Generate the mobile bindings for Geth and add the tester class
-	gobind := exec.Command("gomobile", "bind", "-javapkg", "org.ethereum", "Phoenix-Chain-Core/mobile")
+	gobind := exec.Command("gomobile", "bind", "-javapkg", "org.ethereum", "github.com/PhoenixGlobal/Phoenix-Chain-Core/mobile")
 	if output, err := gobind.CombinedOutput(); err != nil {
 		t.Logf("%s", output)
 		t.Fatalf("failed to run gomobile bind: %v", err)

@@ -1,12 +1,12 @@
 package chequebook
 
 import (
-	"Phoenix-Chain-Core/ethereum/core"
-	"Phoenix-Chain-Core/ethereum/accounts/abi/bind"
-	"Phoenix-Chain-Core/ethereum/accounts/abi/bind/backends"
-	"Phoenix-Chain-Core/internal/contracts/chequebook/contract"
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts/abi/bind"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts/abi/bind/backends"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/internal/contracts/chequebook/contract"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
 	"crypto/ecdsa"
 	"math/big"
 	"testing"

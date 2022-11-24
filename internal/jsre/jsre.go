@@ -2,7 +2,7 @@
 package jsre
 
 import (
-	"Phoenix-Chain-Core/internal/jsre/deps"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/internal/jsre/deps"
 	crand "crypto/rand"
 	"encoding/binary"
 	"fmt"
@@ -11,7 +11,7 @@ import (
 	"math/rand"
 	"time"
 
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 	"github.com/robertkrimen/otto"
 )
 

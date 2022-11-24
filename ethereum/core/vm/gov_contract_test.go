@@ -6,22 +6,22 @@ import (
 	"math/big"
 	"testing"
 
-	//"Phoenix-Chain-Core/libs/log"
+	//"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 
-	"Phoenix-Chain-Core/pos/xutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/xutil"
 
-	"Phoenix-Chain-Core/ethereum/node"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/node"
 
 	"github.com/stretchr/testify/assert"
 
-	"Phoenix-Chain-Core/libs/common/mock"
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
-	"Phoenix-Chain-Core/pos/gov"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/mock"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/gov"
 
-	"Phoenix-Chain-Core/libs/common"
-	commonvm "Phoenix-Chain-Core/libs/common/vm"
-	"Phoenix-Chain-Core/pos/plugin"
-	"Phoenix-Chain-Core/pos/xcom"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	commonvm "github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/vm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/plugin"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/xcom"
 )
 
 var (

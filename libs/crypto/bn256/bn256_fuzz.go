@@ -8,8 +8,8 @@ import (
 	"bytes"
 	"math/big"
 
-	cloudflare "Phoenix-Chain-Core/libs/crypto/bn256/cloudflare"
-	google "Phoenix-Chain-Core/libs/crypto/bn256/google"
+	cloudflare "github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto/bn256/cloudflare"
+	google "github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto/bn256/google"
 )
 
 // FuzzAdd fuzzez bn256 addition between the Google and Cloudflare libraries.

@@ -11,16 +11,16 @@ import (
 	"strconv"
 	"strings"
 
-	"Phoenix-Chain-Core/pos/gov"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/gov"
 
-	"Phoenix-Chain-Core/pos/restricting"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/restricting"
 
-	"Phoenix-Chain-Core/pos/slashing"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/slashing"
 
-	"Phoenix-Chain-Core/pos/staking"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/staking"
 
-	"Phoenix-Chain-Core/libs/common/hexutil"
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/hexutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 )
 
 var (

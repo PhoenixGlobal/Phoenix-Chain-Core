@@ -5,7 +5,7 @@ package metrics
 import (
 	"github.com/shirou/gopsutil/cpu"
 
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 )
 
 // ReadCPUStats retrieves the current CPU stats.

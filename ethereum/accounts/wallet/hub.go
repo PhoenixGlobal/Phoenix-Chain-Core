@@ -6,9 +6,9 @@ import (
 	"sync"
 	"time"
 
-	"Phoenix-Chain-Core/ethereum/accounts"
-	"Phoenix-Chain-Core/libs/event"
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/event"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 	"github.com/karalabe/hid"
 )
 

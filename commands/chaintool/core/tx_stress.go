@@ -1,7 +1,7 @@
 package core
 
 import (
-	"Phoenix-Chain-Core/ethereum/eth"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/eth"
 
 	"gopkg.in/urfave/cli.v1"
 )

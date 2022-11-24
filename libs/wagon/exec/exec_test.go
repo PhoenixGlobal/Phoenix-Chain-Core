@@ -18,9 +18,9 @@ import (
 	"strings"
 	"testing"
 
-	"Phoenix-Chain-Core/libs/wagon/exec"
-	"Phoenix-Chain-Core/libs/wagon/validate"
-	"Phoenix-Chain-Core/libs/wagon/wasm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/exec"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/validate"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm"
 )
 
 const (

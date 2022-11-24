@@ -1,8 +1,8 @@
 package gov
 
 import (
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
 )
 
 type TallyResult struct {

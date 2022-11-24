@@ -11,7 +11,7 @@ import (
 	"testing"
 	"time"
 
-	"Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
 )
 
 const (

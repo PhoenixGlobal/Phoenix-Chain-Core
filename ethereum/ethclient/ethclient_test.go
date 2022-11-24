@@ -6,8 +6,8 @@ import (
 	"reflect"
 	"testing"
 
-	phoenixchain "Phoenix-Chain-Core"
-	"Phoenix-Chain-Core/libs/common"
+	phoenixchain "github.com/PhoenixGlobal/Phoenix-Chain-Core"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 // Verify that Client implements the ethereum interfaces.

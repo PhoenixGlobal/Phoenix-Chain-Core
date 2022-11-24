@@ -18,7 +18,7 @@ import (
 	"io"
 	"sort"
 
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 )
 
 const SizeLimit = 300 // maximum encoded size of a node record in bytes

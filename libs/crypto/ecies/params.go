@@ -42,7 +42,7 @@ import (
 	"fmt"
 	"hash"
 
-	ethcrypto "Phoenix-Chain-Core/libs/crypto"
+	ethcrypto "github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
 )
 
 var (

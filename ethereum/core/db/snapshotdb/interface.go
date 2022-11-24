@@ -1,6 +1,6 @@
 package snapshotdb
 
-import "Phoenix-Chain-Core/libs/common"
+import "github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 
 // Putter wraps the database write operation supported by both batches and regular databases.
 type Putter interface {

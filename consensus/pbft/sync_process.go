@@ -6,14 +6,14 @@ import (
 	"sort"
 	"time"
 
-	"Phoenix-Chain-Core/consensus/pbft/state"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/state"
 
-	"Phoenix-Chain-Core/consensus/pbft/network"
-	"Phoenix-Chain-Core/consensus/pbft/protocols"
-	ctypes "Phoenix-Chain-Core/consensus/pbft/types"
-	"Phoenix-Chain-Core/consensus/pbft/utils"
-	"Phoenix-Chain-Core/ethereum/core/types"
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/network"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/protocols"
+	ctypes "github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/utils"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 var syncPrepareVotesInterval = 3 * time.Second

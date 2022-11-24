@@ -7,8 +7,8 @@ import (
 
 	"github.com/influxdata/influxdb/client"
 
-	"Phoenix-Chain-Core/libs/log"
-	"Phoenix-Chain-Core/libs/metrics"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/metrics"
 )
 
 type reporter struct {

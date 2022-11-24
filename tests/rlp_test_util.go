@@ -8,7 +8,7 @@ import (
 	"math/big"
 	"strings"
 
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 )
 
 // RLPTest is the JSON structure of a single RLP test.

@@ -5,8 +5,8 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/consensus/pbft/utils"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/utils"
 )
 
 func TestCodec(t *testing.T) {

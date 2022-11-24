@@ -11,11 +11,11 @@ import (
 
 	"github.com/prometheus/tsdb/fileutil"
 
-	"Phoenix-Chain-Core/configs"
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/ethdb"
-	"Phoenix-Chain-Core/libs/log"
-	"Phoenix-Chain-Core/libs/metrics"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/ethdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/metrics"
 )
 
 var (

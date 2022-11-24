@@ -5,7 +5,7 @@ import (
 	"sync"
 	"time"
 
-	"Phoenix-Chain-Core/libs/common/mclock"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/mclock"
 )
 
 const fcTimeConst = time.Millisecond

@@ -9,28 +9,28 @@ import (
 	"math/big"
 	"testing"
 
-	"Phoenix-Chain-Core/pos/staking"
-	"Phoenix-Chain-Core/pos/xutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/staking"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/xutil"
 
-	"Phoenix-Chain-Core/ethereum/core/types"
-	"Phoenix-Chain-Core/libs/crypto"
-	"Phoenix-Chain-Core/configs"
-	"Phoenix-Chain-Core/pos/gov"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/gov"
 
-	"Phoenix-Chain-Core/ethereum/node"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/node"
 
 	"github.com/stretchr/testify/assert"
 
-	"Phoenix-Chain-Core/libs/common/mock"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/mock"
 
-	"Phoenix-Chain-Core/libs/crypto/bls"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto/bls"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/common/hexutil"
-	"Phoenix-Chain-Core/ethereum/core/db/snapshotdb"
-	"Phoenix-Chain-Core/libs/rlp"
-	"Phoenix-Chain-Core/pos/plugin"
-	"Phoenix-Chain-Core/pos/xcom"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/hexutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/db/snapshotdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/plugin"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/xcom"
 )
 
 func runContractSendTransaction(contract *StakingContract, params [][]byte, title string, t *testing.T) {

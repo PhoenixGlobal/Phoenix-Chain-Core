@@ -1,10 +1,10 @@
 package rules
 
 import (
-	"Phoenix-Chain-Core/consensus/pbft/protocols"
-	"Phoenix-Chain-Core/consensus/pbft/state"
-	ctypes "Phoenix-Chain-Core/consensus/pbft/types"
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/protocols"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/state"
+	ctypes "github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 	"fmt"
 	"github.com/stretchr/testify/assert"
 	"testing"

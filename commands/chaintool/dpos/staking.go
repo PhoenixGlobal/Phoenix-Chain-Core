@@ -1,11 +1,11 @@
 package dpos
 
 import (
-	"Phoenix-Chain-Core/commands/chaintool/dpos/lib"
-	"Phoenix-Chain-Core/ethereum/node"
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/crypto"
-	"Phoenix-Chain-Core/libs/crypto/bls"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/commands/chaintool/dpos/lib"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/node"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto/bls"
 	"encoding/hex"
 	"encoding/json"
 	"errors"
@@ -14,7 +14,7 @@ import (
 	"math/big"
 	"os"
 
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
 	"gopkg.in/urfave/cli.v1"
 )
 

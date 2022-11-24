@@ -11,7 +11,7 @@ import (
 	"path"
 	"strings"
 
-	"Phoenix-Chain-Core/libs/common/math"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/math"
 	"gopkg.in/urfave/cli.v1"
 )
 

@@ -2,7 +2,7 @@ package vm
 
 import (
 	"errors"
-	"Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
 )
 
 type (

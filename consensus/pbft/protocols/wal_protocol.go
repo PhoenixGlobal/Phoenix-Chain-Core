@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"reflect"
 
-	"Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
 
-	ctypes "Phoenix-Chain-Core/consensus/pbft/types"
+	ctypes "github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/types"
 )
 
 const (

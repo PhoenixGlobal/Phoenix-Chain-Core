@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"Phoenix-Chain-Core/commands/utils"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/commands/utils"
 	"gopkg.in/urfave/cli.v1"
 )
 

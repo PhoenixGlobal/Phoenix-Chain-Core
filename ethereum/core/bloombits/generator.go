@@ -3,7 +3,7 @@ package bloombits
 import (
 	"errors"
 
-	"Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
 )
 
 var (

@@ -13,9 +13,9 @@ import (
 
 	mapset "github.com/deckarep/golang-set"
 
-	"Phoenix-Chain-Core/ethereum/accounts"
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 )
 
 // Minimum amount of time between cache reloads. This limit applies if the platform does

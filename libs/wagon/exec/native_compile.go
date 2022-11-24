@@ -9,8 +9,8 @@ import (
 	"fmt"
 	"runtime"
 
-	"Phoenix-Chain-Core/libs/wagon/exec/internal/compile"
-	ops "Phoenix-Chain-Core/libs/wagon/wasm/operators"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/exec/internal/compile"
+	ops "github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm/operators"
 )
 
 // Parameters that decide whether a sequence should be compiled.

@@ -2,19 +2,19 @@
 package miner
 
 import (
-	"Phoenix-Chain-Core/libs/common/hexutil"
-	"Phoenix-Chain-Core/ethereum/eth/downloader"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/hexutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/eth/downloader"
 	"math/big"
 	"sync/atomic"
 	"time"
 
-	"Phoenix-Chain-Core/consensus"
-	"Phoenix-Chain-Core/ethereum/core"
-	"Phoenix-Chain-Core/ethereum/core/state"
-	"Phoenix-Chain-Core/ethereum/core/types"
-	"Phoenix-Chain-Core/libs/event"
-	"Phoenix-Chain-Core/libs/log"
-	"Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/state"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/event"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
 )
 
 // Backend wraps all methods required for mining.

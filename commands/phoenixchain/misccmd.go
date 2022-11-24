@@ -1,9 +1,9 @@
 package main
 
 import (
-	"Phoenix-Chain-Core/commands/utils"
-	"Phoenix-Chain-Core/configs"
-	eth2 "Phoenix-Chain-Core/ethereum/eth"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/commands/utils"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
+	eth2 "github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/eth"
 	"fmt"
 	"gopkg.in/urfave/cli.v1"
 	"os"

@@ -12,8 +12,8 @@ import (
 	"strings"
 	"testing"
 
-	"Phoenix-Chain-Core/libs/wagon/wasm"
-	"Phoenix-Chain-Core/libs/wagon/wast"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wast"
 )
 
 var testPaths = []string{

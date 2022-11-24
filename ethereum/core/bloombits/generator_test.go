@@ -5,7 +5,7 @@ import (
 	"math/rand"
 	"testing"
 
-	"Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
 )
 
 // Tests that batched bloom bits are correctly rotated from the input bloom

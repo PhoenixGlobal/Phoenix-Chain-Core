@@ -7,23 +7,23 @@ import (
 	"math/big"
 	"testing"
 
-	"Phoenix-Chain-Core/pos/staking"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/staking"
 
-	"Phoenix-Chain-Core/ethereum/node"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/node"
 
-	"Phoenix-Chain-Core/libs/crypto/bls"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto/bls"
 
 	"github.com/stretchr/testify/assert"
 
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
 
-	"Phoenix-Chain-Core/pos/xcom"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/xcom"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/common/hexutil"
-	"Phoenix-Chain-Core/ethereum/core/db/snapshotdb"
-	"Phoenix-Chain-Core/libs/rlp"
-	"Phoenix-Chain-Core/pos/plugin"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/hexutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/db/snapshotdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/plugin"
 )
 
 /**

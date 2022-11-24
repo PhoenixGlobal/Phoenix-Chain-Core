@@ -1,6 +1,6 @@
 package gov
 
-import "Phoenix-Chain-Core/libs/common"
+import "github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 
 var (
 	ActiveVersionError                = common.NewBizError(302001, "Current active version not found")

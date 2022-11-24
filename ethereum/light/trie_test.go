@@ -6,13 +6,13 @@ import (
 	"fmt"
 	"testing"
 
-	"Phoenix-Chain-Core/consensus"
-	"Phoenix-Chain-Core/ethereum/core"
-	"Phoenix-Chain-Core/ethereum/core/db/rawdb"
-	"Phoenix-Chain-Core/ethereum/core/state"
-	"Phoenix-Chain-Core/ethereum/core/vm"
-	"Phoenix-Chain-Core/configs"
-	"Phoenix-Chain-Core/ethereum/trie"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/db/rawdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/state"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/vm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/trie"
 	"github.com/davecgh/go-spew/spew"
 )
 

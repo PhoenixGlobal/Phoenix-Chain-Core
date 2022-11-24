@@ -8,8 +8,8 @@ import (
 	"runtime"
 	"testing"
 
-	"Phoenix-Chain-Core/libs/crypto"
-	"Phoenix-Chain-Core/ethereum/p2p"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p"
 )
 
 // Tests that datadirs can be successfully created, be them manually configured

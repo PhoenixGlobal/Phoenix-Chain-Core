@@ -1,7 +1,7 @@
 package vm
 
 import (
-	"Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
 	"bytes"
 	"encoding/json"
 	"fmt"
@@ -9,8 +9,8 @@ import (
 	"io/ioutil"
 	"testing"
 
-	"Phoenix-Chain-Core/configs"
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 type TwoOperandTestcase struct {

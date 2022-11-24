@@ -7,8 +7,8 @@ import (
 	"math/rand"
 	"time"
 
-	"Phoenix-Chain-Core/libs/common/mclock"
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/mclock"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 )
 
 const (

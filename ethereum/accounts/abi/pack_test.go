@@ -11,7 +11,7 @@ import (
 	"strings"
 	"testing"
 
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 // TestPack tests the general pack/unpack tests in packing_test.go

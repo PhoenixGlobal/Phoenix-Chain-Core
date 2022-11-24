@@ -5,11 +5,11 @@ import (
 	"os"
 	"sort"
 
-	"Phoenix-Chain-Core/commands/chaintool/core"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/commands/chaintool/core"
 
 	"gopkg.in/urfave/cli.v1"
 
-	"Phoenix-Chain-Core/commands/chaintool/dpos"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/commands/chaintool/dpos"
 )
 
 var (

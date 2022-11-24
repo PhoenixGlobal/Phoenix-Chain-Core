@@ -6,7 +6,7 @@ import (
 	"hash"
 	"math/big"
 	"crypto/sha256"
-	"Phoenix-Chain-Core/libs/crypto/secp256k1"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto/secp256k1"
 	"crypto/ecdsa"
 )
 

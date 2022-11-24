@@ -7,10 +7,10 @@ import (
 	"testing"
 	"time"
 
-	"Phoenix-Chain-Core/ethereum/p2p"
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
-	"Phoenix-Chain-Core/ethereum/p2p/simulations/adapters"
-	p2ptest "Phoenix-Chain-Core/ethereum/p2p/testing"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/simulations/adapters"
+	p2ptest "github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/testing"
 )
 
 // handshake message type

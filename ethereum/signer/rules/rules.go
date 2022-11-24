@@ -1,17 +1,17 @@
 package rules
 
 import (
-	"Phoenix-Chain-Core/ethereum/signer/core"
-	"Phoenix-Chain-Core/ethereum/signer/rules/deps"
-	"Phoenix-Chain-Core/ethereum/signer/storage"
-	"Phoenix-Chain-Core/internal/ethapi"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/signer/core"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/signer/rules/deps"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/signer/storage"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/internal/ethapi"
 	"encoding/json"
 	"fmt"
 	"os"
 	"strings"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 	"github.com/robertkrimen/otto"
 )
 

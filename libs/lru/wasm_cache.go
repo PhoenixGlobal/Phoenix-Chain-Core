@@ -3,9 +3,9 @@ package lru
 import (
 	"sync"
 
-	"Phoenix-Chain-Core/libs/wagon/exec"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/exec"
 
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 	"github.com/hashicorp/golang-lru/simplelru"
 )
 

@@ -3,13 +3,13 @@ package vm
 import (
 	"bytes"
 	"fmt"
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 
-	"Phoenix-Chain-Core/libs/wagon/exec"
-	"Phoenix-Chain-Core/libs/wagon/validate"
-	"Phoenix-Chain-Core/libs/wagon/wasm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/exec"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/validate"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm"
 )
 
 func ReadWasmModule(Code []byte, verify bool) (*exec.CompiledModule, error) {

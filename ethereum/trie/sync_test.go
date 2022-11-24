@@ -4,9 +4,9 @@ import (
 	"bytes"
 	"testing"
 
-	"Phoenix-Chain-Core/libs/ethdb/memorydb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/ethdb/memorydb"
 
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 // makeTestTrie create a sample test trie to test node-wise reconstruction.

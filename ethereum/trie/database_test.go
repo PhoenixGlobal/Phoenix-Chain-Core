@@ -3,8 +3,8 @@ package trie
 import (
 	"testing"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/ethdb/memorydb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/ethdb/memorydb"
 )
 
 // Tests that the trie database returns a missing trie node error if attempting

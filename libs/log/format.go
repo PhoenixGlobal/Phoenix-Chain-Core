@@ -23,7 +23,7 @@ const (
 
 // locationTrims are trimmed for display to avoid unwieldy log lines.
 var locationTrims = []string{
-	"Phoenix-Chain-Core/",
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/",
 }
 
 // PrintOrigins sets or unsets log location (file:line) printing for terminal

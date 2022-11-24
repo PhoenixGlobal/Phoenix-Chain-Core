@@ -11,9 +11,9 @@ import (
 	"runtime"
 	"testing"
 
-	"Phoenix-Chain-Core/libs/wagon/disasm"
-	"Phoenix-Chain-Core/libs/wagon/exec/internal/compile"
-	ops "Phoenix-Chain-Core/libs/wagon/wasm/operators"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/disasm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/exec/internal/compile"
+	ops "github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm/operators"
 )
 
 func fakeNativeCompiler(t *testing.T) *nativeCompiler {

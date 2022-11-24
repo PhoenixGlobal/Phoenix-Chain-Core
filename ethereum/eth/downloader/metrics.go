@@ -3,7 +3,7 @@
 package downloader
 
 import (
-	"Phoenix-Chain-Core/libs/metrics"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/metrics"
 )
 
 var (

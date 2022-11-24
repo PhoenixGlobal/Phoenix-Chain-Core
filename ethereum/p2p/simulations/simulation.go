@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
 )
 
 // Simulation provides a framework for running actions in a simulated network

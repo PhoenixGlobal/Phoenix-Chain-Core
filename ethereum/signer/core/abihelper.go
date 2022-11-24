@@ -6,8 +6,8 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"Phoenix-Chain-Core/ethereum/accounts/abi"
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts/abi"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 
 	"bytes"
 	"os"

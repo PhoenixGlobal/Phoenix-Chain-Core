@@ -6,7 +6,7 @@ package phoenixchain
 import (
 	"errors"
 
-	"Phoenix-Chain-Core/ethereum/p2p/discv5"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discv5"
 )
 
 // Enode represents a host on the network.

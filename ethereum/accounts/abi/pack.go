@@ -6,8 +6,8 @@ import (
 	"math/big"
 	"reflect"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/common/math"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/math"
 )
 
 // packBytesSlice packs the given bytes as [L, V] as the canonical representation

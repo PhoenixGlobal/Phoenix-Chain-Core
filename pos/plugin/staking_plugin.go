@@ -1,7 +1,7 @@
 package plugin
 
 import (
-	"Phoenix-Chain-Core/ethereum/core/types/pbfttypes"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types/pbfttypes"
 	"bytes"
 	"encoding/hex"
 	"errors"
@@ -12,27 +12,27 @@ import (
 	"strconv"
 	"sync"
 
-	"Phoenix-Chain-Core/pos/reward"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/reward"
 
-	"Phoenix-Chain-Core/libs/common/math"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/math"
 
-	"Phoenix-Chain-Core/pos/handler"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/handler"
 
-	"Phoenix-Chain-Core/libs/common/hexutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/hexutil"
 
-	"Phoenix-Chain-Core/pos/gov"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/gov"
 
-	"Phoenix-Chain-Core/ethereum/core/db/snapshotdb"
-	"Phoenix-Chain-Core/ethereum/core/types"
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/common/vm"
-	"Phoenix-Chain-Core/libs/crypto/vrf"
-	"Phoenix-Chain-Core/libs/event"
-	"Phoenix-Chain-Core/libs/log"
-	"Phoenix-Chain-Core/pos/staking"
-	"Phoenix-Chain-Core/pos/xcom"
-	"Phoenix-Chain-Core/pos/xutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/db/snapshotdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/vm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto/vrf"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/event"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/staking"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/xcom"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/xutil"
 )
 
 type StakingPlugin struct {

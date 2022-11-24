@@ -1,10 +1,10 @@
 package core
 
 import (
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/ethereum/core/types"
-	dag3 "Phoenix-Chain-Core/libs/dag"
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
+	dag3 "github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/dag"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 )
 
 type TxDag struct {

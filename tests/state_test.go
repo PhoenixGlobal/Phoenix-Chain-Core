@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"testing"
 
-	"Phoenix-Chain-Core/ethereum/core/vm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/vm"
 )
 
 func TestState(t *testing.T) {

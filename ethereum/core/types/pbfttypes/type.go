@@ -1,7 +1,7 @@
 package pbfttypes
 
 import (
-	"Phoenix-Chain-Core/libs/common/hexutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/hexutil"
 	"bytes"
 	"crypto/ecdsa"
 	"encoding/json"
@@ -11,14 +11,14 @@ import (
 	"math/big"
 	"sort"
 
-	"Phoenix-Chain-Core/consensus/pbft/protocols"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/protocols"
 
-	"Phoenix-Chain-Core/consensus/pbft/utils"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/utils"
 
-	"Phoenix-Chain-Core/ethereum/core/types"
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/crypto/bls"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto/bls"
 )
 
 // Block's Signature info

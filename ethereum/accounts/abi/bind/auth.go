@@ -1,16 +1,16 @@
 package bind
 
 import (
-	"Phoenix-Chain-Core/ethereum/accounts"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts"
 	"crypto/ecdsa"
 	"errors"
 	"io"
 	"io/ioutil"
 
-	"Phoenix-Chain-Core/ethereum/accounts/keystore"
-	"Phoenix-Chain-Core/ethereum/core/types"
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts/keystore"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
 )
 
 // NewTransactor is a utility method to easily create a transaction signer from

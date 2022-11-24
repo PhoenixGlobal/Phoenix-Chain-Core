@@ -9,9 +9,9 @@ import (
 	"testing"
 	"time"
 
-	"Phoenix-Chain-Core/libs/crypto"
-	"Phoenix-Chain-Core/ethereum/p2p"
-	"Phoenix-Chain-Core/libs/rpc"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rpc"
 	"gotest.tools/assert"
 )
 

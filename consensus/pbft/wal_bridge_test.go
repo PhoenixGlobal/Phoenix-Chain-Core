@@ -7,16 +7,16 @@ import (
 	"testing"
 	"time"
 
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 
-	"Phoenix-Chain-Core/consensus/pbft/utils"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/utils"
 
-	ctypes "Phoenix-Chain-Core/consensus/pbft/types"
-	"Phoenix-Chain-Core/consensus/pbft/wal"
+	ctypes "github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/wal"
 
-	"Phoenix-Chain-Core/consensus/pbft/protocols"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/protocols"
 
-	"Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
 
 	"github.com/stretchr/testify/assert"
 )

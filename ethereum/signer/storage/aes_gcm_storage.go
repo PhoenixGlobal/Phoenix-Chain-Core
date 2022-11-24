@@ -9,7 +9,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 )
 
 type storedCredential struct {

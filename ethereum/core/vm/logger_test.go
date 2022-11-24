@@ -2,16 +2,16 @@ package vm
 
 import (
 	"bytes"
-	"Phoenix-Chain-Core/libs/common/mock"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/mock"
 	"github.com/holiman/uint256"
 	"math/big"
 	"strings"
 	"testing"
 
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
 )
 
 type dummyContractRef struct {

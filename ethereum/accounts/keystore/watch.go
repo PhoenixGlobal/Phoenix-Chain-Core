@@ -5,7 +5,7 @@ package keystore
 import (
 	"time"
 
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 	"github.com/rjeczalik/notify"
 )
 

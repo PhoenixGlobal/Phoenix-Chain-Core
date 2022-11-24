@@ -2,7 +2,7 @@
 package tracers
 
 import (
-	"Phoenix-Chain-Core/ethereum/eth/tracers/internal/tracers"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/eth/tracers/internal/tracers"
 	"strings"
 	"unicode"
 )

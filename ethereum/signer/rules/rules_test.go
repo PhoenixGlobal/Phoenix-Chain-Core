@@ -1,18 +1,18 @@
 package rules
 
 import (
-	core2 "Phoenix-Chain-Core/ethereum/signer/core"
-	"Phoenix-Chain-Core/ethereum/signer/storage"
-	"Phoenix-Chain-Core/internal/ethapi"
+	core2 "github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/signer/core"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/signer/storage"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/internal/ethapi"
 	"fmt"
 	"math/big"
 	"strings"
 	"testing"
 
-	"Phoenix-Chain-Core/ethereum/accounts"
-	"Phoenix-Chain-Core/ethereum/core/types"
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/common/hexutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/hexutil"
 )
 
 const JS = `

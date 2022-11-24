@@ -1,7 +1,7 @@
 package main
 
 import (
-	"Phoenix-Chain-Core/ethereum/accounts/abi"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts/abi"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -12,12 +12,12 @@ import (
 
 	"gopkg.in/urfave/cli.v1"
 
-	"Phoenix-Chain-Core/commands/utils"
-	"Phoenix-Chain-Core/ethereum/accounts/abi/bind"
-	"Phoenix-Chain-Core/internal/flags"
-	"Phoenix-Chain-Core/libs/common/compiler"
-	"Phoenix-Chain-Core/libs/crypto"
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/commands/utils"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts/abi/bind"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/internal/flags"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/compiler"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 )
 
 var (

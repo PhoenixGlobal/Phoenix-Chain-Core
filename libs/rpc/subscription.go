@@ -14,7 +14,7 @@ import (
 	"sync"
 	"time"
 
-	json2 "Phoenix-Chain-Core/libs/common/json"
+	json2 "github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/json"
 )
 
 var (

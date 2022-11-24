@@ -8,9 +8,9 @@ import (
 	"sync"
 	"time"
 
-	"Phoenix-Chain-Core/libs/log"
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
-	"Phoenix-Chain-Core/ethereum/p2p/simulations/adapters"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/simulations/adapters"
 )
 
 //a map of mocker names to its function

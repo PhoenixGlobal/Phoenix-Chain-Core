@@ -6,13 +6,13 @@ import (
 	"path"
 	"sort"
 
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 
 	"github.com/syndtr/goleveldb/leveldb"
 
 	"github.com/syndtr/goleveldb/leveldb/util"
 
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 func getBaseDBPath(dbpath string) string {

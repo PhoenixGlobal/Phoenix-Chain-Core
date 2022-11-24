@@ -7,7 +7,7 @@ import (
 	"regexp"
 	"time"
 
-	"Phoenix-Chain-Core/libs/metrics"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/metrics"
 )
 
 // a regexp for extracting the unit from time.Duration.String

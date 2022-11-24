@@ -9,13 +9,13 @@ import (
 	"net"
 	"os"
 
-	"Phoenix-Chain-Core/commands/utils"
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
-	"Phoenix-Chain-Core/ethereum/p2p/discv5"
-	"Phoenix-Chain-Core/ethereum/p2p/nat"
-	"Phoenix-Chain-Core/ethereum/p2p/netutil"
-	"Phoenix-Chain-Core/libs/crypto"
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/commands/utils"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discv5"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/nat"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/netutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 )
 
 func main() {

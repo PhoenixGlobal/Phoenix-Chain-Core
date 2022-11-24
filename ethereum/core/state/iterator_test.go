@@ -2,11 +2,11 @@ package state
 
 import (
 	"bytes"
-	"Phoenix-Chain-Core/libs/common/vm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/vm"
 	"testing"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/ethdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/ethdb"
 )
 
 var TestPhoenixChainPrecompiledContracts = map[common.Address]interface{}{

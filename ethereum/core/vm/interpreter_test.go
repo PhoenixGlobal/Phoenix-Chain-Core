@@ -5,10 +5,10 @@ import (
 	"math/big"
 	"testing"
 
-	"Phoenix-Chain-Core/libs/common/mock"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/mock"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
 )
 
 type account struct{}

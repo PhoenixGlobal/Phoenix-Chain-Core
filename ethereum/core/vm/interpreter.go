@@ -5,8 +5,8 @@ import (
 	"hash"
 	"sync/atomic"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/common/math"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/math"
 )
 
 // Config are the configuration options for the Interpreter

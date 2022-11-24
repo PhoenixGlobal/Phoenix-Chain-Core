@@ -9,7 +9,7 @@ package exec
 import (
 	"encoding/binary"
 
-	"Phoenix-Chain-Core/libs/wagon/exec/internal/compile"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/exec/internal/compile"
 )
 
 func init() {

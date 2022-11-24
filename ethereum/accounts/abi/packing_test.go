@@ -3,7 +3,7 @@ package abi
 import (
 	"math/big"
 
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 type packUnpackTest struct {

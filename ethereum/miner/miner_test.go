@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"Phoenix-Chain-Core/consensus"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -5,10 +5,10 @@ import (
 	"math/big"
 	"testing"
 
-	ethereum "Phoenix-Chain-Core"
-	"Phoenix-Chain-Core/ethereum/accounts/abi"
-	"Phoenix-Chain-Core/ethereum/accounts/abi/bind"
-	"Phoenix-Chain-Core/libs/common"
+	ethereum "github.com/PhoenixGlobal/Phoenix-Chain-Core"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts/abi"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts/abi/bind"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 type mockCaller struct {

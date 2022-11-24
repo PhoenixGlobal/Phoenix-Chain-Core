@@ -3,8 +3,8 @@ package les
 import (
 	"time"
 
-	"Phoenix-Chain-Core/libs/common/bitutil"
-	"Phoenix-Chain-Core/ethereum/light"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/bitutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/light"
 )
 
 const (

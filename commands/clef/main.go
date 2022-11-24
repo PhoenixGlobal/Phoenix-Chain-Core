@@ -1,9 +1,9 @@
 package main
 
 import (
-	core2 "Phoenix-Chain-Core/ethereum/signer/core"
-	"Phoenix-Chain-Core/ethereum/signer/rules"
-	"Phoenix-Chain-Core/ethereum/signer/storage"
+	core2 "github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/signer/core"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/signer/rules"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/signer/storage"
 	"bufio"
 	"context"
 	"crypto/rand"
@@ -20,12 +20,12 @@ import (
 	"runtime"
 	"strings"
 
-	"Phoenix-Chain-Core/commands/utils"
-	"Phoenix-Chain-Core/ethereum/node"
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/crypto"
-	"Phoenix-Chain-Core/libs/log"
-	"Phoenix-Chain-Core/libs/rpc"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/commands/utils"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/node"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rpc"
 	"gopkg.in/urfave/cli.v1"
 )
 

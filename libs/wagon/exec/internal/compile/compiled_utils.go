@@ -3,8 +3,8 @@ package compile
 import (
 	"bytes"
 	"encoding/binary"
-	"Phoenix-Chain-Core/libs/wagon/disasm"
-	ops "Phoenix-Chain-Core/libs/wagon/wasm/operators"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/disasm"
+	ops "github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm/operators"
 )
 
 //func CompileWithTable(disassembly []disasm.Instr) ([]byte, []*BranchTable) {

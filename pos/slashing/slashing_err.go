@@ -1,6 +1,6 @@
 package slashing
 
-import "Phoenix-Chain-Core/libs/common"
+import "github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 
 var (
 	ErrDuplicateSignVerify = common.NewBizError(303000, "Double-signning verification failed")

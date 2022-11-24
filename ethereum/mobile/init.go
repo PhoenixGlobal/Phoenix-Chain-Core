@@ -6,7 +6,7 @@ import (
 	"os"
 	"runtime"
 
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 )
 
 func init() {

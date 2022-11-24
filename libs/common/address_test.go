@@ -8,7 +8,7 @@ import (
 	"reflect"
 	"testing"
 
-	json2 "Phoenix-Chain-Core/libs/common/json"
+	json2 "github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/json"
 )
 
 //func TestEmptyAddress(t *testing.T) {

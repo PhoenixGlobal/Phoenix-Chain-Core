@@ -7,7 +7,7 @@ import (
 	"os"
 	"runtime/trace"
 
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 )
 
 // StartGoTrace turns on tracing, writing to the given file.

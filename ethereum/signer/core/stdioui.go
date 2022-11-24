@@ -1,12 +1,12 @@
 package core
 
 import (
-	"Phoenix-Chain-Core/internal/ethapi"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/internal/ethapi"
 	"context"
 	"sync"
 
-	"Phoenix-Chain-Core/libs/log"
-	"Phoenix-Chain-Core/libs/rpc"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rpc"
 )
 
 type StdIOUI struct {

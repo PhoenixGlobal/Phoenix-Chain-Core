@@ -14,8 +14,8 @@ import (
 	"text/template"
 	"unicode"
 
-	"Phoenix-Chain-Core/ethereum/accounts/abi"
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts/abi"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 )
 
 // Lang is a target programming language selector to generate bindings for.

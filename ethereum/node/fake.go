@@ -3,7 +3,7 @@ package node
 import (
 	"crypto/ecdsa"
 
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
 )
 
 var FakeNetEnable bool = false

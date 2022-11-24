@@ -1,4 +1,4 @@
-module Phoenix-Chain-Core
+module github.com/PhoenixGlobal/Phoenix-Chain-Core
 
 go 1.16
 

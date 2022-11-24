@@ -3,10 +3,10 @@ package rpc_test
 import (
 	"context"
 	"fmt"
-	"Phoenix-Chain-Core/libs/common/hexutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/hexutil"
 	"time"
 
-	"Phoenix-Chain-Core/libs/rpc"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rpc"
 )
 
 // In this example, our client wishes to track the latest 'block number'

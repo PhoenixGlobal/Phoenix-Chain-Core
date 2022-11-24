@@ -3,7 +3,7 @@ package restricting
 import (
 	"math/big"
 
-	"Phoenix-Chain-Core/libs/common/hexutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/hexutil"
 )
 
 // for genesis and plugin test

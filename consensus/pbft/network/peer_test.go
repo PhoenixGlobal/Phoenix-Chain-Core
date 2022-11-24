@@ -9,16 +9,16 @@ import (
 	"testing"
 	"time"
 
-	"Phoenix-Chain-Core/consensus/pbft/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/types"
 
-	"Phoenix-Chain-Core/consensus/pbft/protocols"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/protocols"
 
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 
 	"github.com/stretchr/testify/assert"
 
-	"Phoenix-Chain-Core/ethereum/p2p"
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
 )
 
 func Test_NewPeer(t *testing.T) {

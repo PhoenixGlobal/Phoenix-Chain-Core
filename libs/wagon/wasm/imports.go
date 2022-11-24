@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"io"
 
-	"Phoenix-Chain-Core/libs/wagon/wasm/leb128"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm/leb128"
 )
 
 // Import is an interface implemented by types that can be imported by a WebAssembly module.

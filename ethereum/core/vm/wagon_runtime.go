@@ -7,16 +7,16 @@ import (
 
 	"golang.org/x/crypto/ripemd160"
 
-	"Phoenix-Chain-Core/ethereum/core/types"
-	"Phoenix-Chain-Core/libs/common"
-	imath "Phoenix-Chain-Core/libs/common/math"
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	imath "github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/math"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 
-	"Phoenix-Chain-Core/libs/wagon/exec"
-	"Phoenix-Chain-Core/libs/wagon/wasm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/exec"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm"
 
-	"Phoenix-Chain-Core/configs"
-	"Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
 
 	"math/big"
 	"reflect"

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
 )
 
 // Forks table defines supported forks and their chain config.

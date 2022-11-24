@@ -4,7 +4,7 @@ package p2p
 import (
 	"crypto/ecdsa"
 	"errors"
-	"Phoenix-Chain-Core/ethereum/core/types/pbfttypes"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types/pbfttypes"
 	"golang.org/x/crypto/sha3"
 	"math/big"
 	"math/rand"
@@ -13,15 +13,15 @@ import (
 	"sync/atomic"
 	"time"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/common/mclock"
-	"Phoenix-Chain-Core/libs/crypto/bls"
-	"Phoenix-Chain-Core/libs/event"
-	"Phoenix-Chain-Core/libs/log"
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
-	"Phoenix-Chain-Core/ethereum/p2p/discv5"
-	"Phoenix-Chain-Core/ethereum/p2p/nat"
-	"Phoenix-Chain-Core/ethereum/p2p/netutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/mclock"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto/bls"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/event"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discv5"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/nat"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/netutil"
 )
 
 const (

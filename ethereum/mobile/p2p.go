@@ -5,7 +5,7 @@ package phoenixchain
 import (
 	"errors"
 
-	"Phoenix-Chain-Core/ethereum/p2p"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p"
 )
 
 // NodeInfo represents pi short summary of the information known about the host.

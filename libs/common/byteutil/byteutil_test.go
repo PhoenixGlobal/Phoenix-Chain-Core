@@ -4,17 +4,17 @@ import (
 	"math/big"
 	"testing"
 
-	"Phoenix-Chain-Core/pos/restricting"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/restricting"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/consensus/pbft/utils"
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/utils"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
 
-	"Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
 
 	"github.com/stretchr/testify/assert"
 
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 )
 
 func TestBytesToString(t *testing.T) {

@@ -14,9 +14,9 @@ import (
 	"os"
 	"sort"
 
-	"Phoenix-Chain-Core/libs/wagon/disasm"
-	"Phoenix-Chain-Core/libs/wagon/wasm"
-	"Phoenix-Chain-Core/libs/wagon/wasm/leb128"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/disasm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm/leb128"
 )
 
 // TODO: track the number of imported funcs,memories,tables and globals to adjust

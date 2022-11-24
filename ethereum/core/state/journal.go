@@ -3,7 +3,7 @@ package state
 import (
 	"math/big"
 
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 // journalEntry is a modification entry in the state change journal that can be

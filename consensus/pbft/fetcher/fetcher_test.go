@@ -1,8 +1,8 @@
 package fetcher
 
 import (
-	"Phoenix-Chain-Core/consensus/pbft/protocols"
-	"Phoenix-Chain-Core/consensus/pbft/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/protocols"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/types"
 	"github.com/stretchr/testify/assert"
 	"sync"
 	"testing"

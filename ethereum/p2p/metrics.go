@@ -5,7 +5,7 @@ package p2p
 import (
 	"net"
 
-	"Phoenix-Chain-Core/libs/metrics"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/metrics"
 )
 
 const (

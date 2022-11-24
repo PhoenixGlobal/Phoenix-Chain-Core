@@ -4,7 +4,7 @@ import (
 	"encoding/hex"
 	"fmt"
 
-	"Phoenix-Chain-Core/libs/crypto/bls"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto/bls"
 	"gopkg.in/urfave/cli.v1"
 )
 

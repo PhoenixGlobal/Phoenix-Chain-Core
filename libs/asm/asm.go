@@ -5,7 +5,7 @@ import (
 	"encoding/hex"
 	"fmt"
 
-	"Phoenix-Chain-Core/ethereum/core/vm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/vm"
 )
 
 // Iterator for disassembled EVM instructions

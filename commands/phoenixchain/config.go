@@ -1,7 +1,7 @@
 package main
 
 import (
-	"Phoenix-Chain-Core/ethereum/eth"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/eth"
 	"bufio"
 	"encoding/json"
 	"errors"
@@ -13,11 +13,11 @@ import (
 
 	cli "gopkg.in/urfave/cli.v1"
 
-	"Phoenix-Chain-Core/ethereum/core/db/snapshotdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/db/snapshotdb"
 
-	"Phoenix-Chain-Core/commands/utils"
-	"Phoenix-Chain-Core/configs"
-	"Phoenix-Chain-Core/ethereum/node"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/commands/utils"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/node"
 	"github.com/naoina/toml"
 )
 

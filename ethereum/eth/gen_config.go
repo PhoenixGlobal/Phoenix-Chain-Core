@@ -3,14 +3,14 @@
 package eth
 
 import (
-	"Phoenix-Chain-Core/ethereum/eth/downloader"
-	"Phoenix-Chain-Core/ethereum/eth/gasprice"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/eth/downloader"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/eth/gasprice"
 	"math/big"
 	"time"
 
-	"Phoenix-Chain-Core/consensus/pbft/types"
-	"Phoenix-Chain-Core/ethereum/core"
-	"Phoenix-Chain-Core/ethereum/miner"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/miner"
 )
 
 // MarshalTOML marshals as TOML.

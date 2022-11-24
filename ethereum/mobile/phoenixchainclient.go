@@ -3,10 +3,10 @@
 package phoenixchain
 
 import (
-	"Phoenix-Chain-Core/ethereum/ethclient"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/ethclient"
 	"math/big"
 
-	"Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
 )
 
 // EthereumClient provides access to the Ethereum APIs.

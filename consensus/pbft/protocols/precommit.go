@@ -2,11 +2,11 @@ package protocols
 
 import (
 	"fmt"
-	"Phoenix-Chain-Core/libs/common"
-	ctypes "Phoenix-Chain-Core/consensus/pbft/types"
-	"Phoenix-Chain-Core/consensus/pbft/utils"
-	"Phoenix-Chain-Core/libs/crypto"
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	ctypes "github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/utils"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 	"sync/atomic"
 )
 

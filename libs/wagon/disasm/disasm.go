@@ -12,10 +12,10 @@ import (
 	"io"
 	"math"
 
-	"Phoenix-Chain-Core/libs/wagon/internal/stack"
-	"Phoenix-Chain-Core/libs/wagon/wasm"
-	"Phoenix-Chain-Core/libs/wagon/wasm/leb128"
-	ops "Phoenix-Chain-Core/libs/wagon/wasm/operators"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/internal/stack"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm/leb128"
+	ops "github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm/operators"
 )
 
 // Instr describes an instruction, consisting of an operator, with its

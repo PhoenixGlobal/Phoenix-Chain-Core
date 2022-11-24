@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"Phoenix-Chain-Core/libs/common/hexutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/hexutil"
 )
 
 type MyType [5]byte

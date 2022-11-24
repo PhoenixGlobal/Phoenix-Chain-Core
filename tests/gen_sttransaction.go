@@ -6,8 +6,8 @@ import (
 	"encoding/json"
 	"math/big"
 
-	"Phoenix-Chain-Core/libs/common/hexutil"
-	"Phoenix-Chain-Core/libs/common/math"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/hexutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/math"
 )
 
 var _ = (*stTransactionMarshaling)(nil)

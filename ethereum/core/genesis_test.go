@@ -1,7 +1,7 @@
 package core
 
 import (
-	"Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
 	"testing"
 )
 

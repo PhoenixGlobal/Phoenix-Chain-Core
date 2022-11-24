@@ -15,9 +15,9 @@ import (
 	"math"
 	"strconv"
 
-	"Phoenix-Chain-Core/libs/wagon/disasm"
-	"Phoenix-Chain-Core/libs/wagon/wasm"
-	"Phoenix-Chain-Core/libs/wagon/wasm/operators"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/disasm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm/operators"
 )
 
 const tab = `  `

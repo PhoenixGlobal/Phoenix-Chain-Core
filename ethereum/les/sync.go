@@ -2,10 +2,10 @@ package les
 
 import (
 	"context"
-	"Phoenix-Chain-Core/ethereum/eth/downloader"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/eth/downloader"
 	"time"
 
-	"Phoenix-Chain-Core/ethereum/light"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/light"
 	"math/big"
 )
 

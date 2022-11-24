@@ -4,10 +4,10 @@ import (
 	"reflect"
 	"strconv"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/log"
-	"Phoenix-Chain-Core/pos/plugin"
-	"Phoenix-Chain-Core/pos/xcom"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/plugin"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/xcom"
 )
 
 func execPhoenixchainContract(input []byte, command map[uint16]interface{}) (ret []byte, err error) {

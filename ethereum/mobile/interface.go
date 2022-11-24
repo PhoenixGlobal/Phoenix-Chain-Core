@@ -6,7 +6,7 @@ import (
 	"errors"
 	"math/big"
 
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 // Interface represents a wrapped version of Go's interface{}, with the capacity

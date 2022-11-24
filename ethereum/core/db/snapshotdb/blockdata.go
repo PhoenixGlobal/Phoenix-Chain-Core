@@ -7,11 +7,11 @@ import (
 	"sort"
 	"sync"
 
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 
 	"github.com/syndtr/goleveldb/leveldb/memdb"
 
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 type blockData struct {

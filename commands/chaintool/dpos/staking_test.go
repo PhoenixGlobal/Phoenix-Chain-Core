@@ -1,7 +1,7 @@
 package dpos
 
 import (
-	"Phoenix-Chain-Core/commands/chaintool/dpos/lib"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/commands/chaintool/dpos/lib"
 	"fmt"
 	"math/big"
 	"testing"

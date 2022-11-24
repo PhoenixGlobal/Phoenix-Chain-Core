@@ -9,16 +9,16 @@ import (
 	"testing"
 	"time"
 
-	"Phoenix-Chain-Core/libs/ethdb/memorydb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/ethdb/memorydb"
 
-	"Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
 
 	"github.com/stretchr/testify/assert"
 
-	"Phoenix-Chain-Core/consensus"
-	"Phoenix-Chain-Core/ethereum/core/db/rawdb"
-	"Phoenix-Chain-Core/ethereum/core/db/snapshotdb"
-	"Phoenix-Chain-Core/libs/ethdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/db/rawdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/db/snapshotdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/ethdb"
 )
 
 var (

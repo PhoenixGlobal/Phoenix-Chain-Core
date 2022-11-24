@@ -8,8 +8,8 @@ import (
 	"errors"
 	"fmt"
 
-	"Phoenix-Chain-Core/libs/wagon/wasm"
-	ops "Phoenix-Chain-Core/libs/wagon/wasm/operators"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm"
+	ops "github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm/operators"
 )
 
 // Error wraps validation errors with information about where the error

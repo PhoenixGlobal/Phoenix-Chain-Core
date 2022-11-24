@@ -6,8 +6,8 @@ import (
 	"os"
 	"strings"
 
-	"Phoenix-Chain-Core/libs/common/math"
-	"Phoenix-Chain-Core/ethereum/core/vm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/math"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/vm"
 )
 
 // Compiler contains information about the parsed source

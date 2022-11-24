@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 // The validation package contains validation checks for transactions

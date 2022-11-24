@@ -8,8 +8,8 @@ import (
 
 	"gopkg.in/urfave/cli.v1"
 
-	"Phoenix-Chain-Core/commands/utils"
-	"Phoenix-Chain-Core/internal/debug"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/commands/utils"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/internal/debug"
 )
 
 // AppHelpTemplate is the test template for the default, global app help topic.

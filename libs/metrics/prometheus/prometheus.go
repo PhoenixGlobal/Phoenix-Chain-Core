@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"sort"
 
-	"Phoenix-Chain-Core/libs/log"
-	"Phoenix-Chain-Core/libs/metrics"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/metrics"
 )
 
 // Handler returns an HTTP handler which dump metrics in Prometheus format.

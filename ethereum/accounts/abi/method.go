@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
 )
 
 // FunctionType represents different types of functions a contract might have.

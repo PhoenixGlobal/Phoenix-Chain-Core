@@ -7,7 +7,7 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 )
 
 const invalidID = math.MaxUint64

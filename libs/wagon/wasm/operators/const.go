@@ -5,7 +5,7 @@
 package operators
 
 import (
-	"Phoenix-Chain-Core/libs/wagon/wasm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm"
 )
 
 var (

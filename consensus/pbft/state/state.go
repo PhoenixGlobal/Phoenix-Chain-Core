@@ -7,12 +7,12 @@ import (
 	"sync/atomic"
 	"time"
 
-	"Phoenix-Chain-Core/consensus/pbft/protocols"
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/common/math"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/protocols"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/math"
 
-	ctypes "Phoenix-Chain-Core/consensus/pbft/types"
-	"Phoenix-Chain-Core/ethereum/core/types"
+	ctypes "github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
 )
 
 const DefaultEpoch = 1

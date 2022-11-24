@@ -4,9 +4,9 @@ import (
 	"strings"
 	"testing"
 
-	"Phoenix-Chain-Core/ethereum/accounts/abi"
-	"Phoenix-Chain-Core/ethereum/core/vm"
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts/abi"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/vm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 func TestDefaults(t *testing.T) {

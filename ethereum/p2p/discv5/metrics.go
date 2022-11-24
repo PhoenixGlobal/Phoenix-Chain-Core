@@ -1,6 +1,6 @@
 package discv5
 
-import "Phoenix-Chain-Core/libs/metrics"
+import "github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/metrics"
 
 var (
 	ingressTrafficMeter = metrics.NewRegisteredMeter("discv5/InboundTraffic", nil)

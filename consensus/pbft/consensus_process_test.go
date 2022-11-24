@@ -1,17 +1,17 @@
 package pbft
 
 import (
-	"Phoenix-Chain-Core/consensus/pbft/validator"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/validator"
 	"fmt"
 	"io/ioutil"
 	"os"
 	"testing"
 	"time"
 
-	"Phoenix-Chain-Core/consensus/pbft/wal"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/wal"
 
-	"Phoenix-Chain-Core/consensus/pbft/protocols"
-	"Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/protocols"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
 	"github.com/stretchr/testify/assert"
 )
 

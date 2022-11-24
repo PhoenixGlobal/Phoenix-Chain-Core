@@ -12,7 +12,7 @@ import (
 	"testing"
 	"time"
 
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 // In this test, nodes try to randomly resolve each other.

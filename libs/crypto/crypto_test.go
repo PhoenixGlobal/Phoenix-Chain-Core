@@ -10,8 +10,8 @@ import (
 	"reflect"
 	"testing"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/common/hexutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/hexutil"
 )
 
 var testAddrString = "0xju8gz29tsd8gatqh4w8rsyhszpnceau340amnz"

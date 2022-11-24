@@ -1,8 +1,8 @@
 package dpos
 
 import (
-	"Phoenix-Chain-Core/commands/chaintool/core"
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/commands/chaintool/core"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -10,7 +10,7 @@ import (
 	"io"
 	"os"
 
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 // submitText

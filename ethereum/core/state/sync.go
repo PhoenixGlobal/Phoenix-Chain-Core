@@ -3,11 +3,11 @@ package state
 import (
 	"bytes"
 
-	"Phoenix-Chain-Core/libs/ethdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/ethdb"
 
-	"Phoenix-Chain-Core/ethereum/trie"
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/trie"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 )
 
 // NewStateSync create a new state trie download scheduler.

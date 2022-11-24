@@ -4,11 +4,11 @@ import (
 	"encoding/json"
 	"testing"
 
-	"Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/configs"
-	"Phoenix-Chain-Core/pos/xcom"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/xcom"
 
 	"github.com/stretchr/testify/assert"
 )

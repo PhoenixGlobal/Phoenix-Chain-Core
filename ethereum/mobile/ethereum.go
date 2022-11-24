@@ -5,8 +5,8 @@ package phoenixchain
 import (
 	"errors"
 
-	ethereum "Phoenix-Chain-Core"
-	"Phoenix-Chain-Core/libs/common"
+	ethereum "github.com/PhoenixGlobal/Phoenix-Chain-Core"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 // Subscription represents an event subscription where events are

@@ -3,7 +3,7 @@ package event_test
 import (
 	"fmt"
 
-	"Phoenix-Chain-Core/libs/event"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/event"
 )
 
 func ExampleFeed_acknowledgedEvents() {

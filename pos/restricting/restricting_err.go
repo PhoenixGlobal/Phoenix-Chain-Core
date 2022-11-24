@@ -3,7 +3,7 @@ package restricting
 import (
 	"fmt"
 
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 const (

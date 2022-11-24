@@ -1,8 +1,8 @@
 package main
 
 import (
-	"Phoenix-Chain-Core/ethereum/eth"
-	"Phoenix-Chain-Core/ethereum/ethclient"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/eth"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/ethclient"
 	"fmt"
 	"math"
 	"os"
@@ -16,15 +16,15 @@ import (
 	"github.com/panjf2000/ants/v2"
 	"gopkg.in/urfave/cli.v1"
 
-	"Phoenix-Chain-Core/commands/utils"
-	"Phoenix-Chain-Core/ethereum/accounts"
-	"Phoenix-Chain-Core/ethereum/accounts/keystore"
-	"Phoenix-Chain-Core/ethereum/node"
-	"Phoenix-Chain-Core/internal/debug"
-	"Phoenix-Chain-Core/libs/crypto/bls"
-	"Phoenix-Chain-Core/libs/log"
-	"Phoenix-Chain-Core/libs/metrics"
-	"Phoenix-Chain-Core/web"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/commands/utils"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts/keystore"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/node"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/internal/debug"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto/bls"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/metrics"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/web"
 
 	"github.com/elastic/gosigar"
 )

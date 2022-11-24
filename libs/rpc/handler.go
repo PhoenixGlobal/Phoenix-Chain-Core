@@ -9,7 +9,7 @@ import (
 	"sync"
 	"time"
 
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 )
 
 // handler handles JSON-RPC messages. There is one handler per connection. Note that

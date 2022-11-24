@@ -18,9 +18,9 @@ import (
 	"sync"
 	"time"
 
-	"Phoenix-Chain-Core/pos/xcom"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/xcom"
 
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 )
 
 func GetLogVerbosity() log.Lvl {

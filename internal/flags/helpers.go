@@ -6,7 +6,7 @@ import (
 
 	cli "gopkg.in/urfave/cli.v1"
 
-	"Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
 )
 
 var (

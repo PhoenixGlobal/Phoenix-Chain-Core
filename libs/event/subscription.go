@@ -5,7 +5,7 @@ import (
 	"sync"
 	"time"
 
-	"Phoenix-Chain-Core/libs/common/mclock"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/mclock"
 )
 
 // Subscription represents a stream of events. The carrier of the events is typically a

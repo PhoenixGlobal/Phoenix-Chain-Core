@@ -2,8 +2,8 @@ package plugin
 
 import (
 	"fmt"
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/ethereum/core/db/snapshotdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/db/snapshotdb"
 )
 
 // Provides an API interface to obtain data related to the economic model

@@ -38,7 +38,7 @@ func TestBloom(t *testing.T) {
 import (
 	"testing"
 
-	"Phoenix-Chain-Core/core/state"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/core/state"
 )
 
 func TestBloom9(t *testing.T) {

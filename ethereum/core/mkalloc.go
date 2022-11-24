@@ -18,8 +18,8 @@ import (
 	"sort"
 	"strconv"
 
-	"Phoenix-Chain-Core/ethereum/core"
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 )
 
 type allocItem struct{ Addr, Balance *big.Int }

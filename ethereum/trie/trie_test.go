@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/binary"
 	"fmt"
-	"Phoenix-Chain-Core/libs/common/byteutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/byteutil"
 	"io/ioutil"
 	"math/big"
 	"math/rand"
@@ -14,17 +14,17 @@ import (
 	"testing/quick"
 	"time"
 
-	"Phoenix-Chain-Core/libs/ethdb/leveldb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/ethdb/leveldb"
 
-	"Phoenix-Chain-Core/libs/ethdb/memorydb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/ethdb/memorydb"
 
 	"github.com/stretchr/testify/assert"
 
 	"github.com/davecgh/go-spew/spew"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/crypto"
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 )
 
 func init() {

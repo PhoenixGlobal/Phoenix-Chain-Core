@@ -3,8 +3,8 @@ package core
 import (
 	"sync"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/ethereum/core/state"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/state"
 )
 
 // txNoncer is a tiny virtual state database to manage the executable nonces of

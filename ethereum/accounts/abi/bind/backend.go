@@ -5,9 +5,9 @@ import (
 	"errors"
 	"math/big"
 
-	phoenixchain "Phoenix-Chain-Core"
-	"Phoenix-Chain-Core/ethereum/core/types"
-	"Phoenix-Chain-Core/libs/common"
+	phoenixchain "github.com/PhoenixGlobal/Phoenix-Chain-Core"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 var (

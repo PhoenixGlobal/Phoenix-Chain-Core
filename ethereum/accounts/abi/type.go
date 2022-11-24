@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 // Type enumerator

@@ -1,11 +1,11 @@
 package lib
 
 import (
-	phoenixchain "Phoenix-Chain-Core"
-	"Phoenix-Chain-Core/commands/chaintool/core"
-	"Phoenix-Chain-Core/ethereum/core/types"
-	"Phoenix-Chain-Core/ethereum/ethclient"
-	"Phoenix-Chain-Core/libs/common"
+	phoenixchain "github.com/PhoenixGlobal/Phoenix-Chain-Core"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/commands/chaintool/core"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/ethclient"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 	"context"
 	"encoding/json"
 	"math/big"

@@ -10,9 +10,9 @@ import (
 	"errors"
 	"io"
 
-	"Phoenix-Chain-Core/libs/wagon/wasm"
-	"Phoenix-Chain-Core/libs/wagon/wasm/operators"
-	ops "Phoenix-Chain-Core/libs/wagon/wasm/operators"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm/operators"
+	ops "github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm/operators"
 )
 
 // vibhavp: TODO: We do not verify whether blocks don't access for the parent block, do that.

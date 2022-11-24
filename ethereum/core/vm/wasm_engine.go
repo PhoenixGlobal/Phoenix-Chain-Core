@@ -3,15 +3,15 @@ package vm
 import (
 	"context"
 	"fmt"
-	"Phoenix-Chain-Core/libs/lru"
-	"Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/lru"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
 
 	"hash/fnv"
 
-	"Phoenix-Chain-Core/libs/log"
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 
-	"Phoenix-Chain-Core/libs/wagon/exec"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/exec"
 	"github.com/pkg/errors"
 )
 

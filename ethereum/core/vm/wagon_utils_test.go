@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"testing"
 
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 	"github.com/stretchr/testify/assert"
 )
 

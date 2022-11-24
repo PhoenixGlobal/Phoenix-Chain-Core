@@ -8,9 +8,9 @@ import (
 	"testing"
 	"time"
 
-	"Phoenix-Chain-Core/ethereum/core/db/rawdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/db/rawdb"
 
-	"Phoenix-Chain-Core/libs/common/mclock"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/mclock"
 )
 
 func TestFreeClientPoolL10C100(t *testing.T) {

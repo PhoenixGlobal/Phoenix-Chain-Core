@@ -4,7 +4,7 @@ import (
 	"sync"
 	"time"
 
-	"Phoenix-Chain-Core/consensus/pbft/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/consensus/pbft/types"
 )
 
 var (

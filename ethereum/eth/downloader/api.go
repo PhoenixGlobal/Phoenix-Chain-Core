@@ -4,9 +4,9 @@ import (
 	"context"
 	"sync"
 
-	ethereum "Phoenix-Chain-Core"
-	"Phoenix-Chain-Core/libs/event"
-	"Phoenix-Chain-Core/libs/rpc"
+	ethereum "github.com/PhoenixGlobal/Phoenix-Chain-Core"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/event"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rpc"
 )
 
 // PublicDownloaderAPI provides an API which gives information about the current synchronisation status.

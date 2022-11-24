@@ -5,7 +5,7 @@ import (
 	"sort"
 	"sync"
 
-	"Phoenix-Chain-Core/libs/event"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/event"
 )
 
 // Config contains the settings of the global account manager.

@@ -6,30 +6,30 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"Phoenix-Chain-Core/ethereum/node"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/node"
 
-	"Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
 
-	"Phoenix-Chain-Core/libs/common/mock"
-	//	"Phoenix-Chain-Core/core/state"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/mock"
+	//	"github.com/PhoenixGlobal/Phoenix-Chain-Core/core/state"
 
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
 
-	"Phoenix-Chain-Core/pos/xcom"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/xcom"
 
-	"Phoenix-Chain-Core/pos/xutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/xutil"
 
-	"Phoenix-Chain-Core/libs/common"
-	//	"Phoenix-Chain-Core/core/state"
-	//	"Phoenix-Chain-Core/core/vm"
-	"Phoenix-Chain-Core/pos/gov"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	//	"github.com/PhoenixGlobal/Phoenix-Chain-Core/core/state"
+	//	"github.com/PhoenixGlobal/Phoenix-Chain-Core/core/vm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/gov"
 
 	"math/big"
 
-	"Phoenix-Chain-Core/ethereum/core/db/snapshotdb"
-	"Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/db/snapshotdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
 )
 
 var (

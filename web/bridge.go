@@ -7,9 +7,9 @@ import (
 	"strings"
 	"time"
 
-	accountsWallet "Phoenix-Chain-Core/ethereum/accounts/wallet"
-	"Phoenix-Chain-Core/libs/log"
-	"Phoenix-Chain-Core/libs/rpc"
+	accountsWallet "github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts/wallet"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rpc"
 	"github.com/robertkrimen/otto"
 )
 

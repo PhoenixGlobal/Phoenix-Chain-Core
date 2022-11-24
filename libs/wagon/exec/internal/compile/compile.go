@@ -42,8 +42,8 @@ import (
 	"bytes"
 	"encoding/binary"
 
-	"Phoenix-Chain-Core/libs/wagon/disasm"
-	ops "Phoenix-Chain-Core/libs/wagon/wasm/operators"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/disasm"
+	ops "github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm/operators"
 )
 
 // A small note on the usage of discard instructions:

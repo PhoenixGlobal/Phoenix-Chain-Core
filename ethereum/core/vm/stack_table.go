@@ -1,7 +1,7 @@
 package vm
 
 import (
-	"Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
 )
 
 func minSwapStack(n int) int {

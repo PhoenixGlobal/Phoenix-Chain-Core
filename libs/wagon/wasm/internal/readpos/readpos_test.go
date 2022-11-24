@@ -9,7 +9,7 @@ import (
 	"io"
 	"testing"
 
-	"Phoenix-Chain-Core/libs/wagon/wasm/internal/readpos"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm/internal/readpos"
 )
 
 func TestRead(t *testing.T) {

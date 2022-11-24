@@ -10,7 +10,7 @@ import (
 	"sync"
 	"unicode"
 
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 )
 
 var (

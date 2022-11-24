@@ -4,9 +4,9 @@ import (
 	"math/big"
 	"testing"
 
-	"Phoenix-Chain-Core/libs/common/math"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/math"
 
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 
 	"github.com/stretchr/testify/assert"
 )

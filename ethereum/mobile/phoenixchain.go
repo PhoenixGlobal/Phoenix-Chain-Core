@@ -4,23 +4,23 @@
 package phoenixchain
 
 import (
-	"Phoenix-Chain-Core/ethereum/eth"
-	"Phoenix-Chain-Core/ethereum/eth/downloader"
-	"Phoenix-Chain-Core/ethereum/ethclient"
-	"Phoenix-Chain-Core/ethereum/ethstats"
-	"Phoenix-Chain-Core/internal/debug"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/eth"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/eth/downloader"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/ethclient"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/ethstats"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/internal/debug"
 	"encoding/json"
 	"fmt"
 	"path/filepath"
 
-	"Phoenix-Chain-Core/configs"
-	"Phoenix-Chain-Core/ethereum/core"
-	"Phoenix-Chain-Core/ethereum/les"
-	"Phoenix-Chain-Core/ethereum/node"
-	"Phoenix-Chain-Core/ethereum/p2p"
-	"Phoenix-Chain-Core/ethereum/p2p/nat"
-	//	whisper "Phoenix-Chain-Core/whisper/whisperv6"
-	//	whisper "Phoenix-Chain-Core/whisper/whisperv6"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/les"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/node"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/nat"
+	//	whisper "github.com/PhoenixGlobal/Phoenix-Chain-Core/whisper/whisperv6"
+	//	whisper "github.com/PhoenixGlobal/Phoenix-Chain-Core/whisper/whisperv6"
 )
 
 // NodeConfig represents the collection of configuration values to fine tune the Geth

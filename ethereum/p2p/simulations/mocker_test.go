@@ -11,7 +11,7 @@ import (
 	"testing"
 	"time"
 
-	"Phoenix-Chain-Core/ethereum/p2p/discover"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
 )
 
 func TestMocker(t *testing.T) {

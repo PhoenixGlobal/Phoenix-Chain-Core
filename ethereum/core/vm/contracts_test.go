@@ -5,11 +5,11 @@ import (
 	"math/big"
 	"testing"
 
-	"Phoenix-Chain-Core/libs/common/mock"
-	"Phoenix-Chain-Core/libs/common/vm"
-	"Phoenix-Chain-Core/pos/plugin"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/mock"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/vm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/plugin"
 
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 // precompiledTest defines the input/output pairs for precompiled contract tests.

@@ -2,10 +2,10 @@ package rpc
 
 import (
 	"encoding/json"
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 	"testing"
 
-	"Phoenix-Chain-Core/libs/common/math"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/math"
 )
 
 func TestBlockNumberJSONUnmarshal(t *testing.T) {

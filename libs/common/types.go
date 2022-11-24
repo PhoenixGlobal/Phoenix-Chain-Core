@@ -9,7 +9,7 @@ import (
 	"reflect"
 	"strings"
 
-	"Phoenix-Chain-Core/libs/common/hexutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/hexutil"
 )
 
 // Lengths of hashes and addresses in bytes.

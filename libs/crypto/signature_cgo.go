@@ -7,8 +7,8 @@ import (
 	"crypto/elliptic"
 	"fmt"
 
-	"Phoenix-Chain-Core/libs/common/math"
-	"Phoenix-Chain-Core/libs/crypto/secp256k1"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/math"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto/secp256k1"
 )
 
 // Ecrecover returns the uncompressed public key that created the given signature.

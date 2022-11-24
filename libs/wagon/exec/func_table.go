@@ -5,7 +5,7 @@
 package exec
 
 import (
-	ops "Phoenix-Chain-Core/libs/wagon/wasm/operators"
+	ops "github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm/operators"
 )
 
 func (vm *VM) newFuncTable() {

@@ -3,14 +3,14 @@ package bls
 import (
 	"testing"
 
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 )
 import (
 	"bytes"
 	"fmt"
 	"strconv"
 
-	"Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
 )
 
 var unitN = 0

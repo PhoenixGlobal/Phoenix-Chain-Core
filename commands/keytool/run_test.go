@@ -5,7 +5,7 @@ import (
 	"os"
 	"testing"
 
-	"Phoenix-Chain-Core/internal/cmdtest"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/internal/cmdtest"
 	"github.com/docker/docker/pkg/reexec"
 )
 

@@ -3,9 +3,9 @@ package types
 import (
 	"bytes"
 
-	"Phoenix-Chain-Core/ethereum/trie"
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/trie"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 )
 
 type DerivableList interface {

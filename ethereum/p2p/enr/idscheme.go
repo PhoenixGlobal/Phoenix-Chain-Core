@@ -6,9 +6,9 @@ import (
 	"golang.org/x/crypto/sha3"
 	"sync"
 
-	"Phoenix-Chain-Core/libs/common/math"
-	"Phoenix-Chain-Core/libs/crypto"
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/math"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 )
 
 // Registry of known identity schemes.

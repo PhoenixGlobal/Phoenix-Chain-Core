@@ -8,8 +8,8 @@ import (
 	"errors"
 	"math/big"
 
-	"Phoenix-Chain-Core/libs/crypto/rfc6979"
-	"Phoenix-Chain-Core/libs/crypto/secp256k1"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto/rfc6979"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto/secp256k1"
 )
 
 const (

@@ -5,7 +5,7 @@ package metrics
 import (
 	"syscall"
 
-	"Phoenix-Chain-Core/libs/log"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
 )
 
 // getProcessCPUTime retrieves the process' CPU time since program startup.

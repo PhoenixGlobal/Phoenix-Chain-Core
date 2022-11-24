@@ -4,9 +4,9 @@ import (
 	"errors"
 	"fmt"
 
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/common/prque"
-	"Phoenix-Chain-Core/libs/ethdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/prque"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/ethdb"
 )
 
 // ErrNotRequested is returned by the trie sync when it's requested to process a

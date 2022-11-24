@@ -5,7 +5,7 @@ import (
 
 	"fmt"
 
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 )
 
 func TestSchnorrNIZK(t *testing.T) {

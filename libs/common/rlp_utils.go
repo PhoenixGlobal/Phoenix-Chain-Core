@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"golang.org/x/crypto/sha3"
 
-	"Phoenix-Chain-Core/libs/rlp"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rlp"
 )
 
 func MustRlpEncode(val interface{}) []byte {

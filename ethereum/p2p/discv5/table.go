@@ -13,7 +13,7 @@ import (
 	"net"
 	"sort"
 
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 const (

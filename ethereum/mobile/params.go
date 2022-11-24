@@ -5,9 +5,9 @@ package phoenixchain
 import (
 	"encoding/json"
 
-	"Phoenix-Chain-Core/configs"
-	"Phoenix-Chain-Core/ethereum/core"
-	"Phoenix-Chain-Core/ethereum/p2p/discv5"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discv5"
 )
 
 // MainnetGenesis returns the JSON spec to use for the main Ethereum network. It

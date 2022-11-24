@@ -5,12 +5,12 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"Phoenix-Chain-Core/libs/common/byteutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/byteutil"
 
 	"github.com/cespare/xxhash"
 	"github.com/panjf2000/ants/v2"
 
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 var fullNodeSuffix = []byte("fullnode")

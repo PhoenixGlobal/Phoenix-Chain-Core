@@ -5,13 +5,13 @@ package ens
 //go:generate abigen --sol contract/PublicResolver.sol --exc contract/AbstractENS.sol:AbstractENS --pkg contract --out contract/publicresolver.go
 
 import (
-	"Phoenix-Chain-Core/internal/contracts/ens/contract"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/internal/contracts/ens/contract"
 	"strings"
 
-	"Phoenix-Chain-Core/ethereum/accounts/abi/bind"
-	"Phoenix-Chain-Core/ethereum/core/types"
-	"Phoenix-Chain-Core/libs/common"
-	"Phoenix-Chain-Core/libs/crypto"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts/abi/bind"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
 )
 
 var (

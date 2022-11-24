@@ -5,7 +5,7 @@
 package compile
 
 import (
-	ops "Phoenix-Chain-Core/libs/wagon/wasm/operators"
+	ops "github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm/operators"
 )
 
 type scanner struct {

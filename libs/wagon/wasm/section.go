@@ -12,8 +12,8 @@ import (
 	"io/ioutil"
 	"sort"
 
-	"Phoenix-Chain-Core/libs/wagon/wasm/internal/readpos"
-	"Phoenix-Chain-Core/libs/wagon/wasm/leb128"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm/internal/readpos"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/wagon/wasm/leb128"
 )
 
 // Section is a generic WASM section interface.

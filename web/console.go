@@ -12,9 +12,9 @@ import (
 	"strings"
 	"syscall"
 
-	"Phoenix-Chain-Core/internal/jsre"
-	"Phoenix-Chain-Core/internal/web3ext"
-	"Phoenix-Chain-Core/libs/rpc"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/internal/jsre"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/internal/web3ext"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/rpc"
 	"github.com/mattn/go-colorable"
 	"github.com/peterh/liner"
 	"github.com/robertkrimen/otto"

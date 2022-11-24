@@ -1,10 +1,10 @@
 package lib
 
 import (
-	"Phoenix-Chain-Core/commands/chaintool/core"
-	"Phoenix-Chain-Core/configs"
-	"Phoenix-Chain-Core/ethereum/core/types"
-	"Phoenix-Chain-Core/libs/common/vm"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/commands/chaintool/core"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/vm"
 	"math/big"
 )
 

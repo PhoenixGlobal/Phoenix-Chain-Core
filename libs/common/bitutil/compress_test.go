@@ -5,7 +5,7 @@ import (
 	"math/rand"
 	"testing"
 
-	"Phoenix-Chain-Core/libs/common/hexutil"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/hexutil"
 )
 
 // Tests that data bitset encoding and decoding works and is bijective.

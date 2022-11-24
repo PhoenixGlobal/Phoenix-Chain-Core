@@ -9,8 +9,8 @@ import (
 	"math/big"
 	"reflect"
 
-	"Phoenix-Chain-Core/ethereum/accounts/abi"
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts/abi"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 )
 
 func verify(t *testing.T, jsondata, calldata string, exp []interface{}) {

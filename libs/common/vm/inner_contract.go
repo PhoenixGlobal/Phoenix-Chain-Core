@@ -1,6 +1,6 @@
 package vm
 
-import "Phoenix-Chain-Core/libs/common"
+import "github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 
 // the inner contract addr  table
 var (

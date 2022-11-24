@@ -2,7 +2,7 @@ package state
 
 import (
 	"bytes"
-	"Phoenix-Chain-Core/libs/common"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 	"testing"
 )
 
