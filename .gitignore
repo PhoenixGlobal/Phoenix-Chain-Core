@@ -53,7 +53,7 @@ mpc.rlp
 
 consensus/pbft/data/
 
-libs/crypto/bls/bls_linux_darwin/
+libs/crypto/bls/bls_linux_darwin/src
 
 consensus/pbft/transactions.rlp
 consensus/pbft/transactions.rlp.new
