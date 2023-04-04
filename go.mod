@@ -7,7 +7,7 @@ require (
 	github.com/Azure/azure-storage-blob-go v0.0.0-20180712005634-eaae161d9d5e
 	github.com/StackExchange/wmi v0.0.0-20190523213315-cbe66965904d // indirect
 	github.com/VictoriaMetrics/fastcache v1.5.7
-	github.com/btcsuite/btcutil v1.0.2
+	github.com/btcsuite/btcd/btcutil v1.1.0
 	github.com/cespare/cp v0.1.0
 	github.com/cespare/xxhash v1.1.0
 	github.com/davecgh/go-spew v1.1.1
@@ -20,9 +20,8 @@ require (
 	github.com/go-errors/errors v1.0.2-0.20180813162953-d98b870cc4e0
 	github.com/go-ole/go-ole v1.2.4 // indirect
 	github.com/go-stack/stack v1.8.0
-	github.com/golang/protobuf v1.3.1
+	github.com/golang/protobuf v1.4.2
 	github.com/golang/snappy v0.0.1
-	github.com/google/go-cmp v0.4.0 // indirect
 	github.com/gorilla/websocket v1.4.2
 	github.com/hashicorp/golang-lru v0.5.4
 	github.com/holiman/uint256 v1.1.1
@@ -57,7 +56,7 @@ require (
 	github.com/tealeg/xlsx v1.0.5
 	github.com/twitchyliquid64/golang-asm v0.0.0-20190126203739-365674df15fc
 	golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
-	golang.org/x/net v0.0.0-20200602114024-627f9648deb9
+	golang.org/x/net v0.0.0-20200813134508-3edf25e44fcc
 	golang.org/x/sys v0.0.0-20210831042530-f4d43177bf5e
 	gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15
 	gopkg.in/olebedev/go-duktape.v3 v3.0.0-20200316214253-d7b0ff38cac9
