@@ -7,7 +7,7 @@ require (
 	github.com/Azure/azure-storage-blob-go v0.0.0-20180712005634-eaae161d9d5e
 	github.com/StackExchange/wmi v0.0.0-20190523213315-cbe66965904d // indirect
 	github.com/VictoriaMetrics/fastcache v1.5.7
-	github.com/btcsuite/btcd/btcutil v1.1.0
+	github.com/btcsuite/btcd/btcutil v1.1.3
 	github.com/cespare/cp v0.1.0
 	github.com/cespare/xxhash v1.1.0
 	github.com/davecgh/go-spew v1.1.1
@@ -21,7 +21,7 @@ require (
 	github.com/go-ole/go-ole v1.2.4 // indirect
 	github.com/go-stack/stack v1.8.0
 	github.com/golang/protobuf v1.4.2
-	github.com/golang/snappy v0.0.1
+	github.com/golang/snappy v0.0.4
 	github.com/gorilla/websocket v1.4.2
 	github.com/hashicorp/golang-lru v0.5.4
 	github.com/holiman/uint256 v1.1.1
@@ -51,8 +51,8 @@ require (
 	github.com/shirou/gopsutil v2.20.5+incompatible
 	github.com/steakknife/bloomfilter v0.0.0-20180922174646-6819c0d2a570
 	github.com/steakknife/hamming v0.0.0-20180906055917-c99c65617cd3 // indirect
-	github.com/stretchr/testify v1.4.0
-	github.com/syndtr/goleveldb v1.0.1-0.20190923125748-758128399b1d
+	github.com/stretchr/testify v1.7.0
+	github.com/syndtr/goleveldb v1.0.1-0.20210819022825-2ae1ddf74ef7
 	github.com/tealeg/xlsx v1.0.5
 	github.com/twitchyliquid64/golang-asm v0.0.0-20190126203739-365674df15fc
 	golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
