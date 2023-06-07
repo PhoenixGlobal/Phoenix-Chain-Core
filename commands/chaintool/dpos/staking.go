@@ -1,15 +1,15 @@
 package dpos
 
 import (
+	"encoding/hex"
+	"encoding/json"
+	"errors"
+	"fmt"
 	"github.com/PhoenixGlobal/Phoenix-Chain-Core/commands/chaintool/dpos/lib"
 	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/node"
 	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
 	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto/bls"
-	"encoding/hex"
-	"encoding/json"
-	"errors"
-	"fmt"
 	"io"
 	"math/big"
 	"os"
@@ -35,12 +35,54 @@ type Dpos_1000 struct {
 	BlsProof           bls.SchnorrProofHex
 }
 
+// editorCandidate
+type Dpos_1001 struct {
+	BenefitAddress common.Address
+	NodeId         discover.NodeID
+	RewardPer      uint16
+	ExternalId     string
+	NodeName       string
+	Website        string
+	Details        string
+}
+
+// increaseStaking
+type Dpos_1002 struct {
+	NodeId discover.NodeID
+	Typ    uint16
+	Amount *big.Int
+}
+
+// withdrawStaking
+type Dpos_1003 struct {
+	NodeId discover.NodeID
+}
+
+// delegate
+type Dpos_1004 struct {
+	Typ    uint16
+	NodeId discover.NodeID
+	Amount *big.Int
+}
+
+// withdrawDelegate
+type Dpos_1005 struct {
+	StakingBlockNum *big.Int
+	NodeId          discover.NodeID
+	Amount          *big.Int
+}
+
 var (
 	StakingCmd = cli.Command{
 		Name:  "staking",
 		Usage: "use for staking",
 		Subcommands: []cli.Command{
 			CreateStakingCmd,
+			AddStakingCmd,
+			UnStakingCmd,
+			UpdateStakingCmd,
+			DelegateCmd,
+			UnDelegateCmd,
 			GetVerifierListCmd,
 			getValidatorListCmd,
 			getCandidateListCmd,
@@ -58,6 +100,41 @@ var (
 		Before: netCheck,
 		Action: createStaking,
 		Flags:  []cli.Flag{configPathFlag,keystoreFlag,blsKeyfileFlag,nodeKeyFlag,stakingParamsFlag},
+	}
+	AddStakingCmd = cli.Command{
+		Name:   "addStaking",
+		Usage:  "1002,add Staking",
+		Before: netCheck,
+		Action: addStaking,
+		Flags:  []cli.Flag{configPathFlag,keystoreFlag,addStakingParamsFlag},
+	}
+	UnStakingCmd = cli.Command{
+		Name:   "unStaking",
+		Usage:  "1003,withdraw Staking",
+		Before: netCheck,
+		Action: unStaking,
+		Flags:  []cli.Flag{configPathFlag,keystoreFlag,unStakingParamsFlag},
+	}
+	UpdateStakingCmd = cli.Command{
+		Name:   "UpdateStaking",
+		Usage:  "1001,update Staking",
+		Before: netCheck,
+		Action: updateStaking,
+		Flags:  []cli.Flag{configPathFlag,keystoreFlag,updateStakingParamsFlag},
+	}
+	DelegateCmd = cli.Command{
+		Name:   "delegate",
+		Usage:  "1004,delegate",
+		Before: netCheck,
+		Action: delegate,
+		Flags:  []cli.Flag{configPathFlag,keystoreFlag,addStakingParamsFlag},
+	}
+	UnDelegateCmd = cli.Command{
+		Name:   "unDelegate",
+		Usage:  "1005,withdraw Delegate",
+		Before: netCheck,
+		Action: unDelegate,
+		Flags:  []cli.Flag{configPathFlag,keystoreFlag,unDelegateParamsFlag},
 	}
 	GetVerifierListCmd = cli.Command{
 		Name:   "getVerifierList",
@@ -227,6 +304,183 @@ func createStaking(c *cli.Context) error {
 	//fmt.Println("Staking success,res is ",string(res))
 	return nil
 
+}
+
+func addStaking(c *cli.Context) error {
+	keystorePath:=c.String(keystoreFlag.Name)
+	priKey,_:=getPrivateKey(keystorePath)
+
+	//Load Dpos_1002 from json
+	addStakingParams:=c.String(addStakingParamsFlag.Name)
+	file, err := os.Open(addStakingParams)
+	if err != nil {
+		return fmt.Errorf("Failed to read addStakingParams file: %v", err)
+	}
+	defer file.Close()
+	file.Seek(0, io.SeekStart)
+	var dpos_1002 Dpos_1002
+	if err := json.NewDecoder(file).Decode(&dpos_1002); err != nil {
+		return fmt.Errorf("parse config to json error,%s", err.Error())
+	}
+
+	fmt.Println("AddStaking params dpos_1002 is ",dpos_1002.NodeId,dpos_1002.Amount,dpos_1002.Typ)
+
+	priKeyStr := hex.EncodeToString(crypto.FromECDSA(priKey))
+	keyCredentials,err:=lib.NewCredential(priKeyStr)
+	config := lib.DposMainNetParams
+	sc := lib.NewStakingContract(config, keyCredentials)
+
+	nodeId:= "0x"+dpos_1002.NodeId.String()
+
+	result, err := sc.AddStaking(nodeId,lib.StakingAmountType(dpos_1002.Typ),dpos_1002.Amount)
+	if err != nil {
+		return fmt.Errorf("StakingContract.AddStaking failed: %v", err)
+	}
+	fmt.Println("AddStaking success,res is ",result)
+	return nil
+}
+
+func unStaking(c *cli.Context) error {
+	keystorePath:=c.String(keystoreFlag.Name)
+	priKey,_:=getPrivateKey(keystorePath)
+
+	//Load Dpos_1003 from json
+	unStakingParams:=c.String(addStakingParamsFlag.Name)
+	file, err := os.Open(unStakingParams)
+	if err != nil {
+		return fmt.Errorf("Failed to read unStakingParams file: %v", err)
+	}
+	defer file.Close()
+	file.Seek(0, io.SeekStart)
+	var dpos_1003 Dpos_1003
+	if err := json.NewDecoder(file).Decode(&dpos_1003); err != nil {
+		return fmt.Errorf("parse config to json error,%s", err.Error())
+	}
+
+	fmt.Println("UnStaking params dpos_1003 is ",dpos_1003.NodeId)
+
+	priKeyStr := hex.EncodeToString(crypto.FromECDSA(priKey))
+	keyCredentials,err:=lib.NewCredential(priKeyStr)
+	config := lib.DposMainNetParams
+	sc := lib.NewStakingContract(config, keyCredentials)
+
+	nodeId:= "0x"+dpos_1003.NodeId.String()
+
+	result, err := sc.UnStaking(nodeId)
+	if err != nil {
+		return fmt.Errorf("StakingContract.UnStaking failed: %v", err)
+	}
+	fmt.Println("UnStaking success,res is ",result)
+	return nil
+}
+
+func updateStaking(c *cli.Context) error {
+	keystorePath:=c.String(keystoreFlag.Name)
+	priKey,_:=getPrivateKey(keystorePath)
+
+	//Load Dpos_1001 from json
+	updateStakingParams:=c.String(updateStakingParamsFlag.Name)
+	file, err := os.Open(updateStakingParams)
+	if err != nil {
+		return fmt.Errorf("Failed to read updateStakingParams file: %v", err)
+	}
+	defer file.Close()
+	file.Seek(0, io.SeekStart)
+	var dpos_1001 Dpos_1001
+	if err := json.NewDecoder(file).Decode(&dpos_1001); err != nil {
+		return fmt.Errorf("parse config to json error,%s", err.Error())
+	}
+
+	fmt.Println("UpdateStaking params dpos_1001 is ",dpos_1001)
+
+	priKeyStr := hex.EncodeToString(crypto.FromECDSA(priKey))
+	keyCredentials,err:=lib.NewCredential(priKeyStr)
+	config := lib.DposMainNetParams
+	sc := lib.NewStakingContract(config, keyCredentials)
+	sp := lib.UpdateStakingParam{
+		NodeId:            "0x"+dpos_1001.NodeId.String(),
+		BenefitAddress:    dpos_1001.BenefitAddress.String(),
+		ExternalId:        dpos_1001.ExternalId,
+		NodeName:          dpos_1001.NodeName,
+		WebSite:           dpos_1001.Website,
+		Details:           dpos_1001.Details,
+		RewardPer: big.NewInt(int64(dpos_1001.RewardPer)),
+	}
+	fmt.Println("UpdateStaking params sp is ",sp)
+	result, err := sc.UpdateStakingInfo(sp)
+	if err != nil {
+		return fmt.Errorf("StakingContract.UpdateStakingInfo failed: %v", err)
+	}
+	fmt.Println("UpdateStakingInfo success,res is ",result)
+	return nil
+}
+
+func delegate(c *cli.Context) error {
+	keystorePath:=c.String(keystoreFlag.Name)
+	priKey,_:=getPrivateKey(keystorePath)
+
+	//Load Dpos_1004 from json
+	delegateParams:=c.String(delegateParamsFlag.Name)
+	file, err := os.Open(delegateParams)
+	if err != nil {
+		return fmt.Errorf("Failed to read delegateParams file: %v", err)
+	}
+	defer file.Close()
+	file.Seek(0, io.SeekStart)
+	var dpos_1004 Dpos_1004
+	if err := json.NewDecoder(file).Decode(&dpos_1004); err != nil {
+		return fmt.Errorf("parse config to json error,%s", err.Error())
+	}
+
+	fmt.Println("Delegate params dpos_1004 is ",dpos_1004.NodeId,dpos_1004.Amount,dpos_1004.Typ)
+
+	priKeyStr := hex.EncodeToString(crypto.FromECDSA(priKey))
+	keyCredentials,err:=lib.NewCredential(priKeyStr)
+	config := lib.DposMainNetParams
+	sc := lib.NewDelegateContract(config, keyCredentials)
+
+	nodeId:= "0x"+dpos_1004.NodeId.String()
+
+	result, err := sc.Delegate(nodeId,lib.StakingAmountType(dpos_1004.Typ),dpos_1004.Amount)
+	if err != nil {
+		return fmt.Errorf("DelegateContract.Delegate failed: %v", err)
+	}
+	fmt.Println("Delegate success,res is ",result)
+	return nil
+}
+
+func unDelegate(c *cli.Context) error {
+	keystorePath:=c.String(keystoreFlag.Name)
+	priKey,_:=getPrivateKey(keystorePath)
+
+	//Load Dpos_1005 from json
+	unDelegateParams:=c.String(unDelegateParamsFlag.Name)
+	file, err := os.Open(unDelegateParams)
+	if err != nil {
+		return fmt.Errorf("Failed to read unDelegateParams file: %v", err)
+	}
+	defer file.Close()
+	file.Seek(0, io.SeekStart)
+	var dpos_1005 Dpos_1005
+	if err := json.NewDecoder(file).Decode(&dpos_1005); err != nil {
+		return fmt.Errorf("parse config to json error,%s", err.Error())
+	}
+
+	fmt.Println("unDelegate params dpos_1005 is ",dpos_1005)
+
+	priKeyStr := hex.EncodeToString(crypto.FromECDSA(priKey))
+	keyCredentials,err:=lib.NewCredential(priKeyStr)
+	config := lib.DposMainNetParams
+	sc := lib.NewDelegateContract(config, keyCredentials)
+
+	nodeId:= "0x"+dpos_1005.NodeId.String()
+
+	result, err := sc.UnDelegate(nodeId,dpos_1005.StakingBlockNum,dpos_1005.Amount)
+	if err != nil {
+		return fmt.Errorf("DelegateContract.UnDelegate failed: %v", err)
+	}
+	fmt.Println("UnDelegate success,res is ",result)
+	return nil
 }
 
 func getVerifierList(c *cli.Context) error {

@@ -17,14 +17,14 @@ import (
 
 	"github.com/pkg/errors"
 
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/db/snapshotdb"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
 	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/consensus"
 	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/vm"
-	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/db/snapshotdb"
-	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
 	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/crypto"
 	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/log"
-	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p/discover"
 	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/staking"
 	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/xcom"
 	"github.com/PhoenixGlobal/Phoenix-Chain-Core/pos/xutil"
@@ -296,6 +296,9 @@ func (sp *SlashingPlugin) zeroProduceProcess(blockHash common.Hash, header *type
 	for _, validator := range validatorQueue {
 		isProduced, ok := validatorMap[validator.NodeId]
 		if ok && !isProduced {
+			if IsExistInitialChosenValidators(validator.NodeId) || IsExistAddChosenValidators(validator.NodeId) {
+				continue
+			}
 			waitSlashingNode := &WaitSlashingNode{
 				NodeId:   validator.NodeId,
 				Round:    preRound,

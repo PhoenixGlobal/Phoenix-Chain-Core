@@ -36,9 +36,27 @@ var (
 		},
 	}
 
+	addChosenMainNetDPosNodes = []initNode{
+		{
+			"enode://c885c04643fb42478138634b9c7a1e558c564b05da17b7df301dda74d34083d6a7dd73643a40d48f1a51f8fc7dfec01d99f7b9166228f378da0c08884dc59db0@35.86.242.254:16789",
+			"4f4fba0bfe256b74bbcb29c9cf5fd29218c8ad9ce645d70d3b8137231e3705461b87e642191df0dc2caec95583a9d8196cb5be440a5740d53a3603631fbc2e53891d438de0a5e7a9d13e6073e352295c2caae381fefe827c4c2fe7d8d29e1c89",
+		},
+		{
+			"enode://25e3f1d44a78bd33c784d11dc36cc651bb5efa83cf3240df57ba82810e2f1741a1cb0497a0d59c1f3dfead03bded3571e7ba721fafe5063ebbab4f3f68459519@34.223.113.42:16789",
+			"71a2eafbcd8cd132240b5a8c11035daaccbbc12a48271ec5032bd2fd915832b40f1c662681e723ca931052bda5ed7d0cdcb8760554b6808e2098dc6b58f22a1e8badb11aead0c992538af7368988e674e28712156c034610eb0550a9370b390f",
+		},
+		{
+			"enode://026ffc3cf1a51a55524062bee5cca7fcde08f19d03dde5c16f4a66909fab7781e4029ab25732f2f35de949dcc1d3686c07ff6af2916fa0d961dac82ca94be3e1@44.234.51.161:16789",
+			"d33fc19baa95deda6bbb85d1aec019e63eb1ac21cb1f68524d7788b7d342095f02e419c7713694b9228ea671a69aab123e46c2d05592bfcb834ea377124dc539e76dfe47963d5e2b7dee0fc1fb67f992e7f06669338467e34df6bdb7b558b096",
+		},
+	}
+
+
 	InitialChosenMainNetValidators []Validator
 
 	InitialChosenTestnetValidators []Validator
+
+	AddChosenMainNetValidators []Validator
 )
 
 func init()  {
@@ -68,5 +86,19 @@ func init()  {
 			}
 		}
 		InitialChosenTestnetValidators = append(InitialChosenTestnetValidators, *validator)
+	}
+
+	for _, n := range addChosenMainNetDPosNodes {
+		validator := new(Validator)
+		if node, err := discover.ParseNode(n.Enode); nil == err {
+			validator.NodeId = node.ID
+		}
+		if n.BlsPubkey != "" {
+			var blsPk bls.PublicKeyHex
+			if err := blsPk.UnmarshalText([]byte(n.BlsPubkey)); nil == err {
+				validator.BlsPubKey = blsPk
+			}
+		}
+		AddChosenMainNetValidators = append(AddChosenMainNetValidators, *validator)
 	}
 }

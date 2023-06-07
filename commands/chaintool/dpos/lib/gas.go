@@ -12,7 +12,7 @@ func IsLocalSupportFunction(ftype FunctionType) bool {
 		STAKING_FUNC_TYPE,
 		UPDATE_STAKING_INFO_FUNC_TYPE,
 		ADD_STAKING_FUNC_TYPE,
-		WITHDREW_STAKING_FUNC_TYPE:
+		WITHDRAW_STAKING_FUNC_TYPE:
 		return true
 	default:
 		return false
@@ -37,7 +37,7 @@ func getContractGasLimit(ftype FunctionType) uint64 {
 		STAKING_FUNC_TYPE,
 		UPDATE_STAKING_INFO_FUNC_TYPE,
 		ADD_STAKING_FUNC_TYPE,
-		WITHDREW_STAKING_FUNC_TYPE:
+		WITHDRAW_STAKING_FUNC_TYPE:
 		return uint64(6000)
 	default:
 		return uint64(0)
@@ -51,7 +51,7 @@ func getFunctionGasLimit(ftype FunctionType) uint64 {
 	case UPDATE_STAKING_INFO_FUNC_TYPE:
 		return uint64(12000)
 	case ADD_STAKING_FUNC_TYPE,
-		WITHDREW_STAKING_FUNC_TYPE:
+		WITHDRAW_STAKING_FUNC_TYPE:
 		return uint64(20000)
 	default:
 		return uint64(0)

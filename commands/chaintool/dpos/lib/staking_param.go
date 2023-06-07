@@ -37,3 +37,26 @@ func (sp StakingParam) SubmitInputParameters() []interface{} {
 		HexStringParam{HexStringValue: sp.BlsProof},
 	}
 }
+
+
+type UpdateStakingParam struct {
+	NodeId string
+	BenefitAddress string
+	ExternalId string
+	NodeName string
+	WebSite string
+	Details string
+	RewardPer *big.Int
+}
+
+func (sp UpdateStakingParam) SubmitInputParameters() []interface{} {
+	return []interface{}{
+		common.MustStringToAddress(sp.BenefitAddress),
+		NodeId{HexStringId: sp.NodeId},
+		Utf8String{ValueInner: sp.ExternalId},
+		Utf8String{ValueInner: sp.NodeName},
+		Utf8String{ValueInner: sp.WebSite},
+		Utf8String{ValueInner: sp.Details},
+		UInt32{ValueInner: sp.RewardPer},
+	}
+}

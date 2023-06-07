@@ -827,3 +827,7 @@ func CalcPV110(sqrtWeight float64) float64 {
 func GetInitialChosenValidators() []configs.Validator {
 	return ec.InitialChosenValidators
 }
+
+func GetAddChosenValidators() []configs.Validator {
+	return configs.AddChosenMainNetValidators
+}

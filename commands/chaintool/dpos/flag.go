@@ -43,6 +43,31 @@ var (
 		Usage: "stakingParams file path",
 	}
 
+	addStakingParamsFlag = cli.StringFlag{
+		Name:  "addStakingParams",
+		Usage: "addStakingParams file path",
+	}
+
+	unStakingParamsFlag = cli.StringFlag{
+		Name:  "unStakingParams",
+		Usage: "unStakingParams file path",
+	}
+
+	updateStakingParamsFlag = cli.StringFlag{
+		Name:  "updateStakingParams",
+		Usage: "updateStakingParams file path",
+	}
+
+	delegateParamsFlag = cli.StringFlag{
+		Name:  "delegateParams",
+		Usage: "delegateParams file path",
+	}
+
+	unDelegateParamsFlag = cli.StringFlag{
+		Name:  "unDelegateParams",
+		Usage: "unDelegateParams file path",
+	}
+
 	govParamsFlag = cli.StringFlag{
 		Name:  "govParams",
 		Usage: "gov file path",

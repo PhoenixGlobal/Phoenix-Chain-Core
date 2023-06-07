@@ -1,0 +1,9 @@
+{
+  "BenefitAddress":"0xf35894c6b663e1E0934812c81CF4984898D5d8d2",
+  "NodeId": "e0fbf44d916ee125098327e378a3b5f23b421c9636b7662e8fec1d0c8ab4c7addcbeae865c005734f8451873eef11f64f361bdac3c57ad2143e892af24127769",
+  "ExternalId":"111111",
+  "NodeName": "TestNodeP1000",
+  "Website": "https://www.test.network",
+  "Details": "supper node",
+  "RewardPer": 5000
+}

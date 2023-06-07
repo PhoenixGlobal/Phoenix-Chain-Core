@@ -1,11 +1,11 @@
 package plugin
 
 import (
-	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types/pbfttypes"
 	"bytes"
 	"encoding/hex"
 	"errors"
 	"fmt"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types/pbfttypes"
 	"math/big"
 	"math/rand"
 	"sort"
@@ -1724,6 +1724,16 @@ func IsExistInitialChosenValidators(nodeId discover.NodeID) bool{
 	return false
 }
 
+func IsExistAddChosenValidators(nodeId discover.NodeID) bool{
+	initialChosenValidators:=xcom.GetAddChosenValidators()
+	for _,validator:=range initialChosenValidators{
+		if nodeId==validator.NodeId{
+			return true
+		}
+	}
+	return false
+}
+
 func (sk *StakingPlugin) Election(blockHash common.Hash, header *types.Header, state xcom.StateDB) error {
 
 	blockNumber := header.Number.Uint64()
@@ -1902,13 +1912,13 @@ func (sk *StakingPlugin) Election(blockHash common.Hash, header *types.Header, s
 
 	//Exclude the removeCan which nodeId is in initialChosenValidators
 	for nodeId := range removeCans{
-		if IsExistInitialChosenValidators(nodeId){
+		if IsExistInitialChosenValidators(nodeId) || IsExistAddChosenValidators(nodeId) {
 			delete(removeCans, nodeId)
 		}
 	}
 	//Exclude invalidCan which nodeId is in initialChosenValidators
 	for nodeId := range invalidCan{
-		if IsExistInitialChosenValidators(nodeId){
+		if IsExistInitialChosenValidators(nodeId) || IsExistAddChosenValidators(nodeId) {
 			delete(invalidCan, nodeId)
 		}
 	}
@@ -2028,7 +2038,7 @@ func shuffleQueue(remainCurrQueue, vrfQueue staking.ValidatorQueue, blockNumber 
 	for remainLen > int(xcom.MaxConsensusVals()-xcom.ShiftValidatorNum()) && totalQueueLen > int(xcom.MaxConsensusVals()) {
 		for i:=0;i<len(remainCurrQueue);i++{
 			validator:=remainCurrQueue[i]
-			if !IsExistInitialChosenValidators(validator.NodeId){
+			if !(IsExistInitialChosenValidators(validator.NodeId) || IsExistAddChosenValidators(validator.NodeId)){
 				remainCurrQueue=append(remainCurrQueue[:i],remainCurrQueue[i+1:]...)
 				remainLen--
 				totalQueueLen--
