@@ -1,9 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/eth"
 	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/ethclient"
-	"fmt"
 	"math"
 	"os"
 	"runtime"
@@ -174,6 +174,7 @@ func init() {
 	app.Commands = []cli.Command{
 		// See chaincmd.go:
 		initCommand,
+		initMainNetCommand,
 		//importCommand,
 		//exportCommand,
 		importPreimagesCommand,

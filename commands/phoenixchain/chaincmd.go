@@ -1,8 +1,8 @@
 package main
 
 import (
-	downloader2 "github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/eth/downloader"
 	"fmt"
+	downloader2 "github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/eth/downloader"
 	"io"
 	"path/filepath"
 
@@ -42,6 +42,20 @@ This is a destructive action and changes the network in which you will be
 participating.
 
 It expects the genesis file as argument.`,
+	}
+	initMainNetCommand = cli.Command{
+		Action:    utils.MigrateFlags(initMainNetGenesis),
+		Name:      "initMainNet",
+		Usage:     "Bootstrap and initialize a new main net genesis block",
+		ArgsUsage: "<genesisPath>",
+		Flags: []cli.Flag{
+			utils.DataDirFlag,
+		},
+		Category: "BLOCKCHAIN COMMANDS",
+		Description: `
+The init command initializes a new genesis block and definition for the network.
+This is a destructive action and changes the network in which you will be
+participating.`,
 	}
 	importPreimagesCommand = cli.Command{
 		Action:    utils.MigrateFlags(importPreimages),
@@ -187,6 +201,38 @@ func initGenesis(ctx *cli.Context) error {
 		utils.Fatalf("Failed Copy Genesis file: %v", err)
 	}
 
+	return nil
+}
+
+func initMainNetGenesis(ctx *cli.Context) error {
+	// Open an initialise databases
+	stack := makeFullNode(ctx)
+	defer stack.Close()
+
+	for _, name := range []string{"chaindata"} {
+		chaindb, err := stack.OpenDatabase(name, 0, 0, "")
+		if err != nil {
+			utils.Fatalf("Failed to open database: %v", err)
+		}
+		var sdb snapshotdb.DB
+		if name == "chaindata" {
+			sdb, err = snapshotdb.Open(stack.ResolvePath(snapshotdb.DBPath), 0, 0, true)
+			if err != nil {
+				utils.Fatalf("Failed to open snapshotdb: %v", err)
+			}
+		}
+		_, hash, err := core.SetupGenesisBlock(chaindb, sdb, nil)
+		if err != nil {
+			utils.Fatalf("Failed to write genesis block: %v", err)
+		}
+		log.Info("Successfully wrote genesis state", "database", name, "hash", hash.Hex())
+		if sdb != nil {
+			if err := sdb.Close(); err != nil {
+				utils.Fatalf("close base db fail: %v", err)
+			}
+		}
+		chaindb.Close()
+	}
 	return nil
 }
 
