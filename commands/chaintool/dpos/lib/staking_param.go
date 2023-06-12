@@ -53,10 +53,10 @@ func (sp UpdateStakingParam) SubmitInputParameters() []interface{} {
 	return []interface{}{
 		common.MustStringToAddress(sp.BenefitAddress),
 		NodeId{HexStringId: sp.NodeId},
+		UInt32{ValueInner: sp.RewardPer},
 		Utf8String{ValueInner: sp.ExternalId},
 		Utf8String{ValueInner: sp.NodeName},
 		Utf8String{ValueInner: sp.WebSite},
 		Utf8String{ValueInner: sp.Details},
-		UInt32{ValueInner: sp.RewardPer},
 	}
 }
