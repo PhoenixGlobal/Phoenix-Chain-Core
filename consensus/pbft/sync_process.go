@@ -162,17 +162,17 @@ func (pbft *Pbft) fetchBlock(id string, hash common.Hash, number uint64, qc *cty
 				}
 			}
 
-			//pbft.asyncCallCh <- func() {
-			//	for i, forkedBlock := range filteredForkedBlocks {
-			//		if err := pbft.verifyPrepareQC(forkedBlock.NumberU64(), forkedBlock.Hash(), blockList.ForkedQC[i],0); err != nil {
-			//			pbft.log.Error("Verify forked block prepare qc failed", "hash", forkedBlock.Hash(), "number", forkedBlock.NumberU64(), "error", err)
-			//			return
-			//		}
-			//	}
-			//	if err := pbft.OnInsertQCBlock(filteredForkedBlocks, filteredForkedQCs); err != nil {
-			//		pbft.log.Error("Insert forked block failed", "error", err)
-			//	}
-			//}
+			pbft.asyncCallCh <- func() {
+				for i, forkedBlock := range filteredForkedBlocks {
+					if err := pbft.verifyPrepareQC(forkedBlock.NumberU64(), forkedBlock.Hash(), blockList.ForkedQC[i],0); err != nil {
+						pbft.log.Error("Verify forked block prepare qc failed", "hash", forkedBlock.Hash(), "number", forkedBlock.NumberU64(), "error", err)
+						return
+					}
+				}
+				if err := pbft.OnInsertQCBlock(filteredForkedBlocks, filteredForkedQCs); err != nil {
+					pbft.log.Error("Insert forked block failed", "error", err)
+				}
+			}
 		}
 	}
 
