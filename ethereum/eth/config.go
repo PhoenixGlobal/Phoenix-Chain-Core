@@ -22,7 +22,7 @@ var DefaultConfig = Config{
 		EvidenceDir:       "evidence",
 		MaxPingLatency:    5000,
 		MaxQueuesLimit:    4096,
-		BlacklistDeadline: 60,
+		BlacklistDeadline: 5,
 		Period:            2000,
 		Amount:            1,
 	},
