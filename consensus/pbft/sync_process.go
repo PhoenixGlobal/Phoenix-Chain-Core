@@ -295,7 +295,7 @@ func (pbft *Pbft) OnBlockQuorumCert(id string, msg *protocols.BlockQuorumCert) e
 	}
 	if err := pbft.verifyPrepareQC(block.NumberU64(), block.Hash(), msg.BlockQC,ctypes.RoundStepPrepareVote); err != nil {
 		pbft.log.Error("Failed to verify prepareQC", "err", err.Error())
-		return &authFailedError{err}
+		return err
 	}
 
 	pbft.TrySetHighestQCBlock(block)
@@ -351,7 +351,7 @@ func (pbft *Pbft) OnBlockPreCommitQuorumCert(id string, msg *protocols.BlockPreC
 	}
 	if err := pbft.verifyPrepareQC(block.NumberU64(), block.Hash(), msg.BlockQC,ctypes.RoundStepPreCommit); err != nil {
 		pbft.log.Error("Failed to verify preCommitQC", "err", err.Error())
-		return &authFailedError{err}
+		return err
 	}
 
 	pbft.log.Info("Receive blockPreCommitQuorumCert, try insert preCommitQC", "view", pbft.state.ViewString(), "blockPreCommitQuorumCert", msg.BlockQC.String())
@@ -753,7 +753,7 @@ func (pbft *Pbft) OnViewChangeQuorumCert(id string, msg *protocols.ViewChangeQuo
 			pbft.tryChangeViewByViewChange(msg.ViewChangeQC)
 		} else {
 			pbft.log.Debug("Verify ViewChangeQC failed", "err", err)
-			return &authFailedError{err}
+			return err
 		}
 	}
 	// if the other party's view is still higher than the local one, continue to synchronize the view
