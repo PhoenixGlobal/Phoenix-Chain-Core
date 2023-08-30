@@ -1274,7 +1274,7 @@ func (vs *ViewState) ViewChangeLen() int {
 }
 
 func (vs *ViewState) HighestBlockString() string {
-	qc := vs.HighestQCBlock()
+	qc := vs.HighestPreCommitQCBlock()
 	lock := vs.HighestLockBlock()
 	commit := vs.HighestCommitBlock()
 	return fmt.Sprintf("{HighestQC:{hash:%s,number:%d},HighestLock:{hash:%s,number:%d},HighestCommit:{hash:%s,number:%d}}",
@@ -1287,7 +1287,7 @@ func (vs *ViewState) HighestExecutedBlock() *types.Block {
 	var block *types.Block
 	maxNumber:=vs.view.MaxExecutedBlockNumber()
 	if maxNumber==0{
-		block = vs.HighestQCBlock()
+		block = vs.HighestPreCommitQCBlock()
 		return block
 	}
 	block = vs.viewBlocks.index(maxNumber).block()
@@ -1402,6 +1402,7 @@ func (vs *ViewState) MarshalJSON() ([]byte, error) {
 		HighestQCBlock     hashNumber `json:"highestQCBlock"`
 		HighestLockBlock   hashNumber `json:"highestLockBlock"`
 		HighestCommitBlock hashNumber `json:"highestCommitBlock"`
+		highestPreCommitQCBlock hashNumber `json:"highestPreCommitQCBlock"`
 	}
 
 	s := &state{
@@ -1409,6 +1410,7 @@ func (vs *ViewState) MarshalJSON() ([]byte, error) {
 		HighestQCBlock:     hashNumber{Hash: vs.HighestQCBlock().Hash(), Number: vs.HighestQCBlock().NumberU64()},
 		HighestLockBlock:   hashNumber{Hash: vs.HighestLockBlock().Hash(), Number: vs.HighestLockBlock().NumberU64()},
 		HighestCommitBlock: hashNumber{Hash: vs.HighestCommitBlock().Hash(), Number: vs.HighestCommitBlock().NumberU64()},
+		highestPreCommitQCBlock: hashNumber{Hash: vs.HighestPreCommitQCBlock().Hash(), Number: vs.HighestPreCommitQCBlock().NumberU64()},
 	}
 	return json.Marshal(s)
 }

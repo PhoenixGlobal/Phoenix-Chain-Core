@@ -1,12 +1,12 @@
 package pbft
 
 import (
-	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types/pbfttypes"
 	"bytes"
 	"container/list"
 	"crypto/elliptic"
 	"encoding/json"
 	"fmt"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types/pbfttypes"
 	"strings"
 	"sync/atomic"
 
@@ -944,8 +944,8 @@ func (pbft *Pbft) InsertChain(block *types.Block) error {
 			"parentHash", block.ParentHash(),
 			"lockedNumber", pbft.state.HighestLockBlock().Number(),
 			"lockedHash", pbft.state.HighestLockBlock().Hash(),
-			"qcNumber", pbft.state.HighestQCBlock().Number(),
-			"qcHash", pbft.state.HighestQCBlock().Hash())
+			"qcNumber", pbft.state.HighestPreCommitQCBlock().Number(),
+			"qcHash", pbft.state.HighestPreCommitQCBlock().Hash())
 		return errors.New("orphan block")
 	}
 
@@ -1345,7 +1345,7 @@ func (pbft *Pbft) HighestLockBlockBn() (uint64, common.Hash) {
 
 // HighestQCBlockBn return the highest QC block number of the current node.
 func (pbft *Pbft) HighestQCBlockBn() (uint64, common.Hash) {
-	return pbft.state.HighestQCBlock().NumberU64(), pbft.state.HighestQCBlock().Hash()
+	return pbft.state.HighestPreCommitQCBlock().NumberU64(), pbft.state.HighestPreCommitQCBlock().Hash()
 }
 
 // HighestPreCommitQCBlockBn return the highest PreCommit QC block number of the current node.

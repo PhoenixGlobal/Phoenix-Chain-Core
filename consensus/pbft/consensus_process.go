@@ -1,8 +1,8 @@
 package pbft
 
 import (
-	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types/pbfttypes"
 	"fmt"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types/pbfttypes"
 	"time"
 
 	"github.com/pkg/errors"
@@ -837,7 +837,7 @@ func (pbft *Pbft) richViewChangeQC(viewChangeQC *ctypes.ViewChangeQC) {
 		viewChangeQC.AppendQuorumCert(cert)
 	}
 
-	_, qc := pbft.blockTree.FindBlockAndQC(pbft.state.HighestQCBlock().Hash(), pbft.state.HighestQCBlock().NumberU64())
+	_, qc := pbft.blockTree.FindBlockAndQC(pbft.state.HighestPreCommitQCBlock().Hash(), pbft.state.HighestPreCommitQCBlock().NumberU64())
 	_, _, blockEpoch, blockView, _, number := viewChangeQC.MaxBlock()
 
 	if qc == nil{
