@@ -1894,10 +1894,8 @@ func (pbft *Pbft) verifyPrepareQC(oriNum uint64, oriHash common.Hash, qc *ctypes
 	}
 	// check if the corresponding block QC
 	if oriNum != qc.BlockNumber || oriHash != qc.BlockHash {
-		return authFailedError{
-			err: fmt.Errorf("verify prepare qc failed,not the corresponding qc,oriNum:%d,oriHash:%s,qcNum:%d,qcHash:%s",
+		return fmt.Errorf("verify prepare qc failed,not the corresponding qc,oriNum:%d,oriHash:%s,qcNum:%d,qcHash:%s",
 				oriNum, oriHash.String(), qc.BlockNumber, qc.BlockHash.String())}
-	}
 
 	var cb []byte
 	var err error
