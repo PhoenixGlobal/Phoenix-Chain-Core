@@ -871,6 +871,69 @@ func (pbft *Pbft) OnSeal(block *types.Block, results chan<- *types.Block, stop <
 	}()
 }
 
+// ReOnSeal is used to process the blocks that have already been generated.
+func (pbft *Pbft) ReOnSeal(blockNumber uint64) {
+	pbft.log.Info("ReOnSeal", "blockNumber", blockNumber,"ViewNumber",pbft.state.ViewNumber())
+	block:=pbft.state.ViewBlockByIndex(blockNumber)
+	me, err := pbft.validatorPool.GetValidatorByNodeID(pbft.state.Epoch(), pbft.NodeID())
+	if err != nil {
+		pbft.log.Warn("Can not got the validator, seal fail", "epoch", pbft.state.Epoch(), "nodeID", pbft.NodeID())
+		return
+	}
+	numValidators := pbft.validatorPool.Len(pbft.state.Epoch())
+	//currentProposer := pbft.state.BlockNumber() % uint64(numValidators)
+	//currentProposer := (pbft.state.BlockNumber()-1)% uint64(numValidators)
+	currentProposer := pbft.CalCurrentProposer(numValidators)
+	if currentProposer != uint64(me.Index) {
+		pbft.log.Warn("You are not the current proposer", "index", me.Index, "currentProposer", currentProposer)
+		return
+	}
+	prepareBlock := &protocols.PrepareBlock{
+		Epoch:         pbft.state.Epoch(),
+		ViewNumber:    pbft.state.ViewNumber(),
+		Block:         block,
+		BlockIndex:    0,
+		ProposalIndex: uint32(me.Index),
+	}
+	prepareBlock.ViewChangeQC = pbft.state.LastViewChangeQC()
+
+	if err := pbft.signMsgByBls(prepareBlock); err != nil {
+		pbft.log.Error("Sign PrepareBlock failed", "err", err, "hash", block.Hash(), "number", block.NumberU64())
+		return
+	}
+
+	//pbft.state.SetExecuting(prepareBlock.BlockIndex, true)
+	if err := pbft.OnPrepareBlock("", prepareBlock); err != nil {
+		pbft.log.Error("Check Seal Block failed", "err", err, "hash", block.Hash(), "number", block.NumberU64())
+		pbft.state.SetExecuting(prepareBlock.BlockIndex, false)
+		return
+	}
+
+	// write sendPrepareBlock info to wal
+	if !pbft.isLoading() {
+		pbft.bridge.SendPrepareBlock(prepareBlock)
+	}
+	pbft.network.Broadcast(prepareBlock)
+	pbft.log.Info("ReOnSeal broadcast PrepareBlock", "prepareBlock", prepareBlock.String())
+
+	//if err := pbft.signBlock(block.Hash(), block.NumberU64(), prepareBlock.BlockIndex); err != nil {
+	//	pbft.log.Error("Sign PrepareBlock failed", "err", err, "hash", block.Hash(), "number", block.NumberU64())
+	//	return
+	//}
+
+	pbft.txPool.Reset(block)
+
+	//pbft.findQCBlock()
+
+	pbft.validatorPool.Flush(prepareBlock.Block.Header())
+
+	// Record the number of blocks.
+	preBlock := pbft.blockTree.FindBlockByHash(block.ParentHash())
+	if preBlock != nil {
+		blockMinedGauage.Update(common.Millis(time.Now()) - int64(preBlock.Time()))
+	}
+}
+
 // SealHash returns the hash of a block prior to it being sealed.
 func (pbft *Pbft) SealHash(header *types.Header) common.Hash {
 	pbft.log.Debug("Seal hash", "hash", header.Hash(), "number", header.Number)
@@ -1244,6 +1307,12 @@ func (pbft *Pbft) OnShouldSeal(result chan error) {
 	if pbft.state.Deadline().Sub(time.Now()) <= rtt {
 		pbft.log.Debug("Not enough time to propagated block, stopped sealing", "deadline", pbft.state.Deadline(), "interval", pbft.state.Deadline().Sub(time.Now()), "rtt", rtt)
 		result <- errors.New("not enough time to propagated block, stopped sealing")
+		return
+	}
+
+	if pbft.state.ExistBlock(pbft.state.BlockNumber()) {
+		pbft.ReOnSeal(pbft.state.BlockNumber())
+		result <- errors.New("do not repeat producing block")
 		return
 	}
 

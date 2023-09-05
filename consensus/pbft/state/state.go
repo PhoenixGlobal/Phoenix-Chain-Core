@@ -209,13 +209,12 @@ func (v *viewBlocks) index(i uint64) viewBlock {
 func (v *viewBlocks) addBlock(block viewBlock) {
 	v.Lock.Lock()
 	defer v.Lock.Unlock()
-	b,ok:=v.Blocks[block.number()]
-	if ok && b.hash()==block.hash(){
-		return
-	}
-	if len(v.Blocks)>=ViewCacheLen{
-		minNumber:=v.MinNumber()
-		delete(v.Blocks,minNumber)
+	_,ok:=v.Blocks[block.number()]
+	if !ok {
+		if len(v.Blocks)>=ViewCacheLen{
+			minNumber:=v.MinNumber()
+			delete(v.Blocks,minNumber)
+		}
 	}
 	v.Blocks[block.number()] = block
 	v.IsProduced=true
@@ -226,6 +225,14 @@ func (v *viewBlocks) clear(blockNumber uint64) {
 	//defer v.Lock.Unlock()
 	//delete(v.Blocks,blockNumber)
 	v.IsProduced=false
+}
+
+func (v *viewBlocks) exist(blockNumber uint64) bool {
+	_,ok:=v.Blocks[blockNumber]
+	if ok{
+		return true
+	}
+	return false
 }
 
 func (v *viewBlocks) len() int {
@@ -911,6 +918,10 @@ func (vs *ViewState) Deadline() time.Time {
 
 func (vs *ViewState) NextViewBlockNumber() uint64 {
 	return vs.viewBlocks.MaxNumber() + 1
+}
+
+func (vs *ViewState) ExistBlock(number uint64) bool {
+	return vs.viewBlocks.exist(number)
 }
 
 func (vs *ViewState) NextViewBlockIndex() uint32 {
