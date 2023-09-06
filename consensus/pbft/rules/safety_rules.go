@@ -216,7 +216,10 @@ func (r *baseSafetyRules) PrepareBlockRules(block *protocols.PrepareBlock) Safet
 		}
 		current := r.viewState.ViewBlockByIndex(block.BlockNum())
 		if current != nil {
-			return newCommonError(fmt.Sprintf("blockNum already exists(blockNum:%d)", block.BlockNum()))
+			currentPrepare := r.viewState.PrepareBlockByIndex(block.BlockNum())
+			if currentPrepare!=nil && currentPrepare.ViewNumber== block.ViewNumber{
+				return newCommonError(fmt.Sprintf("blockNum already exists(blockNum:%d)", block.BlockNum()))
+			}
 		}
 		if isFirstBlock() {
 			if !isCommitChild() && !isLockChild() {
