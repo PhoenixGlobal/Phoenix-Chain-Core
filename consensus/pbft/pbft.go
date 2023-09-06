@@ -1310,10 +1310,15 @@ func (pbft *Pbft) OnShouldSeal(result chan error) {
 		return
 	}
 
-	if pbft.state.ExistBlock(pbft.state.BlockNumber()) {
-		pbft.ReOnSeal(pbft.state.BlockNumber())
-		result <- errors.New("do not repeat producing block")
-		return
+	blockNumber:=pbft.state.BlockNumber()
+	if pbft.state.ExistBlock(blockNumber) {
+		prepareBlock:=pbft.state.PrepareBlockByIndex(blockNumber)
+		proposer := pbft.currentProposer()
+		if uint32(proposer.Index) == prepareBlock.NodeIndex() {
+			pbft.ReOnSeal(blockNumber)
+			result <- errors.New("do not repeat producing block")
+			return
+		}
 	}
 
 	proposerIndexGauage.Update(int64(currentProposer))
