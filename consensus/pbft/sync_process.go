@@ -272,7 +272,7 @@ func (pbft *Pbft) OnGetBlockQuorumCert(id string, msg *protocols.GetBlockQuorumC
 // OnBlockQuorumCert handles the message type of BlockQuorumCertMsg.
 func (pbft *Pbft) OnBlockQuorumCert(id string, msg *protocols.BlockQuorumCert) error {
 	pbft.log.Debug("Receive BlockQuorumCert", "peer", id, "msg", msg.String())
-	if msg.BlockQC.Epoch != pbft.state.Epoch() || (msg.BlockQC.BlockNumber != pbft.state.BlockNumber()&&pbft.state.BlockNumber()!=0) || msg.BlockQC.ViewNumber != pbft.state.ViewNumber(){
+	if msg.BlockQC.Epoch != pbft.state.Epoch() || (msg.BlockQC.BlockNumber != pbft.state.BlockNumber()&&pbft.state.BlockNumber()!=0){
 		pbft.log.Trace("Receive BlockQuorumCert response failed", "local.epoch", pbft.state.Epoch(), "local.blockNumber", pbft.state.BlockNumber(),"local.viewNumber", pbft.state.ViewNumber(),  "msg", msg.String())
 		return fmt.Errorf("msg is not match current state")
 	}
@@ -328,7 +328,7 @@ func (pbft *Pbft) OnGetBlockPreCommitQuorumCert(id string, msg *protocols.GetBlo
 // OnBlockQuorumCert handles the message type of BlockQuorumCertMsg.
 func (pbft *Pbft) OnBlockPreCommitQuorumCert(id string, msg *protocols.BlockPreCommitQuorumCert) error {
 	pbft.log.Debug("Receive BlockPreCommitQuorumCert", "peer", id, "msg", msg.String())
-	if msg.BlockQC.Epoch != pbft.state.Epoch() || (msg.BlockQC.BlockNumber != pbft.state.BlockNumber()&&pbft.state.BlockNumber()!=0) || msg.BlockQC.ViewNumber != pbft.state.ViewNumber(){
+	if msg.BlockQC.Epoch != pbft.state.Epoch() || (msg.BlockQC.BlockNumber != pbft.state.BlockNumber()&&pbft.state.BlockNumber()!=0){
 		pbft.log.Trace("Receive BlockPreCommitQuorumCert response failed", "local.epoch", pbft.state.Epoch(), "local.BlockNumber", pbft.state.BlockNumber(),"local.ViewNumber", pbft.state.ViewNumber(),  "msg", msg.String())
 		return fmt.Errorf("msg is not match current state")
 	}

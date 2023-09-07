@@ -1797,8 +1797,13 @@ func (pbft *Pbft) generatePrepareQC(votes map[uint32]*protocols.PrepareVote) *ct
 	var vote *protocols.PrepareVote
 
 	for _, v := range votes {
-		vote = v
-		break
+		if vote==nil{
+			vote = v
+		}else {
+			if v.ViewNumber>vote.ViewNumber{
+				vote = v
+			}
+		}
 	}
 
 	// Validator set prepareQC is the same as highestQC
@@ -1852,8 +1857,13 @@ func (pbft *Pbft) generatePreCommitQC(votes map[uint32]*protocols.PreCommit) *ct
 	var vote *protocols.PreCommit
 
 	for _, v := range votes {
-		vote = v
-		break
+		if vote==nil{
+			vote = v
+		}else {
+			if v.ViewNumber>vote.ViewNumber{
+				vote = v
+			}
+		}
 	}
 
 	// Validator set prepareQC is the same as highestQC

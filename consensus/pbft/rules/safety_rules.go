@@ -340,7 +340,8 @@ func (r *baseSafetyRules) PrepareVoteRules(vote *protocols.PrepareVote) SafetyEr
 		if doubtDuplicate() {
 			return nil
 		}
-		if r.viewState.FindPrepareVote(vote.BlockNumber, vote.ValidatorIndex) != nil {
+		local := r.viewState.FindPrepareVote(vote.BlockNumber, vote.ValidatorIndex)
+		if local != nil && local.ViewNumber== vote.ViewNumber{
 			return newCommonError(fmt.Sprintf("prepare vote has exist(blockIndex:%d, validatorIndex:%d)", vote.BlockIndex, vote.ValidatorIndex))
 		}
 		if !existsPrepare() {
@@ -422,7 +423,8 @@ func (r *baseSafetyRules) PreCommitRules(vote *protocols.PreCommit) SafetyError 
 		if doubtDuplicate() {
 			return nil
 		}
-		if r.viewState.FindPreCommit(vote.BlockNumber,vote.ValidatorIndex) != nil {
+		local := r.viewState.FindPreCommit(vote.BlockNumber, vote.ValidatorIndex)
+		if local != nil && local.ViewNumber== vote.ViewNumber{
 			return newCommonError(fmt.Sprintf("PreCommit vote has exist(blockIndex:%d, validatorIndex:%d)", vote.BlockIndex, vote.ValidatorIndex))
 		}
 		if !existsPrepare() {

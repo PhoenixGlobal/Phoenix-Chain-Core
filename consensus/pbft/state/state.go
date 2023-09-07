@@ -262,8 +262,12 @@ func (v *viewBlocks) MaxNumber() uint64 {
 func (v *viewBlocks) MinNumber() uint64 {
 	min := uint64(0)
 	for _, b := range v.Blocks {
-		if b.number() < min {
+		if min==0{
 			min = b.number()
+		}else {
+			if b.number() < min {
+				min = b.number()
+			}
 		}
 	}
 	return min
@@ -294,7 +298,7 @@ func (v *viewQCs) addQC(qc *ctypes.QuorumCert) {
 	v.Lock.Lock()
 	defer v.Lock.Unlock()
 	q,ok:=v.QCs[qc.BlockNumber]
-	if ok && q.BlockHash==qc.BlockHash{
+	if ok && q.BlockHash==qc.BlockHash && q.ViewNumber>=qc.ViewNumber{
 		return
 	}
 
@@ -306,10 +310,13 @@ func (v *viewQCs) addQC(qc *ctypes.QuorumCert) {
 	v.IsProduced=true
 	if v.MaxNumber < qc.BlockNumber {
 		v.MaxNumber = qc.BlockNumber
+		if v.MaxNumber-ViewCacheLen>0{
+			v.MinNumber = v.MaxNumber-ViewCacheLen
+		}
 	}
-	if v.MinNumber > qc.BlockNumber {
-		v.MinNumber = qc.BlockNumber
-	}
+	//if v.MinNumber > qc.BlockNumber {
+	//	v.MinNumber = qc.BlockNumber
+	//}
 	return
 }
 
@@ -387,8 +394,12 @@ func (v *viewVotes) MaxNumber() uint64 {
 func (v *viewVotes) MinNumber() uint64 {
 	min := uint64(0)
 	for index, _ := range v.Votes {
-		if index < min {
-			min = index
+		if min==0{
+			min= index
+		}else{
+			if index < min {
+				min = index
+			}
 		}
 	}
 	return min
@@ -450,8 +461,12 @@ func (v *viewPreCommits) MaxNumber() uint64 {
 func (v *viewPreCommits) MinNumber() uint64 {
 	min := uint64(0)
 	for index, _ := range v.Votes {
-		if index < min {
-			min = index
+		if min==0{
+			min=index
+		}else {
+			if index < min {
+				min = index
+			}
 		}
 	}
 	return min
@@ -979,11 +994,23 @@ func (vs *ViewState) MaxQCIndex() uint32 {
 }
 
 func (vs *ViewState) SetPreCommitQC(viewPreCommitQC *ctypes.QuorumCert){
-	vs.view.viewPreCommitQC=viewPreCommitQC
+	if vs.view.viewPreCommitQC==nil{
+		vs.view.viewPreCommitQC=viewPreCommitQC
+		return
+	}
+	if viewPreCommitQC.BlockNumber>=vs.view.viewPreCommitQC.BlockNumber&&viewPreCommitQC.ViewNumber>=vs.view.viewPreCommitQC.ViewNumber{
+		vs.view.viewPreCommitQC=viewPreCommitQC
+	}
 }
 
 func (vs *ViewState) SetPrepareVoteQC(viewPrepareVoteQC *ctypes.QuorumCert){
-	vs.view.viewPrepareVoteQC=viewPrepareVoteQC
+	if vs.view.viewPrepareVoteQC==nil{
+		vs.view.viewPrepareVoteQC=viewPrepareVoteQC
+		return
+	}
+	if viewPrepareVoteQC.BlockNumber>=vs.view.viewPrepareVoteQC.BlockNumber&&viewPrepareVoteQC.ViewNumber>=vs.view.viewPrepareVoteQC.ViewNumber{
+		vs.view.viewPrepareVoteQC=viewPrepareVoteQC
+	}
 }
 
 //func (vs *ViewState) ViewPreCommitQC()*ctypes.QuorumCert{
@@ -996,7 +1023,7 @@ func (vs *ViewState) ViewPrepareVoteQC()*ctypes.QuorumCert{
 
 func (vs *ViewState) HadPrepareVoteQC(hash common.Hash, number uint64, viewNumber uint64)bool{
 	qc := vs.viewQCs.index(number)
-	if qc!=nil&&qc.BlockHash==hash&&qc.BlockNumber==number{
+	if qc!=nil&&qc.BlockHash==hash&&qc.BlockNumber==number&&qc.ViewNumber>=viewNumber{
 		return true
 	}
 	return false
@@ -1004,7 +1031,7 @@ func (vs *ViewState) HadPrepareVoteQC(hash common.Hash, number uint64, viewNumbe
 
 func (vs *ViewState) HadPreCommitQC(hash common.Hash, number uint64, viewNumber uint64)bool{
 	qc := vs.viewPreCommitQCs.index(number)
-	if qc!=nil&&qc.BlockHash==hash&&qc.BlockNumber==number{
+	if qc!=nil&&qc.BlockHash==hash&&qc.BlockNumber==number&&qc.ViewNumber>=viewNumber{
 		return true
 	}
 	return false
