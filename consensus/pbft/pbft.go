@@ -925,7 +925,7 @@ func (pbft *Pbft) ReOnSeal(blockNumber uint64) {
 
 	//pbft.findQCBlock()
 
-	pbft.validatorPool.Flush(prepareBlock.Block.Header())
+	//pbft.validatorPool.Flush(prepareBlock.Block.Header())
 
 	// Record the number of blocks.
 	preBlock := pbft.blockTree.FindBlockByHash(block.ParentHash())
@@ -1313,6 +1313,11 @@ func (pbft *Pbft) OnShouldSeal(result chan error) {
 	blockNumber:=pbft.state.BlockNumber()
 	if pbft.state.ExistBlock(blockNumber) {
 		prepareBlock:=pbft.state.PrepareBlockByIndex(blockNumber)
+		if prepareBlock==nil{
+			pbft.ReOnSeal(blockNumber)
+			result <- errors.New("do not repeat producing block")
+			return
+		}
 		proposer := pbft.currentProposer()
 		if uint32(proposer.Index) == prepareBlock.NodeIndex() {
 			pbft.ReOnSeal(blockNumber)
