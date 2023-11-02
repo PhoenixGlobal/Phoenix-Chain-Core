@@ -75,3 +75,27 @@ func enable2315(jt *JumpTable) {
 		jumps:       true,
 	}
 }
+
+// enable3855 applies EIP-3855 (PUSH0 opcode)
+func enable3855(jt *JumpTable) {
+	// New opcode
+	jt[PUSH0] = &operation{
+		execute:     opPush0,
+		constantGas: GasQuickStep,
+		minStack:    minStack(0, 1),
+		maxStack:    maxStack(0, 1),
+	}
+}
+
+// opPush0 implements the PUSH0 opcode
+func opPush0(pc *uint64, interpreter *EVMInterpreter, scope *callCtx) ([]byte, error) {
+	scope.stack.push(new(uint256.Int))
+	return nil, nil
+}
+
+// enable3860 enables "EIP-3860: Limit and meter initcode"
+// https://eips.ethereum.org/EIPS/eip-3860
+func enable3860(jt *JumpTable) {
+	jt[CREATE].dynamicGas = gasCreateEip3860
+	jt[CREATE2].dynamicGas = gasCreate2Eip3860
+}
