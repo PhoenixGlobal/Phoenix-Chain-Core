@@ -17,12 +17,12 @@ import (
 	"github.com/syndtr/goleveldb/leveldb/util"
 
 	"github.com/PhoenixGlobal/Phoenix-Chain-Core/configs"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts"
+	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts/keystore"
 	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core"
 	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/db/rawdb"
 	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/types"
 	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/core/vm"
-	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts"
-	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/accounts/keystore"
 	"github.com/PhoenixGlobal/Phoenix-Chain-Core/ethereum/p2p"
 	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common"
 	"github.com/PhoenixGlobal/Phoenix-Chain-Core/libs/common/hexutil"
@@ -845,8 +845,12 @@ func DoEstimateGas(ctx context.Context, b Backend, args CallArgs, blockNr rpc.Bl
 
 // EstimateGas returns an estimate of the amount of gas needed to execute the
 // given transaction against the current pending block.
-func (s *PublicBlockChainAPI) EstimateGas(ctx context.Context, args CallArgs) (hexutil.Uint64, error) {
-	return DoEstimateGas(ctx, s.b, args, rpc.PendingBlockNumber, s.b.RPCGasCap())
+func (s *PublicBlockChainAPI) EstimateGas(ctx context.Context, args CallArgs, blockNrOrHash *rpc.BlockNumberOrHash) (hexutil.Uint64, error) {
+	bNrOrHash := rpc.BlockNumberOrHashWithNumber(rpc.PendingBlockNumber)
+	if blockNrOrHash != nil {
+		bNrOrHash = *blockNrOrHash
+	}
+	return DoEstimateGas(ctx, s.b, args, *bNrOrHash.BlockNumber, s.b.RPCGasCap())
 }
 
 func newRevertError(result *core.ExecutionResult) *revertError {
