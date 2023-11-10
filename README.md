@@ -67,7 +67,7 @@ phoenixchain --datadir ./ account new --name "{wallet-name}"
 - run node
 ```
 cd ..
-nohup phoenixchain --identity "phoenix" --datadir ./data --port 16789 --rpcaddr 0.0.0.0 --rpcport 6789 --rpcapi "phoenixchain,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --pbft.blskey ./data/blskey > ./data/phoenix.log 2>&1 &
+nohup phoenixchain --identity "phoenix" --networkid 908 --datadir ./data --port 16789 --rpcaddr 0.0.0.0 --rpcport 6789 --rpcapi "phoenixchain,net,web3,admin,personal" --rpc --nodekey ./data/nodekey --pbft.blskey ./data/blskey > ./data/phoenix.log 2>&1 &
 ```
 
 - check node
